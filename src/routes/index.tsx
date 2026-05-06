@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { GroupTabs } from "@/components/GroupTabs";
 import { RegionPopup } from "@/components/RegionPopup";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
@@ -25,9 +25,19 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function MapFallback() {
+  return (
+    <div className="flex h-[70vh] min-h-[500px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50">
+      Loading map…
+    </div>
+  );
+}
+
 function Index() {
   const [group, setGroup] = useState<RegionGroup>("state");
   const [selected, setSelected] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
     <main
@@ -61,15 +71,13 @@ function Index() {
         </div>
 
         <div className="mt-8">
-          <Suspense
-            fallback={
-              <div className="flex h-[70vh] min-h-[500px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50">
-                Loading map…
-              </div>
-            }
-          >
-            <IndiaMap activeGroup={group} onSelect={setSelected} />
-          </Suspense>
+          {mounted ? (
+            <Suspense fallback={<MapFallback />}>
+              <IndiaMap activeGroup={group} onSelect={setSelected} />
+            </Suspense>
+          ) : (
+            <MapFallback />
+          )}
         </div>
 
         <footer className="mt-12 text-center text-xs uppercase tracking-[0.3em] text-[color:var(--ink)]/50">
