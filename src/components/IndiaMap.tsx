@@ -100,7 +100,7 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
   }, [geo, activeGroup]);
 
   return (
-    <div className="relative h-[70vh] min-h-[500px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)]">
+    <div className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
       <MapContainer
         center={[22.5, 80]}
         zoom={4}

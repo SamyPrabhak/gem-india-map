@@ -2,7 +2,6 @@ import type { RegionGroup } from "@/data/jewelry";
 
 const TABS: { value: RegionGroup; label: string }[] = [
   { value: "state", label: "States" },
-  { value: "ut", label: "Union Territories" },
   { value: "island", label: "Islands" },
 ];
 

@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 
 function MapFallback() {
   return (
-    <div className="flex h-[70vh] min-h-[500px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50">
+    <div className="flex h-[55vh] min-h-[360px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50 sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
       Loading map…
     </div>
   );
@@ -48,16 +48,16 @@ function Index() {
         color: "var(--ink)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
-          <p className="font-sans text-xs uppercase tracking-[0.4em] text-[color:var(--gold-deep)]">
+          <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
             An Interactive Heritage Map
           </p>
-          <h1 className="mt-3 font-serif text-5xl leading-tight sm:text-6xl md:text-7xl">
+          <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-6xl md:text-7xl">
             Jewels of <em className="text-[color:var(--gold-deep)]">India</em>
           </h1>
-          <div className="mx-auto mt-5 h-px w-24 bg-[color:var(--gold)]" />
-          <p className="mx-auto mt-5 max-w-xl font-serif text-lg italic text-[color:var(--ink)]/75 sm:text-xl">
+          <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
+          <p className="mx-auto mt-4 max-w-xl font-serif text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-xl">
             From Cuttack's silver filigree to Kashmir's dejhoor — explore the
             ornaments that define every corner of the subcontinent.
           </p>
