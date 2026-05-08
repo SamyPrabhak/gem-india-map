@@ -381,7 +381,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
 
   // Union Territories
   Chandigarh: make(
-    "Chandigarh", "ut", "Chandigarh",
+    "Chandigarh", "state", "Chandigarh",
     "Contemporary Punjabi Gold",
     "A modern hub blending Punjabi kaintha and jhumka traditions with contemporary diamond and platinum design.",
     "Chandigarh's jewelry market caters to both Punjab and Haryana, blending heritage Punjabi designs with modern diamond cuts.",
@@ -393,7 +393,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ["Sector 22 is Chandigarh's traditional gold market.", "Chooda ceremonies remain mandatory for brides.", "Platinum is increasingly chosen over gold here."],
   ),
   "Dadra and Nagar Haveli": make(
-    "Dadra & Nagar Haveli", "ut", "Silvassa",
+    "Dadra & Nagar Haveli", "state", "Silvassa",
     "Warli Tribal Silver",
     "Warli and Dhodia tribes wear silver hansli, chunky anklets and beaded necklaces echoing their wall-art motifs.",
     "Dadra & Nagar Haveli's tribal communities maintain jewelry traditions tied to harvest cycles and Warli folk art.",
@@ -405,7 +405,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ["Warli motifs are 3,000 years old.", "Tribal silver is melted and remade for each daughter.", "Hansli is gifted by the maternal uncle at puberty."],
   ),
   "Daman and Diu": make(
-    "Daman & Diu", "ut", "Daman",
+    "Daman & Diu", "state", "Daman",
     "Coastal Coral & Filigree",
     "Portuguese-influenced filigree gold, coral pendants and shell-bead chokers mark this coastal heritage.",
     "Daman & Diu's 450-year Portuguese legacy shaped a distinct Indo-European jewelry tradition centered on coral and filigree.",
@@ -417,7 +417,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ["Coral was once the region's prime export.", "Filigree workshops still use 200-year-old tools.", "Portuguese cross motifs blend with Hindu lotus."],
   ),
   Delhi: make(
-    "Delhi", "ut", "New Delhi",
+    "Delhi", "state", "New Delhi",
     "Polki & Mughal Jadau",
     "Old Delhi's Dariba Kalan has crafted Mughal-era polki, jadau and meenakari sets for over four centuries.",
     "Delhi's Dariba Kalan jewelry bazaar dates to the Mughal era and remains India's most prestigious centre for polki and jadau.",
@@ -429,7 +429,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ["Dariba Kalan was named for its silver coin trade.", "Many Delhi jewelers trace lineage to Shah Jahan's court.", "Sarpech is making a comeback at modern Indian weddings."],
   ),
   Puducherry: make(
-    "Puducherry", "ut", "Puducherry",
+    "Puducherry", "state", "Puducherry",
     "Franco-Tamil Temple Gold",
     "A blend of Tamil temple jewelry with delicate French-influenced gold chains and cameo pendants.",
     "Puducherry's 280 years of French rule produced a unique fusion jewelry style — Tamil temple motifs in delicate French gold.",
