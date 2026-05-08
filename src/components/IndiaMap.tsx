@@ -78,7 +78,7 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
         l.setStyle(styleFor(feature) as PathOptions);
       },
       click: () => {
-        if (info?.group === activeGroup) onSelect(name);
+        if (info) onSelect(name);
       },
     });
   };
