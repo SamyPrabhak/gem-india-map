@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MapContainer, GeoJSON, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, GeoJSON, TileLayer, useMap, CircleMarker, Tooltip } from "react-leaflet";
 import L, { type Layer, type PathOptions } from "leaflet";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import "leaflet/dist/leaflet.css";
@@ -125,6 +125,32 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
             }}
           />
         )}
+        {/* Island clickable markers (polygons too small to click) */}
+        {[
+          { name: "Lakshadweep", pos: [10.57, 72.64] as [number, number] },
+          { name: "Andaman and Nicobar", pos: [11.7, 92.7] as [number, number] },
+        ].map(({ name, pos }) => {
+          const info = jewelryData[name];
+          if (!info) return null;
+          return (
+            <CircleMarker
+              key={name}
+              center={pos}
+              radius={10}
+              pathOptions={{
+                color: GOLD_DEEP,
+                weight: 2,
+                fillColor: GOLD,
+                fillOpacity: 0.85,
+              }}
+              eventHandlers={{ click: () => onSelect(name) }}
+            >
+              <Tooltip direction="top" className="india-tooltip">
+                {info.name}
+              </Tooltip>
+            </CircleMarker>
+          );
+        })}
         <FitToFeatures data={filteredFC} key={groupBoundsKey} />
       </MapContainer>
     </div>
