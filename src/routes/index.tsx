@@ -73,7 +73,7 @@ function Index() {
         <div className="mt-8">
           {mounted ? (
             <Suspense fallback={<MapFallback />}>
-              <IndiaMap activeGroup={group} onSelect={setSelected} />
+              <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />
             </Suspense>
           ) : (
             <MapFallback />
