@@ -1,52 +1,47 @@
-## Jewels of India — Interactive Political Map
+## Goal
 
-A single-page experience where visitors explore India's jewelry heritage by clicking states, union territories, or islands on an interactive map. Each region opens an elegant popup describing its signature jewelry.
+Add a search bar **inside the map area** (overlaid on the map) so users can type a state or island name, pick from suggestions, and have the map fly to it and open the popup.
 
-### Page layout (`/`)
+## UX
 
-1. **Header** — "Jewels of India" wordmark in serif, short tagline ("Explore the regional jewelry traditions of India").
-2. **Tabs** — States · Union Territories · Islands. Switching a tab highlights only that group on the map and dims the rest; clicks on dimmed regions are disabled.
-3. **Interactive map** — Leaflet map centered on India, custom GeoJSON of all 28 states, 8 UTs, and island groups (Andaman & Nicobar, Lakshadweep). Regions render as gold-outlined polygons on an ivory canvas; hover raises opacity + shows region name tooltip; click opens popup.
-4. **Popup card** — Region name (serif heading), jewelry type (e.g., "Temple Jewelry", "Kundan", "Meenakari"), 2–3 sentence description. Close button; clicking elsewhere on the map closes it.
-5. **Legend / footer** — small note on sources and a "Reset view" button.
+- Position: floating overlay in the **top-left corner of the map**, with a small margin (~12px) and a soft shadow so it sits above the tiles.
+- Width: ~280px on desktop, shrinks responsively on mobile (max 70% of map width).
+- Input: text field with search icon, placeholder "Search a state or island…".
+- Suggestions dropdown: appears directly below the input, ivory background, gold border, up to 6 matches. Each row shows the region name + small "State" / "Islands" tag.
+- Selecting a suggestion (click or Enter):
+  1. Switches the active tab to that region's group.
+  2. Map flies/zooms to that region with a smooth animation.
+  3. The detail popup opens for that region.
+- Keyboard: Up/Down navigates suggestions, Enter selects, Escape closes.
+- Empty state: "No regions match".
 
-### Visual theme — Elegant gold & ivory
+## Technical approach
 
-- Background ivory `#FBF7EE`, deep charcoal text `#2A2622`.
-- Accent gold `#C9A24B` for borders, hover, active tab underline.
-- Serif headings (Cormorant Garamond), sans-serif body (Inter).
-- Subtle paper-texture background; soft drop shadow on popup card.
+1. **New component** `src/components/RegionSearch.tsx`
+   - Controlled input + suggestion list (built from existing shadcn `Input`, no new deps).
+   - Builds options from `Object.values(jewelryData)` (name + group).
+   - Props: `onPick(regionKey: string, group: RegionGroup)`.
+   - Styled to look good as a map overlay (ivory bg, gold border, shadow).
 
-### Content scope
+2. **Map integration** in `src/components/IndiaMap.tsx`
+   - Render `<RegionSearch />` as an absolutely-positioned child inside the map container div (top-left, `z-[1000]` to sit above Leaflet panes).
+   - Add internal `FlyToRegion` component that uses `useMap()` and reacts to a `focusRegion` state:
+     - For polygon regions: get bounds from the GeoJSON feature → `map.flyToBounds(bounds, { padding: [40, 40], maxZoom: 6 })`.
+     - For Lakshadweep / Andaman: fly to the existing CircleMarker coords at zoom ~6.
+   - When the user picks a region: update `focusRegion`, call `onSelect(name)` (existing prop) so the popup opens, and call a new `onGroupChange(group)` prop so the page can switch tabs.
 
-Curated jewelry blurb for every state/UT/island group, e.g.:
-- Tamil Nadu — Temple Jewelry
-- Rajasthan — Kundan & Meenakari
-- West Bengal — Filigree & Shola pith ornaments
-- Kerala — Palakka Mala
-- Maharashtra — Thushi & Kolhapuri Saaj
-- Jammu & Kashmir — Dejhoor
-- Delhi — Polki
-- Andaman & Nicobar — Shell & coral jewelry
-- Lakshadweep — Coral and shell ornaments
-- …and so on for every region (~38 entries total).
+3. **Page wiring** in `src/routes/index.tsx`
+   - Pass `onGroupChange={setGroup}` to `IndiaMap`.
+   - Existing `onSelect={setSelected}` already opens the popup.
 
-### Interactions
+## Out of scope
 
-- Tab switch → map filter + auto-fit bounds to that group.
-- Region hover → gold fill at 60% opacity + name tooltip.
-- Region click → Leaflet popup with styled card; map gently pans so popup is centered.
-- Mobile: map fills viewport width; popup becomes a bottom sheet.
+- Fuzzy matching libraries (simple `includes` is enough for ~30 regions).
+- Search across jewelry styles or fun facts.
+- URL state / shareable links.
 
-### Technical notes
+## Files touched
 
-- Stack: TanStack Start route `src/routes/index.tsx`, `react-leaflet` + `leaflet` for the map.
-- GeoJSON: bundled static file `src/data/india.geojson` (states + UTs + islands with `type` property: `state` | `ut` | `island`).
-- Data: `src/data/jewelry.ts` keyed by region name, holding `{ name, jewelryType, description, group }`.
-- Components: `IndiaMap.tsx`, `RegionPopup.tsx`, `GroupTabs.tsx`.
-- Leaflet CSS imported in the route (client-only); map rendered behind a `typeof window` guard to avoid SSR issues.
-- No backend, no auth — fully static.
-
-### Out of scope (can add later)
-
-Images per region, search, language toggle, audio pronunciations, deeper history pages.
+- new: `src/components/RegionSearch.tsx`
+- edit: `src/components/IndiaMap.tsx` (overlay search, internal fly-to, new `onGroupChange` prop)
+- edit: `src/routes/index.tsx` (pass `onGroupChange`)
