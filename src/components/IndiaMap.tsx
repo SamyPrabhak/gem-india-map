@@ -5,16 +5,23 @@ import type { Feature, FeatureCollection, Geometry } from "geojson";
 import "leaflet/dist/leaflet.css";
 import indiaGeo from "@/data/india.geojson?url";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
+import { RegionSearch } from "@/components/RegionSearch";
 
 interface Props {
   activeGroup: RegionGroup;
   onSelect: (regionKey: string) => void;
+  onGroupChange?: (group: RegionGroup) => void;
 }
 
 const GOLD = "#C9A24B";
 const GOLD_DEEP = "#9C7A2C";
 const INK = "#2A2622";
 const DIM = "#E8E1D2";
+
+const ISLAND_COORDS: Record<string, [number, number]> = {
+  Lakshadweep: [10.57, 72.64],
+  "Andaman and Nicobar": [11.7, 92.7],
+};
 
 function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: string }) {
   const map = useMap();
@@ -28,8 +35,44 @@ function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: 
   return null;
 }
 
-export function IndiaMap({ activeGroup, onSelect }: Props) {
+function FlyToRegion({
+  regionKey,
+  geo,
+  onDone,
+}: {
+  regionKey: string | null;
+  geo: FeatureCollection | null;
+  onDone: () => void;
+}) {
+  const map = useMap();
+  useEffect(() => {
+    if (!regionKey) return;
+    const islandPos = ISLAND_COORDS[regionKey];
+    if (islandPos) {
+      map.flyTo(islandPos, 6, { duration: 0.9 });
+      const t = setTimeout(onDone, 950);
+      return () => clearTimeout(t);
+    }
+    if (!geo) return;
+    const feature = geo.features.find(
+      (f) => (f.properties as { NAME_1?: string })?.NAME_1 === regionKey,
+    );
+    if (!feature) return;
+    const layer = L.geoJSON(feature);
+    const b = layer.getBounds();
+    if (b.isValid()) {
+      map.flyToBounds(b, { padding: [40, 40], maxZoom: 6, duration: 0.9 });
+      const t = setTimeout(onDone, 950);
+      return () => clearTimeout(t);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [regionKey]);
+  return null;
+}
+
+export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
   const [geo, setGeo] = useState<FeatureCollection | null>(null);
+  const [focusRegion, setFocusRegion] = useState<string | null>(null);
   const layerRef = useRef<L.GeoJSON | null>(null);
 
   useEffect(() => {
@@ -83,10 +126,7 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
     });
   };
 
-  const groupBoundsKey = useMemo(() => {
-    if (!geo) return activeGroup;
-    return activeGroup;
-  }, [activeGroup, geo]);
+  const groupBoundsKey = useMemo(() => activeGroup, [activeGroup]);
 
   const filteredFC = useMemo<FeatureCollection | null>(() => {
     if (!geo) return null;
@@ -98,6 +138,12 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
       }),
     };
   }, [geo, activeGroup]);
+
+  const handlePick = (regionKey: string, group: RegionGroup) => {
+    onGroupChange?.(group);
+    setFocusRegion(regionKey);
+    onSelect(regionKey);
+  };
 
   return (
     <div className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
@@ -127,8 +173,8 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
         )}
         {/* Island clickable markers (polygons too small to click) */}
         {[
-          { name: "Lakshadweep", pos: [10.57, 72.64] as [number, number] },
-          { name: "Andaman and Nicobar", pos: [11.7, 92.7] as [number, number] },
+          { name: "Lakshadweep", pos: ISLAND_COORDS.Lakshadweep },
+          { name: "Andaman and Nicobar", pos: ISLAND_COORDS["Andaman and Nicobar"] },
         ].map(({ name, pos }) => {
           const info = jewelryData[name];
           if (!info) return null;
@@ -152,7 +198,13 @@ export function IndiaMap({ activeGroup, onSelect }: Props) {
           );
         })}
         <FitToFeatures data={filteredFC} key={groupBoundsKey} />
+        <FlyToRegion
+          regionKey={focusRegion}
+          geo={geo}
+          onDone={() => setFocusRegion(null)}
+        />
       </MapContainer>
+      <RegionSearch onPick={handlePick} />
     </div>
   );
 }
