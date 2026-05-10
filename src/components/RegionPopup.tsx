@@ -131,11 +131,6 @@ export function RegionPopup({ info, onClose }: Props) {
           >
             <ArrowLeft className="h-4 w-4" /> Back to Map
           </button>
-          <button
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--ink)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ivory)] shadow transition hover:bg-[color:var(--ink)]/85"
-          >
-            Explore More <ArrowRight className="h-4 w-4" />
-          </button>
         </div>
       </div>
     </div>
