@@ -71,7 +71,7 @@ export function RegionSearch({ onPick }: Props) {
   return (
     <div
       ref={wrapRef}
-      className="absolute left-3 top-3 z-[1000] w-[78%] max-w-[300px] sm:w-[300px]"
+      className="absolute right-3 top-3 z-[1000] w-[78%] max-w-[300px] sm:w-[300px]"
     >
       <div className="relative">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--gold-deep)]" />
