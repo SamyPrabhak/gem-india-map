@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { X, ArrowLeft, ArrowRight, Gem } from "lucide-react";
+import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 
 interface Props {
