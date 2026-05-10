@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MapContainer, GeoJSON, TileLayer, useMap, CircleMarker, Tooltip } from "react-leaflet";
+import { MapContainer, GeoJSON, TileLayer, useMap, Marker, Tooltip } from "react-leaflet";
 import L, { type Layer, type PathOptions } from "leaflet";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import "leaflet/dist/leaflet.css";
