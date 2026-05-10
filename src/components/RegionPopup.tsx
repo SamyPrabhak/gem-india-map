@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { X, ArrowLeft, ArrowRight, Gem } from "lucide-react";
+import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 
 interface Props {
@@ -130,11 +130,6 @@ export function RegionPopup({ info, onClose }: Props) {
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
           >
             <ArrowLeft className="h-4 w-4" /> Back to Map
-          </button>
-          <button
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--ink)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ivory)] shadow transition hover:bg-[color:var(--ink)]/85"
-          >
-            Explore More <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </div>
