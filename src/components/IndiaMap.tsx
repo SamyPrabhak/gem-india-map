@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MapContainer, GeoJSON, TileLayer, useMap, CircleMarker, Tooltip } from "react-leaflet";
+import { MapContainer, GeoJSON, TileLayer, useMap, Marker, Tooltip } from "react-leaflet";
 import L, { type Layer, type PathOptions } from "leaflet";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import "leaflet/dist/leaflet.css";
@@ -178,23 +178,23 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         ].map(({ name, pos }) => {
           const info = jewelryData[name];
           if (!info) return null;
+          const diamondIcon = L.divIcon({
+            className: "india-diamond-icon",
+            html: `<div style="width:14px;height:14px;background:${GOLD};border:2px solid ${GOLD_DEEP};transform:rotate(45deg);box-shadow:0 2px 6px rgba(42,38,34,0.35);"></div>`,
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+          });
           return (
-            <CircleMarker
+            <Marker
               key={name}
-              center={pos}
-              radius={10}
-              pathOptions={{
-                color: GOLD_DEEP,
-                weight: 2,
-                fillColor: GOLD,
-                fillOpacity: 0.85,
-              }}
+              position={pos}
+              icon={diamondIcon}
               eventHandlers={{ click: () => onSelect(name) }}
             >
               <Tooltip direction="top" className="india-tooltip">
                 {info.name}
               </Tooltip>
-            </CircleMarker>
+            </Marker>
           );
         })}
         <FitToFeatures data={filteredFC} key={groupBoundsKey} />
