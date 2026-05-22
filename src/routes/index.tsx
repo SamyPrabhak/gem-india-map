@@ -57,9 +57,8 @@ function Index() {
             Jewels of <em className="text-[color:var(--gold-deep)]">India</em>
           </h1>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
-          <p className="mx-auto mt-4 max-w-xl font-serif text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-xl">
-            From Cuttack's silver filigree to Kashmir's dejhoor — explore the
-            ornaments that define every corner of the subcontinent.
+          <p className="mx-auto mt-4 max-w-xl font-serif text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-2xl">
+            ​Discover the vast jewelry ecosystem across India
           </p>
         </header>
 
