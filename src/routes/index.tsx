@@ -51,13 +51,13 @@ function Index() {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
           <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
-            An Interactive Heritage Map
+            An Interactive Jewelry Map
           </p>
           <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-6xl md:text-7xl">
             Jewels of <em className="text-[color:var(--gold-deep)]">India</em>
           </h1>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
-          <p className="mx-auto mt-4 max-w-xl font-serif text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-2xl">
+          <p className="mx-auto mt-4 max-w-xl text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg font-sans md:text-3xl">
             ​Discover the vast jewelry ecosystem across India
           </p>
         </header>
