@@ -57,7 +57,7 @@ function Index() {
             Jewels of <em className="text-[color:var(--gold-deep)]">India</em>
           </h1>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
-          <p className="mx-auto mt-4 max-w-xl text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg font-sans md:text-3xl">
+          <p className="mx-auto mt-4 max-w-xl text-base italic text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-3xl font-serif">
             ​Discover the vast jewelry ecosystem across India
           </p>
         </header>
