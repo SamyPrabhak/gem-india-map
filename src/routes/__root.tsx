@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "JewelsofIndia" },
+      { name: "description", content: "Interactive Jewelry Map" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "JewelsofIndia" },
+      { property: "og:description", content: "Interactive Jewelry Map" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "JewelsofIndia" },
+      { name: "twitter:description", content: "Interactive Jewelry Map" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/157971f2-d78f-4f87-aa5a-6a89888d477c/id-preview-8d27c2ce--54a315f1-9075-475a-9a73-855d065b0458.lovable.app-1779586546653.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/157971f2-d78f-4f87-aa5a-6a89888d477c/id-preview-8d27c2ce--54a315f1-9075-475a-9a73-855d065b0458.lovable.app-1779586546653.png" },
     ],
     links: [
       {
