@@ -27,7 +27,7 @@ This project visualizes the diverse jewelry ecosystem across India, including al
 
 ## Live Demo and workplace
 
-- **Website Link** - 
+- **Website Link** - https://jewelsofindia.lovable.app/
 - **Workplace(Figjam)** - https://www.figma.com/board/YPtx6YwsDE7FiC2qaU7AaS/Jewelry-Info?node-id=16-260&t=JUSevQfxcScSHIMV-1
 
 
