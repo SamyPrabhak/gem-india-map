@@ -62,6 +62,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <footer className="px-4 py-6 text-center text-xs tracking-wide text-[color:var(--ink)]/50">
+          © 2026 Samyuktha Subbian Prabhakaran. All rights reserved.
+        </footer>
         <Scripts />
       </body>
     </html>
