@@ -47,6 +47,14 @@ async function fetchStateImages(query: string): Promise<string[]> {
 export function StateImageCarousel({ query }: Props) {
   const [images, setImages] = useState<string[] | null>(null);
   const [error, setError] = useState(false);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [lightbox]);
 
   useEffect(() => {
     let cancelled = false;
