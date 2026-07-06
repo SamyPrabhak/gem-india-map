@@ -89,31 +89,62 @@ export function StateImageCarousel({ query }: Props) {
   }
 
   return (
-    <Carousel opts={{ loop: true }} className="w-full">
-      <CarouselContent>
-        {images.map((src, i) => (
-          <CarouselItem key={src}>
-            <div className="overflow-hidden rounded-xl border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60">
-              <img
-                src={src}
-                alt={`${query} — photo ${i + 1}`}
-                loading="lazy"
-                className="h-40 w-full object-cover sm:h-56 md:h-64"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
-              />
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      {images.length > 1 && (
-        <>
-          <CarouselPrevious className="left-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
-          <CarouselNext className="right-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
-        </>
+    <>
+      <Carousel opts={{ loop: true }} className="w-full">
+        <CarouselContent>
+          {images.map((src, i) => (
+            <CarouselItem key={src}>
+              <button
+                type="button"
+                onClick={() => setLightbox(src)}
+                className="group block w-full overflow-hidden rounded-xl border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60"
+                aria-label={`Open photo ${i + 1} of ${query}`}
+              >
+                <img
+                  src={src}
+                  alt={`${query}, photo ${i + 1}`}
+                  loading="lazy"
+                  className="h-40 w-full cursor-zoom-in object-cover transition duration-300 group-hover:scale-[1.02] sm:h-56 md:h-64"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              </button>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {images.length > 1 && (
+          <>
+            <CarouselPrevious className="left-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
+            <CarouselNext className="right-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
+          </>
+        )}
+      </Carousel>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[1100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            className="absolute right-4 top-4 rounded-full bg-[color:var(--gold)] p-2 text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <img
+            src={lightbox}
+            alt={query}
+            className="max-h-[92vh] max-w-[95vw] rounded-lg object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
       )}
-    </Carousel>
+    </>
   );
 }
 
