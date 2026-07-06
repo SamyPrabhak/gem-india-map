@@ -101,8 +101,8 @@ export function StateImageCarousel({ query }: Props) {
       </CarouselContent>
       {images.length > 1 && (
         <>
-          <CarouselPrevious className="left-2 h-8 w-8 border-[color:var(--gold)]/40 bg-[color:var(--ivory)]/90 text-[color:var(--ink)]" />
-          <CarouselNext className="right-2 h-8 w-8 border-[color:var(--gold)]/40 bg-[color:var(--ivory)]/90 text-[color:var(--ink)]" />
+          <CarouselPrevious className="left-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
+          <CarouselNext className="right-2 h-8 w-8 border-transparent bg-[color:var(--gold)] text-[color:var(--ink)] hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]" />
         </>
       )}
     </Carousel>
