@@ -67,9 +67,7 @@ export function RegionPopup({ info, onClose }: Props) {
             <div className="mt-4">
               <StateImageCarousel query={info.name} />
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">
-              {info.about}
-            </p>
+            <StateSummary query={info.name} fallback={info.about} />
           </section>
 
           {/* Famous Jewellery Styles */}
