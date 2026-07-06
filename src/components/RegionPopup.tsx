@@ -109,12 +109,12 @@ export function RegionPopup({ info, onClose }: Props) {
               {info.funFacts.map((f, i) => (
                 <li
                   key={i}
-                  className="rounded-full border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60 px-4 py-2.5 text-sm text-[color:var(--ink)]/80"
+                  className="flex items-start gap-3 rounded-xl border border-[color:var(--gold)]/25 bg-[#f7ecc4] px-4 py-3 text-sm text-[color:var(--ink)]/85"
                 >
-                  <span className="mr-2 font-serif italic text-[color:var(--gold-deep)]">
-                    {String(i + 1).padStart(2, "0")}.
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[color:var(--gold)]/25">
+                    <Gem className="h-3.5 w-3.5 text-[color:var(--gold-deep)]" />
                   </span>
-                  {f}
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
