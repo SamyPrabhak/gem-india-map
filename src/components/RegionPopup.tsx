@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
+import { StateImageCarousel } from "@/components/StateImageCarousel";
 
 interface Props {
   info: JewelryInfo | null;
@@ -57,17 +58,15 @@ export function RegionPopup({ info, onClose }: Props) {
 
         {/* Body */}
         <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8">
-          {/* Hero band */}
-          <div className="flex h-32 items-center justify-center rounded-xl border border-[color:var(--gold)]/20 bg-gradient-to-br from-[color:var(--ivory-deep)] via-[color:var(--ivory)] to-[#e9dcb6] sm:h-44">
-            <Gem className="h-10 w-10 text-[color:var(--gold-deep)]/70 sm:h-14 sm:w-14" />
-          </div>
-
           {/* About */}
-          <section className="mt-6">
+          <section className="mt-2">
             <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
               About the {info.group === "island" ? "Region" : groupLabel}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">
+            <div className="mt-4">
+              <StateImageCarousel query={info.name} />
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">
               {info.about}
             </p>
           </section>
