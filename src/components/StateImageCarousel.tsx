@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ImageOff, Loader2 } from "lucide-react";
+import { ImageOff, Loader2, X } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
