@@ -14,7 +14,9 @@ async function fetchSummary(query: string): Promise<string> {
   const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
   if (!res.ok) throw new Error("summary fetch failed");
   const data: { extract?: string } = await res.json();
-  const extract = (data.extract ?? "").replace(/[—–]/g, ",").trim();
+  const raw = (data.extract ?? "").replace(/[—–]/g, ",").trim();
+  const sentences = raw.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [raw];
+  const extract = sentences.slice(0, 4).join("").trim();
   cache.set(query, extract);
   return extract;
 }
