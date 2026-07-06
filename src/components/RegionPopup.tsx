@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
+import { StateSummary } from "@/components/StateSummary";
 
 interface Props {
   info: JewelryInfo | null;
