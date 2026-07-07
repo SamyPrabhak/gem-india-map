@@ -20,8 +20,24 @@ interface MediaItem {
 
 const cache = new Map<string, string[]>();
 
+// Curated overrides for regions where the Wikipedia media-list returns
+// maps, flags, or otherwise unscenic imagery.
+const CURATED: Record<string, string[]> = {
+  "Jammu and Kashmir": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Dal_Lake_view_from_Shankaracharya_hill%2C_Srinagar%2C_Kashmir.jpg/1280px-Dal_Lake_view_from_Shankaracharya_hill%2C_Srinagar%2C_Kashmir.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Shikaras_on_Dal_Lake_02.jpg/1280px-Shikaras_on_Dal_Lake_02.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gulmarg_Meadows.jpg/1280px-Gulmarg_Meadows.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Betaab_Valley_Pahalgam.jpg/1280px-Betaab_Valley_Pahalgam.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Nishat_Bagh_Srinagar.jpg/1280px-Nishat_Bagh_Srinagar.jpg",
+  ],
+};
+
 async function fetchStateImages(query: string): Promise<string[]> {
   if (cache.has(query)) return cache.get(query)!;
+  if (CURATED[query]) {
+    cache.set(query, CURATED[query]);
+    return CURATED[query];
+  }
   const title = encodeURIComponent(query.replace(/ /g, "_"));
   const url = `https://en.wikipedia.org/api/rest_v1/page/media-list/${title}`;
   const res = await fetch(url);
