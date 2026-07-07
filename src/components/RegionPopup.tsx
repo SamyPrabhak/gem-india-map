@@ -41,9 +41,9 @@ export function RegionPopup({ info, onClose }: Props) {
             <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
               {groupLabel}
             </p>
-            <h2 className="mt-1 truncate font-serif text-2xl text-[color:var(--ink)] sm:text-4xl">
+            <h1 className="mt-1 truncate font-serif text-4xl text-[color:var(--ink)] sm:text-6xl">
               {info.name}
-            </h2>
+            </h1>
             <p className="mt-1 text-sm text-[color:var(--ink)]/60 sm:text-base">
               Capital: <span className="text-[color:var(--ink)]/80">{info.capital}</span>
             </p>
