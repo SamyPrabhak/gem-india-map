@@ -16,7 +16,7 @@ async function fetchSummary(query: string): Promise<string> {
   const data: { extract?: string } = await res.json();
   const raw = (data.extract ?? "").replace(/[—–]/g, ",").trim();
   const sentences = raw.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [raw];
-  const extract = sentences.slice(0, 4).join("").trim();
+  const extract = sentences.slice(0, 2).join("").trim();
   cache.set(query, extract);
   return extract;
 }
