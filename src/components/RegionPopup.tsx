@@ -58,7 +58,7 @@ export function RegionPopup({ info, onClose }: Props) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8">
+        <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8">
           {/* About */}
           <section className="mt-2">
             <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
