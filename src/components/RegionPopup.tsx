@@ -36,12 +36,12 @@ export function RegionPopup({ info, onClose }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-5 py-4 sm:px-8 sm:py-6">
+        <div className="sticky top-0 z-10 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-4 py-4 sm:px-8 sm:py-6">
           <div className="min-w-0">
             <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
               {groupLabel}
             </p>
-            <h1 className="mt-1 truncate font-serif text-4xl text-[color:var(--ink)] sm:text-6xl">
+            <h1 className="mt-1 break-words font-serif text-3xl leading-tight text-[color:var(--ink)] sm:text-5xl md:text-6xl">
               {info.name}
             </h1>
             <p className="mt-1 text-sm text-[color:var(--ink)]/60 sm:text-base">
@@ -58,7 +58,7 @@ export function RegionPopup({ info, onClose }: Props) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8">
+        <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8">
           {/* About */}
           <section className="mt-2">
             <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
@@ -122,7 +122,7 @@ export function RegionPopup({ info, onClose }: Props) {
         </div>
 
         {/* Footer actions */}
-        <div className="sticky bottom-0 z-10 flex flex-col-reverse gap-3 border-t border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-5 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-8">
+        <div className="sticky bottom-0 z-10 flex flex-col-reverse gap-3 border-t border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-4 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-8">
           <button
             onClick={onClose}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
