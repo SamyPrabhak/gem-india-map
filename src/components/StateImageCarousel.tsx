@@ -12,50 +12,77 @@ interface Props {
   query: string;
 }
 
-interface MediaItem {
-  type?: string;
-  title?: string;
-  srcset?: { src: string; scale?: string }[];
-}
-
+const MAX_IMAGES = 3;
 const cache = new Map<string, string[]>();
 
-// Curated overrides for regions where the Wikipedia media-list returns
-// maps, flags, or otherwise unscenic imagery.
-const CURATED: Record<string, string[]> = {
-  "Jammu and Kashmir": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Dal_Lake_view_from_Shankaracharya_hill%2C_Srinagar%2C_Kashmir.jpg/1280px-Dal_Lake_view_from_Shankaracharya_hill%2C_Srinagar%2C_Kashmir.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Shikaras_on_Dal_Lake_02.jpg/1280px-Shikaras_on_Dal_Lake_02.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gulmarg_Meadows.jpg/1280px-Gulmarg_Meadows.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Betaab_Valley_Pahalgam.jpg/1280px-Betaab_Valley_Pahalgam.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Nishat_Bagh_Srinagar.jpg/1280px-Nishat_Bagh_Srinagar.jpg",
-  ],
+// Curated Wikipedia article titles per region — we fetch the hero image
+// (originalimage / thumbnail) from each summary to guarantee scenic photos
+// of well-known places instead of random maps/flags from the state article.
+const LANDMARKS: Record<string, string[]> = {
+  "Andhra Pradesh": ["Tirumala Venkateswara Temple", "Araku Valley", "Borra Caves"],
+  "Arunachal Pradesh": ["Tawang Monastery", "Sela Pass", "Ziro Valley"],
+  Assam: ["Kaziranga National Park", "Kamakhya Temple", "Majuli"],
+  Bihar: ["Mahabodhi Temple", "Nalanda mahavihara", "Vikramshila"],
+  Chhattisgarh: ["Chitrakote Falls", "Tirathgarh Falls", "Bastar district"],
+  Goa: ["Basilica of Bom Jesus", "Dudhsagar Falls", "Palolem Beach"],
+  Gujarat: ["Rann of Kutch", "Somnath temple", "Statue of Unity"],
+  Haryana: ["Sultanpur National Park", "Kurukshetra", "Pinjore Gardens"],
+  "Himachal Pradesh": ["Rohtang Pass", "Shimla", "Manali"],
+  "Jammu and Kashmir": ["Dal Lake", "Gulmarg", "Pahalgam"],
+  "Jammu & Kashmir": ["Dal Lake", "Gulmarg", "Pahalgam"],
+  Jharkhand: ["Hundru Falls", "Betla National Park", "Dassam Falls"],
+  Karnataka: ["Mysore Palace", "Hampi", "Kodagu district"],
+  Kerala: ["Alleppey", "Munnar", "Padmanabhaswamy Temple"],
+  "Madhya Pradesh": ["Khajuraho Group of Monuments", "Sanchi Stupa", "Bhimbetka rock shelters"],
+  Maharashtra: ["Gateway of India", "Ajanta Caves", "Ellora Caves"],
+  Manipur: ["Loktak Lake", "Kangla Fort", "Shirui Kashong Peak"],
+  Meghalaya: ["Nohkalikai Falls", "Cherrapunji", "Living root bridge"],
+  Mizoram: ["Aizawl", "Phawngpui", "Reiek"],
+  Nagaland: ["Kohima", "Hornbill Festival", "Dzükou Valley"],
+  Odisha: ["Konark Sun Temple", "Jagannath Temple, Puri", "Chilika Lake"],
+  Punjab: ["Golden Temple", "Wagah", "Jallianwala Bagh"],
+  Rajasthan: ["Hawa Mahal", "Amer Fort", "Jaisalmer Fort"],
+  Sikkim: ["Kangchenjunga", "Tsomgo Lake", "Rumtek Monastery"],
+  "Tamil Nadu": ["Meenakshi Temple", "Brihadeeswarar Temple", "Marina Beach"],
+  Telangana: ["Charminar", "Golconda Fort", "Ramoji Film City"],
+  Tripura: ["Ujjayanta Palace", "Neermahal", "Unakoti"],
+  "Uttar Pradesh": ["Taj Mahal", "Varanasi", "Fatehpur Sikri"],
+  Uttarakhand: ["Nainital", "Kedarnath Temple", "Valley of Flowers National Park"],
+  "West Bengal": ["Victoria Memorial, Kolkata", "Howrah Bridge", "Darjeeling"],
+  Chandigarh: ["Rock Garden of Chandigarh", "Sukhna Lake", "Capitol Complex, Chandigarh"],
+  "Dadra & Nagar Haveli": ["Silvassa", "Dadra and Nagar Haveli", "Vanganga Lake"],
+  "Daman & Diu": ["Diu Fort", "Nagoa Beach", "Daman, India"],
+  Delhi: ["India Gate", "Red Fort", "Qutub Minar"],
+  Puducherry: ["Auroville", "Promenade Beach, Pondicherry", "Rock Beach"],
+  "Andaman & Nicobar Islands": ["Radhanagar Beach", "Cellular Jail", "Havelock Island"],
+  Lakshadweep: ["Agatti Island", "Bangaram Island", "Kavaratti"],
 };
+
+async function fetchSummaryImage(title: string): Promise<string | null> {
+  const enc = encodeURIComponent(title.replace(/ /g, "_"));
+  try {
+    const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${enc}`);
+    if (!res.ok) return null;
+    const data: { originalimage?: { source: string }; thumbnail?: { source: string } } =
+      await res.json();
+    return data.originalimage?.source ?? data.thumbnail?.source ?? null;
+  } catch {
+    return null;
+  }
+}
 
 async function fetchStateImages(query: string): Promise<string[]> {
   if (cache.has(query)) return cache.get(query)!;
-  if (CURATED[query]) {
-    cache.set(query, CURATED[query]);
-    return CURATED[query];
+  const titles = LANDMARKS[query];
+  if (titles && titles.length) {
+    const results = await Promise.all(titles.map(fetchSummaryImage));
+    const urls = results.filter((u): u is string => !!u).slice(0, MAX_IMAGES);
+    cache.set(query, urls);
+    return urls;
   }
-  const title = encodeURIComponent(query.replace(/ /g, "_"));
-  const url = `https://en.wikipedia.org/api/rest_v1/page/media-list/${title}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("media fetch failed");
-  const data: { items?: MediaItem[] } = await res.json();
-  const items = (data.items ?? []).filter((i) => i.type === "image");
-  const urls: string[] = [];
-  for (const it of items) {
-    const src = it.srcset?.[0]?.src;
-    if (!src) continue;
-    // srcset entries are protocol-relative
-    const abs = src.startsWith("http") ? src : `https:${src}`;
-    // filter out icons / flags / tiny svgs
-    if (/\.svg$/i.test(abs)) continue;
-    if (/Commons-logo|Question_book|Ambox|Edit-clear|OOjs_UI|Symbol_/.test(abs)) continue;
-    urls.push(abs);
-    if (urls.length >= 5) break;
-  }
+  // Fallback: pull the region's own page hero image only.
+  const hero = await fetchSummaryImage(query);
+  const urls = hero ? [hero] : [];
   cache.set(query, urls);
   return urls;
 }
