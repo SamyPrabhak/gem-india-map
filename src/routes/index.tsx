@@ -46,12 +46,12 @@ function Index() {
       {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
       <main
         className="min-h-screen"
-      style={{
-        background:
-          "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
-        color: "var(--ink)",
-      }}
-    >
+        style={{
+          background:
+            "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
+          color: "var(--ink)",
+        }}
+      >
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
           <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
