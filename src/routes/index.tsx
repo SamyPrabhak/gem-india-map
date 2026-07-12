@@ -38,11 +38,14 @@ function Index() {
   const [group, setGroup] = useState<RegionGroup>("state");
   const [selected, setSelected] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [splashDone, setSplashDone] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
-    <main
-      className="min-h-screen"
+    <>
+      {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
+      <main
+        className="min-h-screen"
       style={{
         background:
           "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
