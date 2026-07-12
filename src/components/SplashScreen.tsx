@@ -48,6 +48,9 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
           {/* Soft glow behind diamond */}
           <div className="diamond-glow absolute inset-0 rounded-full bg-[#c9a24b]/20 blur-2xl" />
 
+          {/* Sweeping shimmer bar */}
+          <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
+
           <svg
             viewBox="0 0 120 120"
             fill="none"
@@ -58,22 +61,14 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
             <path d="M60 6L22 38H98L60 6Z" fill="url(#crownCenter)" />
             <path d="M22 38L6 52H42L22 38Z" fill="url(#crownLeft)" />
             <path d="M98 38H78V52H114L98 38Z" fill="url(#crownRight)" />
-            <path d="M22 38H42V52H6L22 38Z" fill="url(#crownSide)" />
-            <path d="M98 38H78V52H114L98 38Z" fill="url(#crownSide)" />
+            <path d="M22 38H42V52H6L22 38Z" fill="url(#crownSideLeft)" />
+            <path d="M98 38H78V52H114L98 38Z" fill="url(#crownSideRight)" />
             <path d="M42 38H78L60 6L42 38Z" fill="url(#tableHighlight)" />
 
             {/* Pavilion (bottom) facets */}
             <path d="M6 52L60 116L42 52H6Z" fill="url(#pavLeft)" />
             <path d="M114 52L60 116L78 52H114Z" fill="url(#pavRight)" />
             <path d="M42 52L60 116L78 52H42Z" fill="url(#pavCenter)" />
-
-            {/* Shimmer overlay */}
-            <path
-              d="M60 6L6 52L60 116L114 52L60 6Z"
-              fill="url(#shimmer)"
-              className="diamond-shimmer"
-              opacity="0.6"
-            />
 
             <defs>
               <linearGradient id="crownCenter" x1="60" y1="6" x2="60" y2="52" gradientUnits="userSpaceOnUse">
@@ -88,7 +83,11 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
                 <stop offset="0%" stopColor="#DDC58A" />
                 <stop offset="100%" stopColor="#C9A24B" />
               </linearGradient>
-              <linearGradient id="crownSide" x1="60" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
+              <linearGradient id="crownSideLeft" x1="60" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#F3ECD9" />
+                <stop offset="100%" stopColor="#DDC58A" />
+              </linearGradient>
+              <linearGradient id="crownSideRight" x1="60" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#F3ECD9" />
                 <stop offset="100%" stopColor="#DDC58A" />
               </linearGradient>
@@ -107,13 +106,6 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
               <linearGradient id="pavCenter" x1="60" y1="52" x2="60" y2="116" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#9C7A2C" />
                 <stop offset="100%" stopColor="#5A4018" />
-              </linearGradient>
-              <linearGradient id="shimmer" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-                <stop offset="45%" stopColor="#FFFFFF" stopOpacity="0" />
-                <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.85" />
-                <stop offset="55%" stopColor="#FFFFFF" stopOpacity="0" />
-                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
@@ -140,8 +132,15 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
         .diamond-glow {
           animation: glowPulse 2.4s ease-in-out infinite;
         }
-        .diamond-shimmer {
-          animation: shimmerSweep 2.2s linear infinite;
+        .shimmer-bar {
+          background: linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.85) 50%,
+            transparent 65%
+          );
+          animation: shimmerSweep 2s linear infinite;
+          mix-blend-mode: overlay;
         }
         .star-sparkle {
           position: absolute;
@@ -149,7 +148,7 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
           font-size: 14px;
           line-height: 1;
           opacity: 0;
-          text-shadow: 0 0 6px rgba(201, 162, 75, 0.8);
+          text-shadow: 0 0 8px rgba(201, 162, 75, 0.9);
           animation: starTwinkle 2.2s ease-in-out infinite;
         }
         .star-1 { top: 5%; left: 55%; animation-delay: 0s; }
@@ -164,8 +163,8 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
           50% { transform: scale(1.08); opacity: 0.85; }
         }
         @keyframes shimmerSweep {
-          0% { transform: translateX(-120px) skewX(-25deg); }
-          100% { transform: translateX(120px) skewX(-25deg); }
+          0% { transform: translateX(-100%) skewX(-20deg); }
+          100% { transform: translateX(100%) skewX(-20deg); }
         }
         @keyframes starTwinkle {
           0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
