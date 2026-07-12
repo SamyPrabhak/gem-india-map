@@ -93,5 +93,6 @@ function Index() {
         onClose={() => setSelected(null)}
       />
     </main>
+    </>
   );
 }
