@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { GroupTabs } from "@/components/GroupTabs";
 import { RegionPopup } from "@/components/RegionPopup";
+import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
 
 const IndiaMap = lazy(() => import("@/components/IndiaMap"));
@@ -37,17 +38,20 @@ function Index() {
   const [group, setGroup] = useState<RegionGroup>("state");
   const [selected, setSelected] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [splashDone, setSplashDone] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
-    <main
-      className="min-h-screen"
-      style={{
-        background:
-          "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
-        color: "var(--ink)",
-      }}
-    >
+    <>
+      {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
+      <main
+        className="min-h-screen"
+        style={{
+          background:
+            "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
+          color: "var(--ink)",
+        }}
+      >
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
           <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
@@ -89,5 +93,6 @@ function Index() {
         onClose={() => setSelected(null)}
       />
     </main>
+    </>
   );
 }
