@@ -92,6 +92,20 @@ export function StateImageCarousel({ query }: Props) {
   const [images, setImages] = useState<string[] | null>(null);
   const [error, setError] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [api, setApi] = useState<CarouselApi | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setSelectedIndex(api.selectedScrollSnap());
+    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api]);
 
   useEffect(() => {
     if (!lightbox) return;
