@@ -3,7 +3,6 @@ import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
-import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 
 interface Props {
   info: JewelryInfo | null;
@@ -61,18 +60,7 @@ export function RegionPopup({ info, onClose }: Props) {
         {/* Body */}
         <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8">
           {/* About */}
-          {/* Jewelry piece image */}
-          <section>
-            <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
-              {info.jewelryType}
-            </h3>
-            <div className="mt-4">
-              <JewelryPieceImage region={info.name} />
-            </div>
-          </section>
-
-          {/* About */}
-          <section className="mt-8">
+          <section className="mt-2">
             <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
               About the {info.group === "island" ? "Region" : groupLabel}
             </h3>
