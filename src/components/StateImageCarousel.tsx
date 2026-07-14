@@ -6,6 +6,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 interface Props {
@@ -91,6 +92,20 @@ export function StateImageCarousel({ query }: Props) {
   const [images, setImages] = useState<string[] | null>(null);
   const [error, setError] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [api, setApi] = useState<CarouselApi | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setSelectedIndex(api.selectedScrollSnap());
+    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api]);
 
   useEffect(() => {
     if (!lightbox) return;
@@ -133,7 +148,7 @@ export function StateImageCarousel({ query }: Props) {
 
   return (
     <>
-      <Carousel opts={{ loop: true }} className="w-full">
+      <Carousel opts={{ loop: true }} setApi={setApi} className="w-full">
         <CarouselContent>
           {images.map((src, i) => (
             <CarouselItem key={src}>
@@ -163,6 +178,28 @@ export function StateImageCarousel({ query }: Props) {
           </>
         )}
       </Carousel>
+      {images.length > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-2" role="tablist" aria-label={`${query} photo pagination`}>
+          {images.map((_, i) => {
+            const active = i === selectedIndex;
+            return (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                aria-label={`Go to photo ${i + 1}`}
+                onClick={() => api?.scrollTo(i)}
+                className={`h-2 rounded-full transition-all ${
+                  active
+                    ? "w-6 bg-[color:var(--gold-deep)]"
+                    : "w-2 bg-[color:var(--gold)]/40 hover:bg-[color:var(--gold)]/70"
+                }`}
+              />
+            );
+          })}
+        </div>
+      )}
 
       {lightbox && (
         <div
