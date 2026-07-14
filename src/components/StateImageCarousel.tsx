@@ -178,6 +178,28 @@ export function StateImageCarousel({ query }: Props) {
           </>
         )}
       </Carousel>
+      {images.length > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-2" role="tablist" aria-label={`${query} photo pagination`}>
+          {images.map((_, i) => {
+            const active = i === selectedIndex;
+            return (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                aria-label={`Go to photo ${i + 1}`}
+                onClick={() => api?.scrollTo(i)}
+                className={`h-2 rounded-full transition-all ${
+                  active
+                    ? "w-6 bg-[color:var(--gold-deep)]"
+                    : "w-2 bg-[color:var(--gold)]/40 hover:bg-[color:var(--gold)]/70"
+                }`}
+              />
+            );
+          })}
+        </div>
+      )}
 
       {lightbox && (
         <div
