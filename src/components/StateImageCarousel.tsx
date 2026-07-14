@@ -148,7 +148,7 @@ export function StateImageCarousel({ query }: Props) {
 
   return (
     <>
-      <Carousel opts={{ loop: true }} className="w-full">
+      <Carousel opts={{ loop: true }} setApi={setApi} className="w-full">
         <CarouselContent>
           {images.map((src, i) => (
             <CarouselItem key={src}>
