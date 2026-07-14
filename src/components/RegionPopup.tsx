@@ -76,7 +76,6 @@ export function RegionPopup({ info, onClose }: Props) {
             <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
               About the {info.group === "island" ? "Region" : groupLabel}
             </h3>
-            </h3>
             <div className="mt-4">
               <StateImageCarousel query={info.name} />
             </div>
