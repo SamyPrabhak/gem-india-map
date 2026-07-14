@@ -3,6 +3,7 @@ import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
+import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 
 interface Props {
   info: JewelryInfo | null;
