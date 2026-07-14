@@ -1,8 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
+import { stateJewelryImages } from "@/data/stateJewelryImages";
+
+function JewelryPieceImage({ regionKey, pieceName }: { regionKey: string; pieceName: string }) {
+  const entry = stateJewelryImages[regionKey];
+  const [failed, setFailed] = useState(false);
+  const showImage = entry && !failed;
+
+  return (
+    <figure className="mt-4 overflow-hidden rounded-xl border border-[color:var(--gold)]/30 bg-white/60 shadow-sm">
+      <div className="relative aspect-[16/9] w-full bg-[color:var(--ivory)]">
+        {showImage ? (
+          <img
+            src={entry.url}
+            alt={entry.alt ?? `${pieceName} — traditional jewellery of ${regionKey}`}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[color:var(--gold)]/10 via-[#f7ecc4] to-[color:var(--gold)]/20 text-center">
+            <Gem className="h-10 w-10 text-[color:var(--gold-deep)]/70" />
+            <p className="max-w-[75%] px-4 font-serif text-sm italic text-[color:var(--ink)]/60">
+              No museum image available for {pieceName}
+            </p>
+          </div>
+        )}
+      </div>
+      <figcaption className="flex items-center justify-between gap-3 border-t border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-3 py-2 text-[11px] tracking-wide text-[color:var(--ink)]/60">
+        <span className="truncate">
+          {showImage ? entry.credit : "Source: Placeholder (no credible image available)"}
+        </span>
+        {showImage && entry.sourceUrl && (
+          <a
+            href={entry.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-[color:var(--gold-deep)] underline-offset-2 hover:underline"
+          >
+            View source
+          </a>
+        )}
+      </figcaption>
+    </figure>
+  );
+}
 
 interface Props {
   info: JewelryInfo | null;
@@ -75,6 +120,7 @@ export function RegionPopup({ info, onClose }: Props) {
             <h3 className="font-serif text-xl text-[color:var(--ink)] sm:text-2xl">
               Famous Jewellery Styles
             </h3>
+            <JewelryPieceImage regionKey={info.name} pieceName={info.jewelryType} />
             <div className="mt-4 flex flex-col gap-3">
               {info.styles.map((s) => (
                 <article
