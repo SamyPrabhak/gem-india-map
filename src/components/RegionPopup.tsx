@@ -77,7 +77,6 @@ export function RegionPopup({ info, onClose }: Props) {
               Famous Jewellery Styles
             </h3>
             <JewelryPieceImage regionName={info.name} />
-            </h3>
             <div className="mt-4 flex flex-col gap-3">
               {info.styles.map((s) => (
                 <article
