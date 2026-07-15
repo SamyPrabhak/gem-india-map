@@ -100,7 +100,7 @@ export function RegionPopup({ info, onClose }: Props) {
                     {s.description}
                   </p>
                   {idx === 0 && <JewelryPieceImage regionName={info.name} />}
-                </article>
+                  {idx !== 0 && <JewelryPieceImage regionName={info.name} styleName={s.name} />}
               ))}
             </div>
           </section>
