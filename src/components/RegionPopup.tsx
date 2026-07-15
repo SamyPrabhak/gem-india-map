@@ -99,8 +99,11 @@ export function RegionPopup({ info, onClose }: Props) {
                   <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
                     {s.description}
                   </p>
-                  {idx === 0 && <JewelryPieceImage regionName={info.name} />}
-                  {idx !== 0 && <JewelryPieceImage regionName={info.name} styleName={s.name} />}
+                  <JewelryPieceImage
+                    regionName={info.name}
+                    styleName={idx === 0 ? undefined : s.name}
+                  />
+                </article>
               ))}
             </div>
           </section>
