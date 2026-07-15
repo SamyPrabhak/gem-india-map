@@ -4,6 +4,8 @@ import { jewelryPieceWiki } from "@/data/jewelryPieceWiki";
 
 interface Props {
   regionName: string;
+  /** Specific style name (e.g. "Kundan", "Vaddanam"). Falls back to region mapping. */
+  styleName?: string;
 }
 
 const cache = new Map<string, string | null>();
@@ -28,26 +30,43 @@ async function fetchWikiImage(title: string): Promise<string | null> {
   }
 }
 
-export function JewelryPieceImage({ regionName }: Props) {
-  const ref = jewelryPieceWiki[regionName] ?? null;
+export function JewelryPieceImage({ regionName, styleName }: Props) {
+  const regionRef = jewelryPieceWiki[regionName] ?? null;
+  const label = styleName ?? regionRef?.label ?? "Traditional Jewellery";
+  // Build ordered list of Wikipedia titles to try.
+  const candidates: string[] = [];
+  if (styleName) {
+    candidates.push(styleName);
+    candidates.push(`${styleName} (jewellery)`);
+    candidates.push(`${styleName} jewellery`);
+  }
+  if (regionRef?.wikiTitle) candidates.push(regionRef.wikiTitle);
+
   const [src, setSrc] = useState<string | null | undefined>(undefined);
 
   useEffect(() => {
     let cancelled = false;
-    if (!ref) {
+    if (candidates.length === 0) {
       setSrc(null);
       return;
     }
     setSrc(undefined);
-    fetchWikiImage(ref.wikiTitle).then((url) => {
-      if (!cancelled) setSrc(url);
-    });
+    (async () => {
+      for (const title of candidates) {
+        const url = await fetchWikiImage(title);
+        if (cancelled) return;
+        if (url) {
+          setSrc(url);
+          return;
+        }
+      }
+      if (!cancelled) setSrc(null);
+    })();
     return () => {
       cancelled = true;
     };
-  }, [ref?.wikiTitle]);
+  }, [candidates.join("|")]);
 
-  const label = ref?.label;
 
   return (
     <figure className="mt-3 overflow-hidden rounded-xl border border-[color:var(--gold)]/25 bg-[color:var(--ivory-deep)]/60">
