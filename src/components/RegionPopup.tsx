@@ -78,7 +78,7 @@ export function RegionPopup({ info, onClose }: Props) {
             </h3>
             <JewelryPieceImage regionName={info.name} />
             <div className="mt-4 flex flex-col gap-3">
-              {info.styles.map((s) => (
+              {info.styles.map((s, idx) => (
                 <article
                   key={s.name}
                   className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
@@ -99,6 +99,7 @@ export function RegionPopup({ info, onClose }: Props) {
                   <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
                     {s.description}
                   </p>
+                  {idx === 0 && <JewelryPieceImage regionName={info.name} />}
                 </article>
               ))}
             </div>

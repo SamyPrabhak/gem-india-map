@@ -50,7 +50,7 @@ export function JewelryPieceImage({ regionName }: Props) {
   const label = ref?.label;
 
   return (
-    <figure className="mt-4 overflow-hidden rounded-xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory-deep)]/60 shadow-sm">
+    <figure className="mt-3 overflow-hidden rounded-xl border border-[color:var(--gold)]/25 bg-[color:var(--ivory-deep)]/60">
       <div className="relative aspect-[16/9] w-full bg-[color:var(--ivory-deep)]">
         {src === undefined ? (
           <div className="absolute inset-0 flex items-center justify-center text-[color:var(--ink)]/40">
