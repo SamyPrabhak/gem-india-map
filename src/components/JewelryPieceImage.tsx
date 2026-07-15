@@ -99,7 +99,7 @@ export function JewelryPieceImage({ regionName, styleName }: Props) {
         <span className="shrink-0 normal-case tracking-normal text-[11px] text-[color:var(--ink)]/50">
           {src
             ? "Source: Wikimedia Commons"
-            : ref
+            : candidates.length > 0
               ? "Source: pending curation"
               : "No credible image sourced"}
         </span>
