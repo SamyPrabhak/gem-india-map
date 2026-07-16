@@ -57,55 +57,45 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
             xmlns="http://www.w3.org/2000/svg"
             className="relative h-full w-full drop-shadow-[0_14px_34px_rgba(201,162,75,0.35)]"
           >
-            {/* Crown (top) facets */}
-            <path d="M60 6L22 38H98L60 6Z" fill="url(#crownCenter)" />
-            <path d="M22 38L6 52H42L22 38Z" fill="url(#crownLeft)" />
-            <path d="M98 38H78V52H114L98 38Z" fill="url(#crownRight)" />
-            <path d="M22 38H42V52H6L22 38Z" fill="url(#crownSideLeft)" />
-            <path d="M98 38H78V52H114L98 38Z" fill="url(#crownSideRight)" />
-            <path d="M42 38H78L60 6L42 38Z" fill="url(#tableHighlight)" />
+            {/* Subtle fill for depth */}
+            <path
+              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              fill="url(#diaFill)"
+              opacity="0.35"
+            />
 
-            {/* Pavilion (bottom) facets */}
-            <path d="M6 52L60 116L42 52H6Z" fill="url(#pavLeft)" />
-            <path d="M114 52L60 116L78 52H114Z" fill="url(#pavRight)" />
-            <path d="M42 52L60 116L78 52H42Z" fill="url(#pavCenter)" />
+            {/* Outer diamond outline */}
+            <path
+              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              stroke="#7a4a3a"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              fill="none"
+            />
+
+            {/* Crown band bottom line */}
+            <path
+              d="M12 52 L108 52"
+              stroke="#7a4a3a"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+            />
+
+            {/* Crown vertical facet lines */}
+            <path d="M40 37.5 L32 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 34 L60 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M80 37.5 L88 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+
+            {/* Pavilion facet lines converging to bottom point */}
+            <path d="M32 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M88 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
 
             <defs>
-              <linearGradient id="crownCenter" x1="60" y1="6" x2="60" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#FFF8E1" />
+              <linearGradient id="diaFill" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#F9E8B8" />
                 <stop offset="100%" stopColor="#C9A24B" />
-              </linearGradient>
-              <linearGradient id="crownLeft" x1="14" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#DDC58A" />
-                <stop offset="100%" stopColor="#C9A24B" />
-              </linearGradient>
-              <linearGradient id="crownRight" x1="106" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#DDC58A" />
-                <stop offset="100%" stopColor="#C9A24B" />
-              </linearGradient>
-              <linearGradient id="crownSideLeft" x1="60" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#F3ECD9" />
-                <stop offset="100%" stopColor="#DDC58A" />
-              </linearGradient>
-              <linearGradient id="crownSideRight" x1="60" y1="38" x2="60" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#F3ECD9" />
-                <stop offset="100%" stopColor="#DDC58A" />
-              </linearGradient>
-              <linearGradient id="tableHighlight" x1="60" y1="6" x2="60" y2="38" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#FFFFFF" />
-                <stop offset="100%" stopColor="#F9E8B8" />
-              </linearGradient>
-              <linearGradient id="pavLeft" x1="6" y1="52" x2="60" y2="116" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#C9A24B" />
-                <stop offset="100%" stopColor="#6E5320" />
-              </linearGradient>
-              <linearGradient id="pavRight" x1="114" y1="52" x2="60" y2="116" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#C9A24B" />
-                <stop offset="100%" stopColor="#6E5320" />
-              </linearGradient>
-              <linearGradient id="pavCenter" x1="60" y1="52" x2="60" y2="116" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#9C7A2C" />
-                <stop offset="100%" stopColor="#5A4018" />
               </linearGradient>
             </defs>
           </svg>
