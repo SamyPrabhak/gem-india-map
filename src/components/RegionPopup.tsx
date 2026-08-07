@@ -73,6 +73,11 @@ export function RegionPopup({ info, onClose }: Props) {
             <StateSummary query={info.name} fallback={info.about} />
           </section>
 
+          {/* Jewellery data from spreadsheet */}
+          <JewelryPieceDetails stateName={info.name} />
+
+
+
           {/* Famous Jewellery Styles */}
           <section className="mt-8">
             <h3 className="font-serif text-xl text-[color:var(--ink)] sm:text-2xl">
