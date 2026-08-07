@@ -4,6 +4,8 @@ import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
+import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+
 
 interface Props {
   info: JewelryInfo | null;
@@ -70,6 +72,11 @@ export function RegionPopup({ info, onClose }: Props) {
             </div>
             <StateSummary query={info.name} fallback={info.about} />
           </section>
+
+          {/* Jewellery data from spreadsheet */}
+          <JewelryPieceDetails stateName={info.name} />
+
+
 
           {/* Famous Jewellery Styles */}
           <section className="mt-8">
