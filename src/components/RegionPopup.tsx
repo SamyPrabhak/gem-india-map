@@ -4,6 +4,8 @@ import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
+import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+
 
 interface Props {
   info: JewelryInfo | null;
