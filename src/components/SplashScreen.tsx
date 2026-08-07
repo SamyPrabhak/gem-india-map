@@ -67,7 +67,7 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
             {/* Outer diamond outline */}
             <path
               d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
-              stroke="#7a4a3a"
+              stroke="#B08A33"
               strokeWidth="1.6"
               strokeLinejoin="round"
               strokeLinecap="round"
@@ -77,20 +77,20 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
             {/* Crown band bottom line */}
             <path
               d="M12 52 L108 52"
-              stroke="#7a4a3a"
+              stroke="#B08A33"
               strokeWidth="1.4"
               strokeLinecap="round"
             />
 
             {/* Crown vertical facet lines */}
-            <path d="M40 37.5 L32 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M60 34 L60 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M80 37.5 L88 52" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M40 37.5 L32 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 34 L60 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M80 37.5 L88 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
 
             {/* Pavilion facet lines converging to bottom point */}
-            <path d="M32 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M60 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M88 52 L60 112" stroke="#7a4a3a" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M32 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M88 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
 
             <defs>
               <linearGradient id="diaFill" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
