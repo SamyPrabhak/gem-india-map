@@ -6,6 +6,10 @@ interface Props {
   regionName: string;
   /** Specific style name (e.g. "Kundan", "Vaddanam"). Falls back to region mapping. */
   styleName?: string;
+  /** Curated image URL that bypasses the Wikipedia lookup. */
+  imageUrl?: string;
+  /** Attribution line shown with a curated image. */
+  sourceLabel?: string;
 }
 
 const cache = new Map<string, string | null>();
@@ -30,7 +34,7 @@ async function fetchWikiImage(title: string): Promise<string | null> {
   }
 }
 
-export function JewelryPieceImage({ regionName, styleName }: Props) {
+export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel }: Props) {
   const regionRef = jewelryPieceWiki[regionName] ?? null;
   const label = styleName ?? regionRef?.label ?? "Traditional Jewellery";
   // Build ordered list of Wikipedia titles to try.
@@ -42,10 +46,14 @@ export function JewelryPieceImage({ regionName, styleName }: Props) {
   }
   if (regionRef?.wikiTitle) candidates.push(regionRef.wikiTitle);
 
-  const [src, setSrc] = useState<string | null | undefined>(undefined);
+  const [src, setSrc] = useState<string | null | undefined>(imageUrl ?? undefined);
 
   useEffect(() => {
     let cancelled = false;
+    if (imageUrl) {
+      setSrc(imageUrl);
+      return;
+    }
     if (candidates.length === 0) {
       setSrc(null);
       return;
@@ -65,7 +73,7 @@ export function JewelryPieceImage({ regionName, styleName }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [candidates.join("|")]);
+  }, [candidates.join("|"), imageUrl]);
 
 
   return (
@@ -98,7 +106,7 @@ export function JewelryPieceImage({ regionName, styleName }: Props) {
         <span className="truncate">{label ?? "Traditional Jewellery"}</span>
         <span className="shrink-0 normal-case tracking-normal text-[11px] text-[color:var(--ink)]/50">
           {src
-            ? "Source: Wikimedia Commons"
+            ? (sourceLabel ?? "Source: Wikimedia Commons")
             : candidates.length > 0
               ? "Source: pending curation"
               : "No credible image sourced"}

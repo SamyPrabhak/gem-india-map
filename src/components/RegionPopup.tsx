@@ -70,7 +70,7 @@ export function RegionPopup({ info, onClose }: Props) {
             <div className="mt-4">
               <StateImageCarousel query={info.name} />
             </div>
-            <StateSummary query={info.name} fallback={info.about} />
+            <StateSummary query={info.name} fallback={info.about} override={info.aboutOverride} />
           </section>
 
           {/* Jewellery data from spreadsheet */}
@@ -108,6 +108,8 @@ export function RegionPopup({ info, onClose }: Props) {
                   <JewelryPieceImage
                     regionName={info.name}
                     styleName={idx === 0 ? undefined : s.name}
+                    imageUrl={s.imageUrl}
+                    sourceLabel={s.sourceLabel}
                   />
                 </article>
               ))}
