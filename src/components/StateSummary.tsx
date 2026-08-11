@@ -4,6 +4,8 @@ import { Loader2 } from "lucide-react";
 interface Props {
   query: string;
   fallback?: string;
+  /** When provided, this exact text is rendered instead of the fetched summary. */
+  override?: string;
 }
 
 const cache = new Map<string, string>();
@@ -21,7 +23,7 @@ async function fetchSummary(query: string): Promise<string> {
   return extract;
 }
 
-export function StateSummary({ query, fallback }: Props) {
+export function StateSummary({ query, fallback, override }: Props) {
   const [text, setText] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -29,13 +31,17 @@ export function StateSummary({ query, fallback }: Props) {
     let cancelled = false;
     setText(null);
     setFailed(false);
+    if (override) {
+      setText(override);
+      return;
+    }
     fetchSummary(query)
       .then((t) => !cancelled && setText(t))
       .catch(() => !cancelled && setFailed(true));
     return () => {
       cancelled = true;
     };
-  }, [query]);
+  }, [query, override]);
 
   if (!text && !failed) {
     return (

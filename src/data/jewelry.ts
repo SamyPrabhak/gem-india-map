@@ -4,6 +4,10 @@ export interface JewelryStyle {
   name: string;
   tagline: string;
   description: string;
+  /** Optional curated image for this specific piece. */
+  imageUrl?: string;
+  /** Attribution shown under the curated image. */
+  sourceLabel?: string;
 }
 
 export interface JewelryInfo {
@@ -12,10 +16,13 @@ export interface JewelryInfo {
   jewelryType: string;
   description: string;
   about: string;
+  /** When set, this exact text is shown instead of the fetched summary. */
+  aboutOverride?: string;
   styles: JewelryStyle[];
   funFacts: string[];
   group: RegionGroup;
 }
+
 
 const make = (
   name: string,
@@ -138,18 +145,41 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ],
     ["Chiri tikkas are believed to ward off mountain spirits.", "Pahari silversmiths still travel village-to-village.", "Turquoise loses colour with the wearer's mood, locals say."],
   ),
-  "Jammu and Kashmir": make(
-    "Jammu & Kashmir", "state", "Srinagar",
-    "Dejhoor & Jhumka",
-    "Kashmiri Pandit women wear hexagonal gold dejhoor; the valley is also famed for enameled jhumkas and turquoise.",
-    "Kashmir's jewelry weaves together Pandit Hindu rituals, Mughal-era enameling and Central Asian gemstone trade.",
-    [
-      { name: "Dejhoor", tagline: "Hexagonal gold pendant", description: "A pair of hexagonal gold pendants strung on red thread — given to Pandit women at marriage and worn for life." },
-      { name: "Jhumka", tagline: "Bell-shaped earrings", description: "Domed earrings with intricate filigree and turquoise drops." },
-      { name: "Halqaband", tagline: "Bejewelled choker", description: "Gold plaques set with rubies, emeralds and pearls, worn snug at the throat." },
-    ],
-    ["Dejhoor is replaced with athhoor (gold chain) only after the husband's passing.", "Kashmiri enamel uses crushed Persian glass.", "Turquoise from Nishapur travelled here via Silk Road caravans."],
-  ),
+  "Jammu and Kashmir": {
+    ...make(
+      "Jammu & Kashmir", "state", "Srinagar",
+      "Halqaband, Dejihor & Gunus",
+      "Kashmiri gold traditions range from the halqaband choker to the ritual dejihor and wildlife-inspired gunus bangles.",
+      "Jammu and Kashmir is a union territory administered by India, covering the southern and southwestern parts of the Kashmir region. Srinagar serves as the summer capital and Jammu as the winter capital. The region is known for its mountains, valleys, and scenic landscapes.",
+      [
+        {
+          name: "Halqaband",
+          tagline: "Traditional gold choker",
+          description: "A traditional tight choker, the halqaband is worn around the neck. It is usually made of gold and has interlocking sections joined together with thread.",
+          imageUrl: "https://www.mygoldguide.in/sites/default/files/Halqaband_001.jpg",
+          sourceLabel: "Source: MyGoldGuide (World Gold Council)",
+        },
+        {
+          name: "Dejihor",
+          tagline: "Symbol of marriage",
+          description: "Worn by every Pandit woman as a symbol of her marriage, the dejihor is a dangler earring that hangs from the upper portion of the ear. It is believed to have been designed by the great Kashmiri acharyas to infuse divine strength in married women.",
+          imageUrl: "https://www.mygoldguide.in/sites/default/files/Dejihor_001.jpg",
+          sourceLabel: "Source: MyGoldGuide (World Gold Council)",
+        },
+        {
+          name: "Gunus",
+          tagline: "Wildlife-inspired bangle",
+          description: "An ornament for the wrist, gunus is a thick gold bangle and has the head of a snake or a lion at both ends. This design is one of many gold designs inspired by wildlife.",
+          imageUrl: "https://www.mygoldguide.in/sites/default/files/Gunus_001.jpg",
+          sourceLabel: "Source: MyGoldGuide (World Gold Council)",
+        },
+      ],
+      ["Dejihor is replaced with athhoor (gold chain) only after the husband's passing.", "Kashmiri enamel uses crushed Persian glass.", "Turquoise from Nishapur travelled here via Silk Road caravans."],
+    ),
+    aboutOverride:
+      "Jammu and Kashmir is a union territory administered by India, covering the southern and southwestern parts of the Kashmir region. Srinagar serves as the summer capital and Jammu as the winter capital. The region is known for its mountains, valleys, and scenic landscapes.",
+  },
+
   Jharkhand: make(
     "Jharkhand", "state", "Ranchi",
     "Tribal Brass & Cowrie",
