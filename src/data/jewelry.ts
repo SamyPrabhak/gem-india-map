@@ -4,6 +4,10 @@ export interface JewelryStyle {
   name: string;
   tagline: string;
   description: string;
+  /** Optional curated image for this specific piece. */
+  imageUrl?: string;
+  /** Attribution shown under the curated image. */
+  sourceLabel?: string;
 }
 
 export interface JewelryInfo {
@@ -12,10 +16,13 @@ export interface JewelryInfo {
   jewelryType: string;
   description: string;
   about: string;
+  /** When set, this exact text is shown instead of the fetched summary. */
+  aboutOverride?: string;
   styles: JewelryStyle[];
   funFacts: string[];
   group: RegionGroup;
 }
+
 
 const make = (
   name: string,
