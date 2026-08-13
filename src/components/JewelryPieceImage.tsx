@@ -84,13 +84,20 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
             <Loader2 className="h-6 w-6 animate-spin" />
           </div>
         ) : src ? (
-          <img
-            src={src}
-            alt={label ? `${label} — traditional jewellery of ${regionName}` : regionName}
-            loading="lazy"
-            className="h-full w-full object-cover"
-            onError={() => setSrc(null)}
-          />
+          <button
+            type="button"
+            onClick={() => setLightbox(src)}
+            className="block h-full w-full"
+            aria-label={`Open image of ${label}`}
+          >
+            <img
+              src={src}
+              alt={label ? `${label} — traditional jewellery of ${regionName}` : regionName}
+              loading="lazy"
+              className="h-full w-full cursor-zoom-in object-cover"
+              onError={() => setSrc(null)}
+            />
+          </button>
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[color:var(--gold)]/10 to-[color:var(--gold)]/25 text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--gold)]/25">
@@ -102,6 +109,8 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
           </div>
         )}
       </div>
+      <ImageLightbox src={lightbox} alt={label ?? regionName} onClose={() => setLightbox(null)} />
+
       <figcaption className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--ink)]/55 sm:px-4">
         <span className="truncate">{label ?? "Traditional Jewellery"}</span>
         <span className="shrink-0 normal-case tracking-normal text-[11px] text-[color:var(--ink)]/50">
