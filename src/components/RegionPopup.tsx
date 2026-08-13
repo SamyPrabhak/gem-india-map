@@ -5,6 +5,8 @@ import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+import { getCsvRegion } from "@/data/csvJewelry";
+
 
 
 interface Props {
@@ -26,8 +28,11 @@ export function RegionPopup({ info, onClose }: Props) {
 
   if (!info) return null;
 
+  const csv = getCsvRegion(info.name);
+
   const groupLabel =
     info.group === "state" ? "State" : info.group === "ut" ? "Union Territory" : "Islands";
+
 
   return (
     <div
