@@ -10,9 +10,13 @@ interface Props {
 export function ImageLightbox({ src, alt, onClose }: Props) {
   useEffect(() => {
     if (!src) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      e.stopPropagation();
+      onClose();
+    };
+    document.addEventListener("keydown", onKey, true);
+    return () => document.removeEventListener("keydown", onKey, true);
   }, [src, onClose]);
 
   if (!src) return null;
@@ -20,18 +24,25 @@ export function ImageLightbox({ src, alt, onClose }: Props) {
   return (
     <div
       className="fixed inset-0 z-[1200] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
-      onClick={onClose}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClose();
+      }}
       role="dialog"
       aria-modal="true"
     >
       <button
         type="button"
-        onClick={onClose}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
         className="absolute right-4 top-4 rounded-full bg-[color:var(--gold)] p-2 text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
         aria-label="Close"
       >
         <X className="h-5 w-5" />
       </button>
+
       <img
         src={src}
         alt={alt}
