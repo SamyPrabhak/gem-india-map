@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Gem, Loader2 } from "lucide-react";
 import { jewelryPieceWiki } from "@/data/jewelryPieceWiki";
+import { ImageLightbox } from "@/components/ImageLightbox";
+
 
 interface Props {
   regionName: string;
@@ -47,6 +49,8 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
   if (regionRef?.wikiTitle) candidates.push(regionRef.wikiTitle);
 
   const [src, setSrc] = useState<string | null | undefined>(imageUrl ?? undefined);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
 
   useEffect(() => {
     let cancelled = false;
