@@ -224,6 +224,11 @@ export function RegionPopup({ info, onClose }: Props) {
           </button>
         </div>
       </div>
+      <ImageLightbox
+        src={lightbox?.src ?? null}
+        alt={lightbox?.alt ?? info.name}
+        onClose={() => setLightbox(null)}
+      />
     </div>
   );
 }
