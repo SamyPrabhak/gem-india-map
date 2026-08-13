@@ -19,14 +19,18 @@ export function RegionPopup({ info, onClose }: Props) {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   useEffect(() => {
     if (!info) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (lightbox) setLightbox(null);
+      else onClose();
+    };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [info, onClose]);
+  }, [info, onClose, lightbox]);
 
   if (!info) return null;
 
