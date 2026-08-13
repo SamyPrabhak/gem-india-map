@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { getCsvRegion } from "@/data/csvJewelry";
 
 
@@ -15,16 +16,21 @@ interface Props {
 }
 
 export function RegionPopup({ info, onClose }: Props) {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   useEffect(() => {
     if (!info) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (lightbox) setLightbox(null);
+      else onClose();
+    };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [info, onClose]);
+  }, [info, onClose, lightbox]);
 
   if (!info) return null;
 
@@ -111,17 +117,24 @@ export function RegionPopup({ info, onClose }: Props) {
                       <figure className="mt-3">
                         <div className="mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
                           {p.imageUrl ? (
-                            <img
-                              src={p.imageUrl}
-                              alt={`${p.name} — traditional jewellery of ${info.name}`}
-                              loading="lazy"
-                              className="h-full w-full object-cover"
-                              onError={(e) => {
-                                const el = e.currentTarget;
-                                el.style.display = "none";
-                                el.parentElement?.classList.add("csv-img-missing");
-                              }}
-                            />
+                            <button
+                              type="button"
+                              onClick={() => setLightbox({ src: p.imageUrl!, alt: `${p.name} — traditional jewellery of ${info.name}` })}
+                              className="block h-full w-full"
+                              aria-label={`Open image of ${p.name}`}
+                            >
+                              <img
+                                src={p.imageUrl}
+                                alt={`${p.name} — traditional jewellery of ${info.name}`}
+                                loading="lazy"
+                                className="h-full w-full cursor-zoom-in object-cover"
+                                onError={(e) => {
+                                  const el = e.currentTarget;
+                                  el.style.display = "none";
+                                  el.parentElement?.classList.add("csv-img-missing");
+                                }}
+                              />
+                            </button>
                           ) : null}
                           {!p.imageUrl ? (
                             <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
@@ -129,6 +142,7 @@ export function RegionPopup({ info, onClose }: Props) {
                             </div>
                           ) : null}
                         </div>
+
                         {p.source ? (
                           <figcaption className="mt-2 text-center text-[11px] text-[color:var(--ink)]/50">
                             Source:{" "}
@@ -210,6 +224,11 @@ export function RegionPopup({ info, onClose }: Props) {
           </button>
         </div>
       </div>
+      <ImageLightbox
+        src={lightbox?.src ?? null}
+        alt={lightbox?.alt ?? info.name}
+        onClose={() => setLightbox(null)}
+      />
     </div>
   );
 }
