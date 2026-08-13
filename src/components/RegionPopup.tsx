@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { getCsvRegion } from "@/data/csvJewelry";
 
 
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export function RegionPopup({ info, onClose }: Props) {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   useEffect(() => {
     if (!info) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
