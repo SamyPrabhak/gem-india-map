@@ -111,17 +111,24 @@ export function RegionPopup({ info, onClose }: Props) {
                       <figure className="mt-3">
                         <div className="mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
                           {p.imageUrl ? (
-                            <img
-                              src={p.imageUrl}
-                              alt={`${p.name} — traditional jewellery of ${info.name}`}
-                              loading="lazy"
-                              className="h-full w-full object-cover"
-                              onError={(e) => {
-                                const el = e.currentTarget;
-                                el.style.display = "none";
-                                el.parentElement?.classList.add("csv-img-missing");
-                              }}
-                            />
+                            <button
+                              type="button"
+                              onClick={() => setLightbox({ src: p.imageUrl!, alt: `${p.name} — traditional jewellery of ${info.name}` })}
+                              className="block h-full w-full"
+                              aria-label={`Open image of ${p.name}`}
+                            >
+                              <img
+                                src={p.imageUrl}
+                                alt={`${p.name} — traditional jewellery of ${info.name}`}
+                                loading="lazy"
+                                className="h-full w-full cursor-zoom-in object-cover"
+                                onError={(e) => {
+                                  const el = e.currentTarget;
+                                  el.style.display = "none";
+                                  el.parentElement?.classList.add("csv-img-missing");
+                                }}
+                              />
+                            </button>
                           ) : null}
                           {!p.imageUrl ? (
                             <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
@@ -129,6 +136,7 @@ export function RegionPopup({ info, onClose }: Props) {
                             </div>
                           ) : null}
                         </div>
+
                         {p.source ? (
                           <figcaption className="mt-2 text-center text-[11px] text-[color:var(--ink)]/50">
                             Source:{" "}
