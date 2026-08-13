@@ -5,6 +5,8 @@ import { StateImageCarousel } from "@/components/StateImageCarousel";
 import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
+import { getCsvRegion } from "@/data/csvJewelry";
+
 
 
 interface Props {
@@ -26,8 +28,11 @@ export function RegionPopup({ info, onClose }: Props) {
 
   if (!info) return null;
 
+  const csv = getCsvRegion(info.name);
+
   const groupLabel =
     info.group === "state" ? "State" : info.group === "ut" ? "Union Territory" : "Islands";
+
 
   return (
     <div
@@ -70,7 +75,12 @@ export function RegionPopup({ info, onClose }: Props) {
             <div className="mt-4">
               <StateImageCarousel query={info.name} />
             </div>
-            <StateSummary query={info.name} fallback={info.about} override={info.aboutOverride} />
+            <StateSummary
+              query={info.name}
+              fallback={info.about}
+              override={csv?.about ?? info.aboutOverride}
+            />
+
           </section>
 
           {/* Jewellery data from spreadsheet */}
@@ -84,7 +94,61 @@ export function RegionPopup({ info, onClose }: Props) {
               Famous Jewellery Styles
             </h3>
             <div className="mt-4 flex flex-col gap-3">
-              {info.styles.map((s, idx) => (
+              {csv
+                ? csv.pieces.map((p) => (
+                    <article
+                      key={p.name}
+                      className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
+                    >
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15 sm:h-12 sm:w-12">
+                          <Gem className="h-5 w-5 text-[color:var(--gold-deep)] sm:h-6 sm:w-6" />
+                        </div>
+                        <h4 className="min-w-0 flex-1 font-serif text-lg text-[color:var(--ink)] sm:text-xl">
+                          {p.name}
+                        </h4>
+                      </div>
+                      <figure className="mt-3">
+                        <div className="mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
+                          {p.imageUrl ? (
+                            <img
+                              src={p.imageUrl}
+                              alt={`${p.name} — traditional jewellery of ${info.name}`}
+                              loading="lazy"
+                              className="h-full w-full object-cover"
+                              onError={(e) => {
+                                const el = e.currentTarget;
+                                el.style.display = "none";
+                                el.parentElement?.classList.add("csv-img-missing");
+                              }}
+                            />
+                          ) : null}
+                          {!p.imageUrl ? (
+                            <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
+                              Image coming soon
+                            </div>
+                          ) : null}
+                        </div>
+                        {p.source ? (
+                          <figcaption className="mt-2 text-center text-[11px] text-[color:var(--ink)]/50">
+                            Source:{" "}
+                            <a
+                              href={p.source}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline decoration-[color:var(--gold)]/50"
+                            >
+                              {new URL(p.source).hostname.replace(/^www\./, "")}
+                            </a>
+                          </figcaption>
+                        ) : null}
+                      </figure>
+                      <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
+                        {p.description}
+                      </p>
+                    </article>
+                  ))
+                : info.styles.map((s, idx) => (
                 <article
                   key={s.name}
                   className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
@@ -115,6 +179,7 @@ export function RegionPopup({ info, onClose }: Props) {
               ))}
             </div>
           </section>
+
 
           {/* Fun Facts */}
           <section className="mt-8">
