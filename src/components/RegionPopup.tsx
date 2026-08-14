@@ -146,16 +146,21 @@ export function RegionPopup({ info, onClose }: Props) {
                         {p.source ? (
                           <figcaption className="mt-2 text-center text-[11px] text-[color:var(--ink)]/50">
                             Source:{" "}
-                            <a
-                              href={p.source}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="underline decoration-[color:var(--gold)]/50"
-                            >
-                              {new URL(p.source).hostname.replace(/^www\./, "")}
-                            </a>
+                            {/^https?:\/\//i.test(p.source) ? (
+                              <a
+                                href={p.source}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline decoration-[color:var(--gold)]/50"
+                              >
+                                {p.source.replace(/^https?:\/\/(www\.)?/i, "").split("/")[0]}
+                              </a>
+                            ) : (
+                              <span>{p.source}</span>
+                            )}
                           </figcaption>
                         ) : null}
+
                       </figure>
                       <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
                         {p.description}
