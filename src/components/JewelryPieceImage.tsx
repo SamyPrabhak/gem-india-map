@@ -102,7 +102,16 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
               onError={() => setSrc(null)}
             />
           </button>
-        ) : (
+        ) : null}
+        {src ? (
+          <span
+            className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-black/35 px-1.5 py-0.5 leading-none text-[#D4AE4A]"
+            style={{ fontSize: "11px" }}
+          >
+            Tap to enlarge
+          </span>
+        ) : null}
+        {src === undefined || src ? null : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[color:var(--gold)]/10 to-[color:var(--gold)]/25 text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--gold)]/25">
               <Gem className="h-7 w-7 text-[color:var(--gold-deep)]" />
