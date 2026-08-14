@@ -20,7 +20,7 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Halqaband",
         "description": "A traditional tight choker, the halqaband is worn around the neck. It is usually made of gold and has interlocking sections joined together with thread.",
-        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Halqaband_001.jp",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723067/Halqaband_001.jpg",
         "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
       },
       {
@@ -308,19 +308,19 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Kharu",
         "description": "Kharu is a thick, rigid bangle made of gold or silver, often worn in pairs. The design is simple yet bold, sometimes adorned with intricate engravings and floral patterns. Brides and married women primarily wear Kharu during special occasions and festivals.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539442/S2hhcnU=/preview",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Kharu.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Heibi Mapal",
         "description": "Heibi Mapal is a thick traditional gold necklace whose name literally means \"Heibi plant-like necklace.\" The Heibi plant is revered in Manipuri folklore for its association with protection, healing, and prosperity, and is believed to ward off evil and negative influences. It is a prominent piece of both traditional and bridal Manipuri jewelry.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SGVpYmlfTWFwYWw=/template_primary",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Heibi_Mapal.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Khownappi",
         "description": "Traditional Manipuri earrings made of gold, often bejeweled with emeralds or rubies. They feature elaborate floral or geometric designs with various dangling tiers. Despite their ornate appearance, they are lightweight and worn as a mark of grace and cultural pride.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539447/S2hvd25hcHBp/drilldown",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Khownappi.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       }
     ]
@@ -338,13 +338,13 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Thi Hna",
         "description": "A prominent traditional necklace made from large, prized amber beads, often worn during festivals and auspicious occasions.",
-        "imageUrl": "https://www.1stdibs.com/furniture/folk-art/tribal-art/rare-burmese-mizoram-amber-fossil-tribal-necklace-late-19th-century/id-f_26027852/",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723372/Screenshot_2026-08-14_at_12.02.48_PM.png",
         "source": "Google"
       },
       {
         "name": "vakiria",
         "description": "A traditional, ornate headpiece worn by Mizo women during cultural dances",
-        "imageUrl": "https://kr.pinterest.com/pin/859132066454361321/",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723432/ba48be2fde0e336d696fca655ccfa072.jpg",
         "source": "Google"
       }
     ]
@@ -380,7 +380,7 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Ki Sohshkor",
         "description": "A pair of Long, elegant gold earrings that loop downward.",
-        "imageUrl": "https://in.pinterest.com/pin/219128338110242234/",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723506/Ki_Sohshkor.jpg",
         "source": "https://www.youtube.com/shorts/8fzInmA2PyU"
       },
       {
@@ -392,7 +392,7 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "U Shan Ryndang",
         "description": "A traditional semi-circular choker necklace worn by the Khasi and Pnar communities. It is also called Kenopad",
-        "imageUrl": "https://www.instagram.com/p/BO7WnuTD3oQ/",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723218/Screenshot_2026-08-14_at_11.59.54_AM.png",
         "source": "https://www.youtube.com/shorts/8fzInmA2PyU"
       }
     ]
@@ -644,7 +644,7 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Elakkathali",
         "description": "An enchanting collar necklace that matches every movement and sparkles with every move.",
-        "imageUrl": "https://www.vadaamalar.com/pub/media/catalog/product/cache/f419bba492ccf21e7b4de75f01a0f32d/n/e/neca428.jpg",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723134/neca428.jpg",
         "source": "https://www.vadaamalar.com/pub/media/catalog/product/cache/f419bba492ccf21e7b4de75f01a0f32d/n/e/neca428.jpg"
       },
       {
@@ -716,13 +716,13 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Guttapusalu Necklace",
         "description": "A signature traditional necklace characterized by clustered strands of pearls that resemble small fish shoals, often paired with rubies or emeralds.",
-        "imageUrl": "https://www.google.com/imgres?q=Guttapusalu%20Necklace&imgurl=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FJpMAAOSwBJ1l-p83%2Fs-l1200.jpg&imgrefurl=https%3A%2F%2Fwww.ebay.com%2Fitm%2F388886316017&docid=inpz2h73NV3TCM&tbnid=kZpdIpdKIL96TM&vet=12ahUKEwj3vPaGi5yWAxXsMlkFHRb2H_QQnPAOegQIRBAA..i&w=899&h=1200&hcb=2&ved=2ahUKEwj3vPaGi5yWAxXsMlkFHRb2H_QQnPAOegQIRBAA",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723630/Guttapusalu.jpg",
         "source": "Google"
       },
       {
         "name": "Karimnagar Silver Filigree Jewelry",
         "description": "Delicate and intricate jewelry and accessories crafted by twisting ultra-thin silver threads into lace-like patterns, a GI-tagged art form of the region.",
-        "imageUrl": "https://www.google.com/imgres?q=Karimnagar%20Silver%20Filigree%20jewelry&imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0686%2F9437%2F6495%2Ffiles%2Fsilver-filigree-of-karimnagar-gi-tagged-metal-craft-of-telangana-make-an-image-about-this-topic.png%3Fv%3D1770718823&imgrefurl=https%3A%2F%2Fkrafteria.com%2Fblogs%2Fnews%2Fsilver-filigree-of-karimnagar%3Fsrsltid%3DAfmBOookDQpoDUtbyZGF1Wrer_oTIDI4wpHxZpDdLOUpdhvXuCOra9rH&docid=wGhMKlr6o0x09M&tbnid=ZmEML6oVvoZ_3M&vet=12ahUKEwi20JCii5yWAxVTK1kFHUz6BM8QnPAOegUI5gUQAA..i&w=1248&h=832&hcb=2&ved=2ahUKEwi20JCii5yWAxVTK1kFHUz6BM8QnPAOegUI5gUQAA",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723688/silver-filigree-of-karimnagar-gi-tagged-metal-craft-of-telangana-make-an-image-about-this-topic.webp",
         "source": "Google"
       },
       {
@@ -776,6 +776,7 @@ export const csvRegions: CsvRegion[] = [
     ]
   }
 ];
+
 
 const normalize = (s: string) =>
   s.toLowerCase().replace(/&/g, "and").replace(/\bislands?\b/g, "").replace(/[^a-z]/g, "");
