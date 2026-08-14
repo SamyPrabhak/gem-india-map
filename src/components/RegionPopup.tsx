@@ -115,7 +115,7 @@ export function RegionPopup({ info, onClose }: Props) {
                         </h4>
                       </div>
                       <figure className="mt-3">
-                        <div className="mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
+                        <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
                           {p.imageUrl ? (
                             <button
                               type="button"
@@ -135,6 +135,14 @@ export function RegionPopup({ info, onClose }: Props) {
                                 }}
                               />
                             </button>
+                          ) : null}
+                          {p.imageUrl ? (
+                            <span
+                              className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-black/35 px-1.5 py-0.5 leading-none text-[#D4AE4A]"
+                              style={{ fontSize: "11px" }}
+                            >
+                              Tap to enlarge
+                            </span>
                           ) : null}
                           {!p.imageUrl ? (
                             <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
