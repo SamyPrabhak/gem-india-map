@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MapContainer, GeoJSON, TileLayer, useMap, Marker, Tooltip } from "react-leaflet";
+import { MapContainer, GeoJSON, useMap, Marker, Tooltip } from "react-leaflet";
 import L, { type Layer, type PathOptions } from "leaflet";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import "leaflet/dist/leaflet.css";
@@ -156,10 +156,6 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         style={{ height: "100%", width: "100%", background: "#FBF7EE" }}
         attributionControl={false}
       >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
-          opacity={0.15}
-        />
         {geo && (
           <GeoJSON
             key="india"
