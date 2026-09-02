@@ -42,8 +42,6 @@ export const jewelryPieceWiki: Record<string, JewelryPieceRef | null> = {
   Uttarakhand: null,
   "West Bengal": { wikiTitle: "Filigree", label: "Bengali Filigree" },
   Chandigarh: null,
-  "Dadra & Nagar Haveli": null,
-  "Daman & Diu": null,
   Delhi: { wikiTitle: "Meenakari", label: "Mughal Meenakari" },
   Puducherry: null,
   "Andaman & Nicobar Islands": null,
