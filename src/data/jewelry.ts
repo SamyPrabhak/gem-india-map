@@ -422,30 +422,6 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ],
     ["Sector 22 is Chandigarh's traditional gold market.", "Chooda ceremonies remain mandatory for brides.", "Platinum is increasingly chosen over gold here."],
   ),
-  "Dadra and Nagar Haveli": make(
-    "Dadra & Nagar Haveli", "state", "Silvassa",
-    "Warli Tribal Silver",
-    "Warli and Dhodia tribes wear silver hansli, chunky anklets and beaded necklaces echoing their wall-art motifs.",
-    "Dadra & Nagar Haveli's tribal communities maintain jewelry traditions tied to harvest cycles and Warli folk art.",
-    [
-      { name: "Warli Pendants", tagline: "Folk-art on metal", description: "Silver pendants etched with Warli stick-figure motifs." },
-      { name: "Hansli", tagline: "Crescent collar", description: "Solid silver crescent collars worn by Warli and Dhodia women." },
-      { name: "Bead Belts", tagline: "Harvest waistbands", description: "Multi-strand bead waistbands worn during the Tarpa harvest dance." },
-    ],
-    ["Warli motifs are 3,000 years old.", "Tribal silver is melted and remade for each daughter.", "Hansli is gifted by the maternal uncle at puberty."],
-  ),
-  "Daman and Diu": make(
-    "Daman & Diu", "state", "Daman",
-    "Coastal Coral & Filigree",
-    "Portuguese-influenced filigree gold, coral pendants and shell-bead chokers mark this coastal heritage.",
-    "Daman & Diu's 450-year Portuguese legacy shaped a distinct Indo-European jewelry tradition centered on coral and filigree.",
-    [
-      { name: "Coral Pendants", tagline: "Sea-red gold", description: "Red coral set in 22k gold filigree pendants." },
-      { name: "Cordao", tagline: "Twisted gold rope", description: "Heavy twisted gold chains with Portuguese cross pendants." },
-      { name: "Shell Chokers", tagline: "Beachcomber craft", description: "Cowrie and conch shell chokers strung with gold beads." },
-    ],
-    ["Coral was once the region's prime export.", "Filigree workshops still use 200-year-old tools.", "Portuguese cross motifs blend with Hindu lotus."],
-  ),
   Delhi: make(
     "Delhi", "state", "New Delhi",
     "Polki & Mughal Jadau",

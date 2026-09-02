@@ -51,8 +51,6 @@ const LANDMARKS: Record<string, string[]> = {
   Uttarakhand: ["Nainital", "Kedarnath Temple", "Valley of Flowers National Park"],
   "West Bengal": ["Victoria Memorial, Kolkata", "Howrah Bridge", "Darjeeling"],
   Chandigarh: ["Rock Garden of Chandigarh", "Sukhna Lake", "Capitol Complex, Chandigarh"],
-  "Dadra & Nagar Haveli": ["Silvassa", "Dadra and Nagar Haveli", "Vanganga Lake"],
-  "Daman & Diu": ["Diu Fort", "Nagoa Beach", "Daman, India"],
   Delhi: ["India Gate", "Red Fort", "Qutub Minar"],
   Puducherry: ["Auroville", "Promenade Beach, Pondicherry", "Rock Beach"],
   "Andaman & Nicobar Islands": ["Radhanagar Beach", "Cellular Jail", "Havelock Island"],
