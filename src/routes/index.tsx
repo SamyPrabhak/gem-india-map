@@ -58,7 +58,7 @@ function Index() {
             An Interactive Jewelry Map
           </p>
           <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-6xl md:text-7xl">
-            Jewels of <em className="text-[color:var(--gold-deep)]">India</em>
+            Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
           </h1>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
           <p className="mx-auto mt-4 max-w-xl font-serif text-base text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-3xl">
