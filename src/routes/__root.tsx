@@ -71,7 +71,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <footer className="bg-[color:var(--ivory)] px-4 py-6 text-center text-xs tracking-wide text-[color:var(--ink)]/50">
-          © 2026 Samyuktha Subbian Prabhakaran. All rights reserved.
+          <p>© 2026 Samyuktha Subbian Prabhakaran. All rights reserved.</p>
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.sessionStorage.setItem("replay-splash", "1");
+                window.location.href = "/";
+              }
+            }}
+            className="mt-2 inline-block font-sans text-[11px] uppercase tracking-[0.2em] text-[color:var(--gold-deep)] underline-offset-4 hover:underline"
+          >
+            Replay intro
+          </button>
         </footer>
         <Scripts />
       </body>

@@ -40,6 +40,12 @@ function Index() {
   const [mounted, setMounted] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
   useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.sessionStorage.getItem("replay-splash") === "1") {
+      window.sessionStorage.removeItem("replay-splash");
+      setSplashDone(false);
+    }
+  }, []);
 
   return (
     <>
