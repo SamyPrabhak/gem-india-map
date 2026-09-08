@@ -308,19 +308,19 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Kharu",
         "description": "Kharu is a thick, rigid bangle made of gold or silver, often worn in pairs. The design is simple yet bold, sometimes adorned with intricate engravings and floral patterns. Brides and married women primarily wear Kharu during special occasions and festivals.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539442/S2hhcnU=/preview",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Kharu.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Heibi Mapal",
         "description": "Heibi Mapal is a thick traditional gold necklace whose name literally means \"Heibi plant-like necklace.\" The Heibi plant is revered in Manipuri folklore for its association with protection, healing, and prosperity, and is believed to ward off evil and negative influences. It is a prominent piece of both traditional and bridal Manipuri jewelry.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SGVpYmlfTWFwYWw=/template_primary",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Heibi_Mapal.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Khownappi",
         "description": "Traditional Manipuri earrings made of gold, often bejeweled with emeralds or rubies. They feature elaborate floral or geometric designs with various dangling tiers. Despite their ornate appearance, they are lightweight and worn as a mark of grace and cultural pride.",
-        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539447/S2hvd25hcHBp/drilldown",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Khownappi.jpg",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       }
     ]
@@ -676,12 +676,6 @@ export const csvRegions: CsvRegion[] = [
         "description": "A jadanagam (or jadai nagam) is a traditional South Indian hair ornament shaped like a serpent that is intertwined down a braided plait, while a kunjam (or kunjalam) is the decorative tassel or hanging floral/metal bell piece worn at the very bottom end of the braid.",
         "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvAUIkKK5-Ai2Av9RzLHackqqDQK299elps_YmuZzlq0B3ggRC9RWFnl1nPdVbhbrOQs_2zva34SFfXJQgmBSxR2OOHTqSzsfIczIfBJWsSoOxIdukKArwt0MKEdncbJKNb5eyOb3WD5A/s1600/Jadanagam.jpg",
         "source": "http://blog.zaamordiamonds.com/2016/08/traditional-jewellery-of-tamil-nadu.html"
-      },
-      {
-        "name": "Kal Jhimki",
-        "description": "Fringed with pearls and embellished with precious stones, this versatile pair of jhumkas (dangling earrings) is worn during festive occasions and by brides.",
-        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1788892591/Screenshot_2026-09-08_at_2.36.26_PM.png",
-        "source": "https://weddingsutra.com/bride/bridal-fashion/a-traditional-jewellery-guide-for-the-tamil-bride/"
       },
       {
         "name": "Maangamalai ( mango necklace)",
