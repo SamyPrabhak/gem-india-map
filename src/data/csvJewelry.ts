@@ -678,6 +678,12 @@ export const csvRegions: CsvRegion[] = [
         "source": "http://blog.zaamordiamonds.com/2016/08/traditional-jewellery-of-tamil-nadu.html"
       },
       {
+        "name": "Kal Jhimki",
+        "description": "Fringed with pearls and embellished with precious stones, this versatile pair of jhumkas (dangling earrings) is worn during festive occasions and by brides.",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1788892591/Screenshot_2026-09-08_at_2.36.26_PM.png",
+        "source": "https://weddingsutra.com/bride/bridal-fashion/a-traditional-jewellery-guide-for-the-tamil-bride/"
+      },
+      {
         "name": "Maangamalai ( mango necklace)",
         "description": "The Maangamalai is a necklace of mangoes, stunning in appearance, consisting of stone studded gold mangoes struck together with a huge pendant of encrusted peacock.",
         "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1yfwS8hYFTHPnZJs_rSUdKyvVApxtstRbaXGnyYpT8BZI3HZA-snn7AgdH8aZVJdUhHERDrhIRqRoVuA_dEbiWFWXEPiPA7o_LAKjvJ-_qYT0WmLrpFXVmQfRkW8Ae27BfVEueC98wqA/s1600/Maangamaalai.jpg",
