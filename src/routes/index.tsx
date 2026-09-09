@@ -46,6 +46,9 @@ function Index() {
   const [selected, setSelected] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
+  const search = Route.useSearch();
+  const navigate = useNavigate({ from: "/" });
+
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (typeof window !== "undefined" && window.sessionStorage.getItem("replay-splash") === "1") {
@@ -53,6 +56,12 @@ function Index() {
       setSplashDone(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (search.region && jewelryData[search.region]) {
+      setSelected(search.region);
+    }
+  }, [search.region]);
 
   return (
     <>
