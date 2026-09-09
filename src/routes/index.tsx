@@ -12,6 +12,9 @@ interface HomeSearch {
 const IndiaMap = lazy(() => import("@/components/IndiaMap"));
 
 export const Route = createFileRoute("/")({
+  validateSearch: (search): HomeSearch => ({
+    region: typeof search.region === "string" ? search.region : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Jewels of India — Interactive Map of Regional Jewelry" },
