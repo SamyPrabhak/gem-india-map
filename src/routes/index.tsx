@@ -5,9 +5,9 @@ import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
 
-const searchSchema = {
-  region: "",
-};
+interface HomeSearch {
+  region?: string;
+}
 
 const IndiaMap = lazy(() => import("@/components/IndiaMap"));
 
