@@ -134,7 +134,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
       type: "FeatureCollection",
       features: geo.features.filter((f) => {
         const n = (f.properties as { NAME_1?: string })?.NAME_1 ?? "";
-        return jewelryData[n]?.group === activeGroup;
+        return n === "Jammu and Kashmir";
       }),
     };
   }, [geo, activeGroup]);
