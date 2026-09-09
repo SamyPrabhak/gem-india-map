@@ -80,6 +80,7 @@ function StatePage() {
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
         <Link
           to="/"
+          search={{ region: slug }}
           className="inline-flex items-center gap-2 text-sm text-[color:var(--ink)]/60 transition hover:text-[color:var(--gold-deep)]"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Map
