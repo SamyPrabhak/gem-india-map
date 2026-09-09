@@ -178,15 +178,6 @@ function StatePage() {
             ))}
           </div>
         </section>
-
-        <div className="mt-12">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Map
-          </Link>
-        </div>
       </div>
 
       <ImageLightbox
