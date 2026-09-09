@@ -1,47 +1,22 @@
-## Goal
+# "View More" state jewellery pages
 
-Add a search bar **inside the map area** (overlaid on the map) so users can type a state or island name, pick from suggestions, and have the map fly to it and open the popup.
+Add a gold "View More" button at the end of the Famous Jewellery Styles section in every region popup. It opens a dedicated page for that state, showing its jewellery styles in a larger, richer layout.
 
-## UX
+## What the visitor sees
 
-- Position: floating overlay in the **top-left corner of the map**, with a small margin (~12px) and a soft shadow so it sits above the tiles.
-- Width: ~280px on desktop, shrinks responsively on mobile (max 70% of map width).
-- Input: text field with search icon, placeholder "Search a state or island…".
-- Suggestions dropdown: appears directly below the input, ivory background, gold border, up to 6 matches. Each row shows the region name + small "State" / "Islands" tag.
-- Selecting a suggestion (click or Enter):
-  1. Switches the active tab to that region's group.
-  2. Map flies/zooms to that region with a smooth animation.
-  3. The detail popup opens for that region.
-- Keyboard: Up/Down navigates suggestions, Enter selects, Escape closes.
-- Empty state: "No regions match".
+- In the popup, below the list of styles: a "View More" button.
+- Clicking it opens a full page, e.g. `/state/tamil-nadu`, with:
+  - The state name as the page heading, capital underneath, in the same serif/gold styling as the site.
+  - A short "About" paragraph (same text used in the popup).
+  - All famous jewellery styles as large cards: bigger 4:5 image with the thin gold border, "Tap to enlarge" label, lightbox on click, name, description, and source link.
+  - The state's Fun Facts below.
+  - A "Back to Map" link returning to the home page.
+- The popup keeps showing all styles as it does today.
 
-## Technical approach
+## Technical notes
 
-1. **New component** `src/components/RegionSearch.tsx`
-   - Controlled input + suggestion list (built from existing shadcn `Input`, no new deps).
-   - Builds options from `Object.values(jewelryData)` (name + group).
-   - Props: `onPick(regionKey: string, group: RegionGroup)`.
-   - Styled to look good as a map overlay (ivory bg, gold border, shadow).
-
-2. **Map integration** in `src/components/IndiaMap.tsx`
-   - Render `<RegionSearch />` as an absolutely-positioned child inside the map container div (top-left, `z-[1000]` to sit above Leaflet panes).
-   - Add internal `FlyToRegion` component that uses `useMap()` and reacts to a `focusRegion` state:
-     - For polygon regions: get bounds from the GeoJSON feature → `map.flyToBounds(bounds, { padding: [40, 40], maxZoom: 6 })`.
-     - For Lakshadweep / Andaman: fly to the existing CircleMarker coords at zoom ~6.
-   - When the user picks a region: update `focusRegion`, call `onSelect(name)` (existing prop) so the popup opens, and call a new `onGroupChange(group)` prop so the page can switch tabs.
-
-3. **Page wiring** in `src/routes/index.tsx`
-   - Pass `onGroupChange={setGroup}` to `IndiaMap`.
-   - Existing `onSelect={setSelected}` already opens the popup.
-
-## Out of scope
-
-- Fuzzy matching libraries (simple `includes` is enough for ~30 regions).
-- Search across jewelry styles or fun facts.
-- URL state / shareable links.
-
-## Files touched
-
-- new: `src/components/RegionSearch.tsx`
-- edit: `src/components/IndiaMap.tsx` (overlay search, internal fly-to, new `onGroupChange` prop)
-- edit: `src/routes/index.tsx` (pass `onGroupChange`)
+- New route file `src/routes/state.$slug.tsx` with `createFileRoute("/state/$slug")`.
+- Slug helpers in a small module (e.g. `src/lib/regionSlug.ts`): name → slug and slug → region, matching against `jewelryData` keys; unknown slug renders a not-found message via `notFound()`.
+- Page data comes from `getCsvRegion(name)` first, falling back to `jewelryData[name]` styles, mirroring `RegionPopup` logic; reuse `ImageLightbox`.
+- Per-route `head()` with state-specific title, description, og:title, og:description.
+- In `RegionPopup.tsx`, the button is a TanStack `<Link to="/state/$slug" params={{ slug }}>` that also closes the popup.
