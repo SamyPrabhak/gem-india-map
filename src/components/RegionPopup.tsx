@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { toRegionSlug } from "@/lib/regionSlug";
 import { X, ArrowLeft, Gem } from "lucide-react";
 import type { JewelryInfo } from "@/data/jewelry";
 import { StateImageCarousel } from "@/components/StateImageCarousel";
@@ -205,7 +207,18 @@ export function RegionPopup({ info, onClose }: Props) {
                 </article>
               ))}
             </div>
+            <div className="mt-5 flex justify-center">
+              <Link
+                to="/state/$slug"
+                params={{ slug: toRegionSlug(info.name) }}
+                onClick={onClose}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--gold)] px-5 py-2.5 font-sans text-sm font-medium text-[color:var(--gold-deep)] transition hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
+              >
+                View More
+              </Link>
+            </div>
           </section>
+
 
 
           {/* Fun Facts */}
