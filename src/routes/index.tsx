@@ -112,7 +112,10 @@ function Index() {
 
       <RegionPopup
         info={selected ? jewelryData[selected] : null}
-        onClose={() => setSelected(null)}
+        onClose={() => {
+          setSelected(null);
+          navigate({ to: "/", search: {} });
+        }}
       />
     </main>
     </>
