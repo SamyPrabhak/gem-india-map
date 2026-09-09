@@ -434,18 +434,6 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ],
     ["Dariba Kalan was named for its silver coin trade.", "Many Delhi jewelers trace lineage to Shah Jahan's court.", "Sarpech is making a comeback at modern Indian weddings."],
   ),
-  Puducherry: make(
-    "Puducherry", "state", "Puducherry",
-    "Franco-Tamil Temple Gold",
-    "A blend of Tamil temple jewelry with delicate French-influenced gold chains and cameo pendants.",
-    "Puducherry's 280 years of French rule produced a unique fusion jewelry style — Tamil temple motifs in delicate French gold.",
-    [
-      { name: "Cameo Pendants", tagline: "French-cut profiles", description: "Carved shell cameos set in 22k gold pendants — a Pondy specialty." },
-      { name: "Mango Mala", tagline: "Tamil classic", description: "Repeating gold mango pendants strung in long necklaces." },
-      { name: "Bombay Chain", tagline: "French-finish gold", description: "Lightweight, high-polish gold chains in Parisian designs." },
-    ],
-    ["Pondy jewelers serve French citizens with EU certifications.", "Local goldsmiths blend Tamil and Provençal motifs.", "The town has India's only French-trained jewelry school."],
-  ),
 
   // Islands
   "Andaman and Nicobar": make(
