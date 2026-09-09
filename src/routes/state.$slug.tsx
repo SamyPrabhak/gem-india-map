@@ -77,7 +77,7 @@ function StatePage() {
         color: "var(--ink)",
       }}
     >
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
+      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 sm:py-10">
         <Link
           to="/"
           search={{ region: slug }}
@@ -97,7 +97,7 @@ function StatePage() {
           <div className="mt-5 h-px w-24 bg-[color:var(--gold)]" />
         </header>
 
-        <section className="mt-12">
+        <section className="mt-8">
           <h2 className="font-serif text-2xl text-[color:var(--ink)] sm:text-3xl">
             Famous Jewellery Styles
           </h2>
