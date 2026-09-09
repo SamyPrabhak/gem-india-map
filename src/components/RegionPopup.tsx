@@ -103,7 +103,7 @@ export function RegionPopup({ info, onClose }: Props) {
             </h3>
             <div className="mt-4 flex flex-col gap-3">
               {csv
-                ? csv.pieces.map((p) => (
+                ? csv.pieces.slice(0, 3).map((p) => (
                     <article
                       key={p.name}
                       className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
