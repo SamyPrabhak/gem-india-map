@@ -409,44 +409,6 @@ export const jewelryData: Record<string, JewelryInfo> = {
     ["Shola-pith is a freshwater plant only found in Bengal.", "Sita haar can have up to 7 layers.", "Bengali brides wear iron bangles (loha) covered in gold."],
   ),
 
-  // Union Territories
-  Chandigarh: make(
-    "Chandigarh", "state", "Chandigarh",
-    "Contemporary Punjabi Gold",
-    "A modern hub blending Punjabi kaintha and jhumka traditions with contemporary diamond and platinum design.",
-    "Chandigarh's jewelry market caters to both Punjab and Haryana, blending heritage Punjabi designs with modern diamond cuts.",
-    [
-      { name: "Modern Kaintha", tagline: "Diamond-edge classic", description: "Punjabi kaintha collars updated with diamond pavé borders." },
-      { name: "Pippal Patti", tagline: "Leaf danglers", description: "Lightweight gold leaf earrings popular at Punjabi weddings." },
-      { name: "Tikka", tagline: "Maang-tikka pendant", description: "Forehead ornaments featuring meenakari and uncut diamonds." },
-    ],
-    ["Sector 22 is Chandigarh's traditional gold market.", "Chooda ceremonies remain mandatory for brides.", "Platinum is increasingly chosen over gold here."],
-  ),
-  Delhi: make(
-    "Delhi", "state", "New Delhi",
-    "Polki & Mughal Jadau",
-    "Old Delhi's Dariba Kalan has crafted Mughal-era polki, jadau and meenakari sets for over four centuries.",
-    "Delhi's Dariba Kalan jewelry bazaar dates to the Mughal era and remains India's most prestigious centre for polki and jadau.",
-    [
-      { name: "Polki Sets", tagline: "Uncut Mughal diamonds", description: "Bridal sets featuring uncut diamonds set in 22k gold with reverse meenakari." },
-      { name: "Sarpech", tagline: "Royal turban ornament", description: "Mughal-style turban brooches with emerald drops and ruby centres." },
-      { name: "Aad", tagline: "Bib-style choker", description: "Wide bib-style chokers covering the neck with kundan, polki and pearl drops." },
-    ],
-    ["Dariba Kalan was named for its silver coin trade.", "Many Delhi jewelers trace lineage to Shah Jahan's court.", "Sarpech is making a comeback at modern Indian weddings."],
-  ),
-  Puducherry: make(
-    "Puducherry", "state", "Puducherry",
-    "Franco-Tamil Temple Gold",
-    "A blend of Tamil temple jewelry with delicate French-influenced gold chains and cameo pendants.",
-    "Puducherry's 280 years of French rule produced a unique fusion jewelry style — Tamil temple motifs in delicate French gold.",
-    [
-      { name: "Cameo Pendants", tagline: "French-cut profiles", description: "Carved shell cameos set in 22k gold pendants — a Pondy specialty." },
-      { name: "Mango Mala", tagline: "Tamil classic", description: "Repeating gold mango pendants strung in long necklaces." },
-      { name: "Bombay Chain", tagline: "French-finish gold", description: "Lightweight, high-polish gold chains in Parisian designs." },
-    ],
-    ["Pondy jewelers serve French citizens with EU certifications.", "Local goldsmiths blend Tamil and Provençal motifs.", "The town has India's only French-trained jewelry school."],
-  ),
-
   // Islands
   "Andaman and Nicobar": make(
     "Andaman & Nicobar Islands", "island", "Port Blair",
