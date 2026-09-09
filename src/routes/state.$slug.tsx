@@ -83,7 +83,7 @@ function StatePage() {
           search={{ region: slug }}
           className="inline-flex items-center gap-2 text-sm text-[color:var(--ink)]/60 transition hover:text-[color:var(--gold-deep)]"
         >
-          <ArrowLeft className="h-4 w-4" /> Back to Map
+          <ArrowLeft className="h-4 w-4" /> Back to state popup
         </Link>
 
         <header className="mt-6">
