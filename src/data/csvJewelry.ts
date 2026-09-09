@@ -30,6 +30,12 @@ export const csvRegions: CsvRegion[] = [
         "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
       },
       {
+        "name": "Kana-Door",
+        "description": "Made of gold and studded with red or green pearls, kana-door also refers to ‘beloved’ in Kashmiri poetry.",
+        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Kana-Door_001.jpg",
+        "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
+      },
+      {
         "name": "Gunus",
         "description": "An ornament for the wrist, gunus is a thick gold bangle and has the head of a snake or a lion at both ends. This design is one of many gold designs inspired by wildlife.",
         "imageUrl": "https://www.mygoldguide.in/sites/default/files/Gunus_001.jpg",
@@ -91,7 +97,7 @@ export const csvRegions: CsvRegion[] = [
     "pieces": [
       {
         "name": "Bulaq",
-        "description": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-punjabi-bride/",
+        "description": "A gold ornament that is worn by piercing the septum of the nose, the bulaq is known for its intricately hand-crafted motifs.",
         "imageUrl": "https://www.mygoldguide.in/sites/default/files/Wearing_gold_in_Uttarakhand_Bulaq_001.jpg",
         "source": "https://www.mygoldguide.in/uttarakhand-traditional-jewellery-charm-of-pahari-women"
       },
@@ -177,6 +183,12 @@ export const csvRegions: CsvRegion[] = [
         "name": "Haath Phool",
         "description": "Haath Phool is a piece of jewellery which adorns the back of the palm and the wrist. It is an accessory that has one or multiple delicate chains connected to a bangle or a bracelet with an adjustable ring. Royal Haath Phools are made of precious metals and stones like gold, meenakari, kundan, and sometimes Jadau.",
         "imageUrl": "https://cdn.shopify.com/s/files/1/2798/8644/files/MJ-PNJ-02-XJET-01.jpg?v=1594712855",
+        "source": "https://meirajewellery.com/en-us/pages/rajasthani-jewellery"
+      },
+      {
+        "name": "Timaniya / Aad",
+        "description": "Timaniya is also known as Aad in Rajasthani language. It is a square or a rectangle shaped choker which is usually gifted to the bride by the family of the groom. It looks rich and enhances the overall aura of the bride.",
+        "imageUrl": "https://cdn.shopify.com/s/files/1/2798/8644/files/AD-SKF-1188-XIBE-02.jpg",
         "source": "https://meirajewellery.com/en-us/pages/rajasthani-jewellery"
       }
     ]
@@ -308,19 +320,19 @@ export const csvRegions: CsvRegion[] = [
       {
         "name": "Kharu",
         "description": "Kharu is a thick, rigid bangle made of gold or silver, often worn in pairs. The design is simple yet bold, sometimes adorned with intricate engravings and floral patterns. Brides and married women primarily wear Kharu during special occasions and festivals.",
-        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Kharu.jpg",
+        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539442/S2hhcnU=/preview",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Heibi Mapal",
         "description": "Heibi Mapal is a thick traditional gold necklace whose name literally means \"Heibi plant-like necklace.\" The Heibi plant is revered in Manipuri folklore for its association with protection, healing, and prosperity, and is believed to ward off evil and negative influences. It is a prominent piece of both traditional and bridal Manipuri jewelry.",
-        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Heibi_Mapal.jpg",
+        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SGVpYmlfTWFwYWw=/template_primary",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       },
       {
         "name": "Khownappi",
         "description": "Traditional Manipuri earrings made of gold, often bejeweled with emeralds or rubies. They feature elaborate floral or geometric designs with various dangling tiers. Despite their ornate appearance, they are lightweight and worn as a mark of grace and cultural pride.",
-        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Khownappi.jpg",
+        "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539447/S2hvd25hcHBp/drilldown",
         "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
       }
     ]
@@ -435,6 +447,12 @@ export const csvRegions: CsvRegion[] = [
         "name": "Mantasha",
         "description": "A broad, delicately hewn wristlet with golden lacework, the mantasha also includes a dainty ring that hooks onto one of the bride’s fingers",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786556823/Screenshot_2026-08-12_at_1.46.58_PM.png",
+        "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-bengali-bride/"
+      },
+      {
+        "name": "Dul",
+        "description": "An earring that encompasses the entire ear with its ornate design, the kanner dul is a classic masterpiece of Bengali luxury and is usually worn by women only on festive occasions.",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1788977199/Screenshot_2026-09-09_at_2.06.34_PM.png",
         "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-bengali-bride/"
       },
       {
@@ -630,6 +648,12 @@ export const csvRegions: CsvRegion[] = [
         "source": "https://www.southindianjewels.in/post/traditional-jewellery-of-kannadiga-bride"
       },
       {
+        "name": "Gejje Addige",
+        "description": "\"Gejje\" means small bells or beads, and \"Addige\" means hanging or necklace in Kannada. It is made of small metallic bells or gold balls strung together.",
+        "imageUrl": "https://shop.swarna.com/wp-content/uploads/2023/01/NG6522_1.jpg",
+        "source": "https://shop.swarna.com/product/ng6522/?srsltid=AfmBOop6ijIGsEcy0MX0bIxOTsknQLvNUoYTNx8hl7V2MGyH55VLN2i8&__cf_chl_tk=FCwDR_VlDZUBMbLxo.HqO7h59ibnpRiAqPSYJCTJmY4-1788976786-1.0.1.1-ZicjRiD0MfeWZuuvD7rT_li8xkQKcRA4uh5uyFWv4V8"
+      },
+      {
         "name": "Giliola Sara (Necklace)",
         "description": "Earrings with plenty of precious stones and pearls studded in the shape of parrots. The word Gili means parrot in Kannada and Ole means danglers. Gili ole represents parrot danglers.",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786541536/Giliola_Sara.png",
@@ -782,7 +806,6 @@ export const csvRegions: CsvRegion[] = [
     ]
   }
 ];
-
 
 const normalize = (s: string) =>
   s.toLowerCase().replace(/&/g, "and").replace(/\bislands?\b/g, "").replace(/[^a-z]/g, "");
