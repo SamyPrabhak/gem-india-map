@@ -97,7 +97,7 @@ function StatePage() {
           <div className="mt-5 h-px w-24 bg-[color:var(--gold)]" />
         </header>
 
-        <section className="mt-12">
+        <section className="mt-8">
           <h2 className="font-serif text-2xl text-[color:var(--ink)] sm:text-3xl">
             Famous Jewellery Styles
           </h2>
