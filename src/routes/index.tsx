@@ -1,13 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { GroupTabs } from "@/components/GroupTabs";
 import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
 
+interface HomeSearch {
+  region?: string;
+}
+
 const IndiaMap = lazy(() => import("@/components/IndiaMap"));
 
 export const Route = createFileRoute("/")({
+  validateSearch: (search): HomeSearch => ({
+    region: typeof search.region === "string" ? search.region : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Jewels of India — Interactive Map of Regional Jewelry" },
@@ -39,6 +46,9 @@ function Index() {
   const [selected, setSelected] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
+  const search = Route.useSearch();
+  const navigate = useNavigate({ from: "/" });
+
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (typeof window !== "undefined" && window.sessionStorage.getItem("replay-splash") === "1") {
@@ -46,6 +56,12 @@ function Index() {
       setSplashDone(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (search.region && jewelryData[search.region]) {
+      setSelected(search.region);
+    }
+  }, [search.region]);
 
   return (
     <>
@@ -96,7 +112,10 @@ function Index() {
 
       <RegionPopup
         info={selected ? jewelryData[selected] : null}
-        onClose={() => setSelected(null)}
+        onClose={() => {
+          setSelected(null);
+          navigate({ to: "/", search: {} });
+        }}
       />
     </main>
     </>
