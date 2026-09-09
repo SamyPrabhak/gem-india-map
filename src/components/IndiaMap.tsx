@@ -134,7 +134,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
       type: "FeatureCollection",
       features: geo.features.filter((f) => {
         const n = (f.properties as { NAME_1?: string })?.NAME_1 ?? "";
-        return jewelryData[n]?.group === activeGroup;
+        return n === "Jammu and Kashmir";
       }),
     };
   }, [geo, activeGroup]);
@@ -156,10 +156,10 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         style={{ height: "100%", width: "100%", background: "#FBF7EE" }}
         attributionControl={false}
       >
-        {geo && (
+        {filteredFC && (
           <GeoJSON
             key="india"
-            data={geo}
+            data={filteredFC}
             style={styleFor as L.StyleFunction}
             onEachFeature={onEach}
             ref={(l) => {
@@ -167,32 +167,6 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
             }}
           />
         )}
-        {/* Island clickable markers (polygons too small to click) */}
-        {[
-          { name: "Lakshadweep", pos: ISLAND_COORDS.Lakshadweep },
-          { name: "Andaman and Nicobar", pos: ISLAND_COORDS["Andaman and Nicobar"] },
-        ].map(({ name, pos }) => {
-          const info = jewelryData[name];
-          if (!info) return null;
-          const diamondIcon = L.divIcon({
-            className: "india-diamond-icon",
-            html: `<div style="width:14px;height:14px;background:${GOLD};border:2px solid ${GOLD_DEEP};transform:rotate(45deg);box-shadow:0 2px 6px rgba(42,38,34,0.35);"></div>`,
-            iconSize: [18, 18],
-            iconAnchor: [9, 9],
-          });
-          return (
-            <Marker
-              key={name}
-              position={pos}
-              icon={diamondIcon}
-              eventHandlers={{ click: () => onSelect(name) }}
-            >
-              <Tooltip direction="top" className="india-tooltip">
-                {info.name}
-              </Tooltip>
-            </Marker>
-          );
-        })}
         <FitToFeatures data={filteredFC} key={groupBoundsKey} />
         <FlyToRegion
           regionKey={focusRegion}
