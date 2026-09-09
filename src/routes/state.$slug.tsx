@@ -4,8 +4,6 @@ import { ArrowLeft, Gem } from "lucide-react";
 import { getRegionBySlug } from "@/lib/regionSlug";
 import { getCsvRegion } from "@/data/csvJewelry";
 import { ImageLightbox } from "@/components/ImageLightbox";
-import { StateImageCarousel } from "@/components/StateImageCarousel";
-import { StateSummary } from "@/components/StateSummary";
 
 export const Route = createFileRoute("/state/$slug")({
   loader: ({ params }) => {
@@ -98,20 +96,6 @@ function StatePage() {
           <div className="mt-5 h-px w-24 bg-[color:var(--gold)]" />
         </header>
 
-        <section className="mt-8">
-          <h2 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
-            About the {groupLabel}
-          </h2>
-          <div className="mt-5 max-w-2xl">
-            <StateImageCarousel query={info.name} />
-          </div>
-          <StateSummary
-            query={info.name}
-            fallback={info.about}
-            override={csv?.about ?? info.aboutOverride}
-          />
-        </section>
-
         <section className="mt-12">
           <h2 className="font-serif text-2xl text-[color:var(--ink)] sm:text-3xl">
             Famous Jewellery Styles
@@ -194,32 +178,6 @@ function StatePage() {
             ))}
           </div>
         </section>
-
-        <section className="mt-12">
-          <h2 className="font-serif text-2xl text-[color:var(--ink)] sm:text-3xl">Fun Facts</h2>
-          <ul className="mt-5 flex flex-col gap-2">
-            {info.funFacts.map((f, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 rounded-xl border border-[color:var(--gold)]/25 bg-[#f7ecc4] px-4 py-3 text-sm text-[color:var(--ink)]/85"
-              >
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[color:var(--gold)]/25">
-                  <Gem className="h-3.5 w-3.5 text-[color:var(--gold-deep)]" />
-                </span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <div className="mt-12">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Map
-          </Link>
-        </div>
       </div>
 
       <ImageLightbox
