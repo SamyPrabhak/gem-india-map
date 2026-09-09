@@ -284,15 +284,6 @@ export const jewelryPieces: JewelryPiece[] = [
     "source": "https://www.myindianproducts.com/gi-products/nicobari-jewellery"
   },
   {
-    "state": "Delhi",
-    "jewelry_name": "",
-    "materials": "",
-    "technique": "",
-    "cultural_significance": "",
-    "image_url": "",
-    "source": "https://oaklores.com/2024/10/01/meenakari-of-delhi-a-detailed-history-of-intricate-enamel-art/"
-  },
-  {
     "state": "Lakshadweep",
     "jewelry_name": "",
     "materials": "",

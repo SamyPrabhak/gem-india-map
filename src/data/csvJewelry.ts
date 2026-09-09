@@ -134,30 +134,6 @@ export const csvRegions: CsvRegion[] = [
     ]
   },
   {
-    "state": "Delhi",
-    "about": "Delhi, officially the National Capital Territory (NCT) of Delhi, is a megacity and union territory of India, home to New Delhi, the nation's capital. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, alongside the sprawling Jama Masjid mosque and Chandni Chowk, a vibrant bazaar filled with food carts, sweet shops, and spice stalls.",
-    "pieces": [
-      {
-        "name": "Kundan Jewelry",
-        "description": "A style of Highly refined gold-foil gem-setting that creates dense, regal bridal necklace and earring sets.Kundan uses glass or synthetic stones set in gold foil, making it a lighter and more budget-friendly choice",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGRVIweh2TpL0-NcjtomTL5rye32IDrA-fddWCTn5Xqylx3F_LFSG_GC0&s=10",
-        "source": "Google"
-      },
-      {
-        "name": "Polki Jewelry",
-        "description": "High-end uncut diamond and gemstone jewellery created by embedding stones into heated gold frames filled with lac.",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs7-ntf4VpsZKpNwnF384JKXo_B2qhZ1GyqEbSzMl-dw&s=10",
-        "source": "Google"
-      },
-      {
-        "name": "Meenakari Jewelry",
-        "description": "An elaborate art combining goldsmith techniques and vibrant enamel painting, often depicting birds, flowers, and fish on gold.",
-        "imageUrl": "https://www.culturalindia.net/iliimages/Meenakari-Jewelry-1.jpg",
-        "source": "https://www.culturalindia.net/jewellery/types/meenakari.html"
-      }
-    ]
-  },
-  {
     "state": "Rajasthan",
     "about": "Rajasthan is a state in northwestern India and the largest Indian state by area. Its culture is a vibrant tapestry of royal Rajput heritage, characterized by bold colors, grand forts, deeply rooted folk music, and warm hospitality.",
     "pieces": [
