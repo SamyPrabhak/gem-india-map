@@ -77,7 +77,7 @@ function StatePage() {
         color: "var(--ink)",
       }}
     >
-      <div className="mx-auto max-w-4xl px-[11px] py-6 sm:px-[17px] sm:py-10">
+      <div className="mx-auto max-w-6xl px-[11px] py-6 sm:px-[17px] sm:py-10">
         <Link
           to="/"
           search={{ region: slug }}
