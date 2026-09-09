@@ -4,6 +4,8 @@ import { ArrowLeft, Gem } from "lucide-react";
 import { getRegionBySlug } from "@/lib/regionSlug";
 import { getCsvRegion } from "@/data/csvJewelry";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { StateImageCarousel } from "@/components/StateImageCarousel";
+import { StateSummary } from "@/components/StateSummary";
 
 export const Route = createFileRoute("/state/$slug")({
   loader: ({ params }) => {
@@ -94,10 +96,21 @@ function StatePage() {
             Capital: <span className="text-[color:var(--ink)]/80">{info.capital}</span>
           </p>
           <div className="mt-5 h-px w-24 bg-[color:var(--gold)]" />
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color:var(--ink)]/75 sm:text-base">
-            {csv?.about ?? info.aboutOverride ?? info.about}
-          </p>
         </header>
+
+        <section className="mt-8">
+          <h2 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
+            About the {groupLabel}
+          </h2>
+          <div className="mt-5 max-w-2xl">
+            <StateImageCarousel query={info.name} />
+          </div>
+          <StateSummary
+            query={info.name}
+            fallback={info.about}
+            override={csv?.about ?? info.aboutOverride}
+          />
+        </section>
 
         <section className="mt-12">
           <h2 className="font-serif text-2xl text-[color:var(--ink)] sm:text-3xl">
