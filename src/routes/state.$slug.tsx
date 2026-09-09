@@ -102,8 +102,8 @@ function StatePage() {
             Famous Jewellery Styles
           </h2>
 
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {pieces.map((p) => (
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {pieces.slice(0, 3).map((p) => (
               <article
                 key={p.name}
                 className="rounded-2xl border border-[color:var(--gold)]/30 bg-white/70 p-5 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md"
