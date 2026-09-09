@@ -52,6 +52,7 @@ const LANDMARKS: Record<string, string[]> = {
   "West Bengal": ["Victoria Memorial, Kolkata", "Howrah Bridge", "Darjeeling"],
   Chandigarh: ["Rock Garden of Chandigarh", "Sukhna Lake", "Capitol Complex, Chandigarh"],
   Delhi: ["India Gate", "Red Fort", "Qutub Minar"],
+  
   "Andaman & Nicobar Islands": ["Radhanagar Beach", "Cellular Jail", "Havelock Island"],
   Lakshadweep: ["Agatti Island", "Bangaram Island", "Kavaratti"],
 };
