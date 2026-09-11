@@ -86,7 +86,7 @@ function Index() {
           <h2 className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-[color:var(--ink)]/70 sm:mt-5 sm:text-base md:text-lg">
             Discover the craftsmanship, materials, and cultural stories behind jewelry from every region of India — click any state to explore.
           </h2>
-          <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
+          
         </header>
 
         <div className="mt-10 flex flex-col items-center gap-4">
