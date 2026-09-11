@@ -11,7 +11,7 @@ export interface CsvRegion {
   pieces: CsvJewelryPiece[];
 }
 
-/** Generated from the Jewels of India dataset. */
+/** Generated from The Jewels of India dataset. */
 export const csvRegions: CsvRegion[] = [
   {
     "state": "Jammu & Kashmir",
