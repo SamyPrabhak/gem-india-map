@@ -80,7 +80,9 @@ function Index() {
             An Interactive Jewelry Map
           </p>
           <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-6xl md:text-7xl">
-            The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>: An Interactive Map of Regional Jewelry Traditions
+             The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>:{"\u00a0"}
+             <br />
+             An Interactive Map of Regional Jewelry Traditions
           </h1>
           <h2 className="mx-auto mt-4 max-w-2xl font-serif text-base text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-2xl">
             Discover the craftsmanship, materials, and cultural stories behind jewelry from every region of India — click any state to explore.
