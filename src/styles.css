@@ -36,6 +36,35 @@ body {
 .india-tooltip::before { display: none !important; }
 .leaflet-container { font-family: var(--font-sans); }
 
+/* Gold cursor accent on interactive elements (mouse/touchpad only) */
+@media (hover: hover) and (pointer: fine) {
+  a,
+  button,
+  [role="button"],
+  summary,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .leaflet-container .leaflet-interactive,
+  .cursor-gold {
+    cursor: url("/gold-cursor.svg") 0 0, auto;
+  }
+
+  /* Keep default text cursor on inputs and selectable text */
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  textarea,
+  [contenteditable],
+  .cursor-text {
+    cursor: text;
+  }
+}
+
 
 /*
  * Design system definition.
