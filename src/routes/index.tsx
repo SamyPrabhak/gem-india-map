@@ -17,16 +17,16 @@ export const Route = createFileRoute("/")({
   }),
   head: () => ({
     meta: [
-      { title: "The Jewels of India | Interactive Map of Regional Indian Jewelry Traditions" },
+      { title: "Jewels of India — Interactive Map of Regional Jewelry" },
       {
         name: "description",
         content:
-          "Explore India's jewelry heritage region by region. The Jewels of India is an interactive map covering all 36 states and union territories, from Kundan in Rajasthan to Temple jewelry in Tamil Nadu.",
+          "Explore India's regional jewelry traditions. Click any state, union territory, or island to discover its signature ornaments.",
       },
-      { property: "og:title", content: "The Jewels of India — Interactive Map of Regional Jewelry Traditions" },
+      { property: "og:title", content: "Jewels of India — Interactive Map" },
       {
         property: "og:description",
-        content: "Explore India's jewelry heritage region by region. The Jewels of India is an interactive map covering all 36 states and union territories, from Kundan in Rajasthan to Temple jewelry in Tamil Nadu.",
+        content: "An interactive political map celebrating India's jewelry heritage.",
       },
     ],
   }),
@@ -80,14 +80,12 @@ function Index() {
             An Interactive Jewelry Map
           </p>
           <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-6xl md:text-7xl">
-             The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>:{"\u00a0\u00a0"}
-             <br />
-             An Interactive Map of Regional Jewelry Traditions
+            Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
           </h1>
-          <h2 className="mx-auto mt-4 max-w-3xl font-serif text-2xl leading-snug text-[color:var(--ink)]/75 sm:mt-5 sm:text-4xl md:text-5xl">
-            Discover the craftsmanship, materials, and cultural stories behind jewelry from every region of India — click any state to explore.
-          </h2>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
+          <p className="mx-auto mt-4 max-w-xl font-serif text-base text-[color:var(--ink)]/75 sm:mt-5 sm:text-lg md:text-3xl">
+            ​Discover the vast jewelry ecosystem across India
+          </p>
         </header>
 
         <div className="mt-10 flex flex-col items-center gap-4">
@@ -97,7 +95,7 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-8" role="img" aria-label="Interactive map of India showing regional jewelry traditions">
+        <div className="mt-8">
           {mounted ? (
             <Suspense fallback={<MapFallback />}>
               <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />

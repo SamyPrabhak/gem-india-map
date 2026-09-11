@@ -1,5 +1,5 @@
 # Interactive Jewelry Map  
-# 💎 The Jewels of India 
+# 💎 Jewels of India 
 
 An interactive map exploring India's rich jewelry traditions.
 
