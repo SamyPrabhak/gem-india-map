@@ -111,7 +111,7 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
 
         {/* Title */}
         <h2 className="mt-6 font-serif text-4xl leading-tight text-[color:var(--ink)] sm:text-5xl md:text-6xl">
-          Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
+          The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
         </h2>
         <p className="mt-3 font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
           An Interactive Jewelry Map
