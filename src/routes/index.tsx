@@ -84,7 +84,7 @@ function Index() {
              <br />
              An Interactive Map of Regional Jewelry Traditions
           </h1>
-          <h2 className="mx-auto mt-4 max-w-3xl font-serif text-xl leading-snug text-[color:var(--ink)]/75 sm:mt-5 sm:text-3xl md:text-4xl">
+          <h2 className="mx-auto mt-4 max-w-3xl font-serif text-2xl leading-snug text-[color:var(--ink)]/75 sm:mt-5 sm:text-4xl md:text-5xl">
             Discover the craftsmanship, materials, and cultural stories behind jewelry from every region of India — click any state to explore.
           </h2>
           <div className="mx-auto mt-4 h-px w-20 bg-[color:var(--gold)] sm:mt-5 sm:w-24" />
