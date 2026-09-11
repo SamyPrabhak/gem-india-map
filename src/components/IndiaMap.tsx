@@ -146,7 +146,11 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
   };
 
   return (
-    <div className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
+    <div
+      className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]"
+      role="img"
+      aria-label="Interactive map of India showing regional jewelry traditions"
+    >
       <MapContainer
         center={[22.5, 80]}
         zoom={4}
