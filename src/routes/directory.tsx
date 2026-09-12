@@ -1,59 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-
-const FILTERS = [
-  "All",
-  "Small Business",
-  "Diaspora Brands",
-  "Upcoming Designers",
-  "Traditional",
-  "Contemporary",
-] as const;
-
-type Filter = (typeof FILTERS)[number];
-
-interface Brand {
-  id: string;
-  name: string;
-  location: string;
-  description: string;
-  jewelryType: string;
-  website: string;
-  category: Filter;
-}
-
-const PLACEHOLDER_BRANDS: Brand[] = [
-  {
-    id: "1",
-    name: "Kundan Kala",
-    location: "Jaipur, Rajasthan",
-    description:
-      "A family-run studio specializing in hand-polished Kundan and Meenakari pieces inspired by royal Rajasthani archives.",
-    jewelryType: "Kundan, Meenakari",
-    website: "https://example.com/kundankala",
-    category: "Traditional",
-  },
-  {
-    id: "2",
-    name: "Indus Modern",
-    location: "Mumbai, Maharashtra / New York, USA",
-    description:
-      "Contemporary silhouettes rooted in South Asian symbolism, designed for the global Indian diaspora.",
-    jewelryType: "Contemporary Fine Jewelry",
-    website: "https://example.com/indusmodern",
-    category: "Diaspora Brands",
-  },
-  {
-    id: "3",
-    name: "Ettika Atelier",
-    location: "Bengaluru, Karnataka",
-    description:
-      "An emerging designer reinterpreting temple motifs into lightweight, wearable art for everyday elegance.",
-    jewelryType: "Temple-Inspired Contemporary",
-    website: "https://example.com/ettikaatelier",
-    category: "Upcoming Designers",
-  },
-];
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/directory")({
   head: () => ({
@@ -83,13 +28,6 @@ export const Route = createFileRoute("/directory")({
 });
 
 function DirectoryPage() {
-  const [activeFilter, setActiveFilter] = useState<Filter>("All");
-
-  const filtered =
-    activeFilter === "All"
-      ? PLACEHOLDER_BRANDS
-      : PLACEHOLDER_BRANDS.filter((b) => b.category === activeFilter);
-
   return (
     <main
       className="min-h-screen"
@@ -99,7 +37,7 @@ function DirectoryPage() {
         color: "var(--ink)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
+      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
           <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
             Directory
@@ -112,77 +50,115 @@ function DirectoryPage() {
           </h2>
         </header>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {FILTERS.map((filter) => {
-            const isActive = activeFilter === filter;
-            return (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`rounded-full px-4 py-2 text-xs font-medium tracking-wide transition sm:text-sm ${
-                  isActive
-                    ? "bg-[color:var(--gold)] text-[color:var(--ink)] shadow"
-                    : "border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]"
-                }`}
-              >
-                {filter}
-              </button>
-            );
-          })}
-        </div>
+        <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
+          {/* Diamond shine animation */}
+          <div className="relative h-28 w-28 sm:h-36 sm:w-36">
+            <div className="diamond-glow absolute inset-0 rounded-full bg-[#c9a24b]/20 blur-2xl" />
+            <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
 
-        <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((brand) => (
-            <article
-              key={brand.id}
-              className="flex flex-col rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] p-6 shadow-sm transition hover:shadow-md"
+            <svg
+              viewBox="0 0 120 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="relative h-full w-full drop-shadow-[0_14px_34px_rgba(201,162,75,0.35)]"
             >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="font-serif text-xl font-semibold leading-tight">
-                  {brand.name}
-                </h3>
-                <span className="shrink-0 rounded-full border border-[color:var(--gold)]/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[color:var(--gold-deep)]">
-                  {brand.jewelryType}
-                </span>
-              </div>
-              <p className="mt-2 font-sans text-xs font-medium uppercase tracking-wider text-[color:var(--gold-deep)]">
-                {brand.location}
-              </p>
-              <p className="mt-4 flex-grow font-sans text-sm leading-relaxed text-[color:var(--ink)]/80">
-                {brand.description}
-              </p>
-              <a
-                href={brand.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1 font-sans text-sm font-medium text-[color:var(--gold-deep)] underline-offset-4 hover:underline"
-              >
-                Visit website
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            </article>
-          ))}
-        </section>
+              <path
+                d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+                fill="url(#diaFillDir)"
+                opacity="0.35"
+              />
+              <path
+                d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+                stroke="#B08A33"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M12 52 L108 52"
+                stroke="#B08A33"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
+              <path d="M40 37.5 L32 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 34 L60 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M80 37.5 L88 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M32 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M88 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <defs>
+                <linearGradient id="diaFillDir" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#F9E8B8" />
+                  <stop offset="100%" stopColor="#C9A24B" />
+                </linearGradient>
+              </defs>
+            </svg>
 
-        {filtered.length === 0 && (
-          <p className="mt-12 text-center font-sans text-sm text-[color:var(--ink)]/60">
-            No brands match this filter yet. Check back soon.
+            <span className="star-sparkle star-1">✦</span>
+            <span className="star-sparkle star-2">✦</span>
+            <span className="star-sparkle star-3">✦</span>
+            <span className="star-sparkle star-4">✦</span>
+            <span className="star-sparkle star-5">✦</span>
+            <span className="star-sparkle star-6">✦</span>
+          </div>
+
+          <p className="mt-8 font-serif text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl md:text-5xl">
+            Coming Soon
           </p>
-        )}
+          <p className="mx-auto mt-3 max-w-md font-sans text-sm leading-relaxed text-[color:var(--ink)]/70 sm:text-base">
+            A curated collection of independent Indian jewelry brands, small businesses, and designers from the diaspora is on its way.
+          </p>
+        </section>
       </div>
+
+      <style>{`
+        .diamond-glow {
+          animation: glowPulse 2.4s ease-in-out infinite;
+        }
+        .shimmer-bar {
+          background: linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.85) 50%,
+            transparent 65%
+          );
+          animation: shimmerSweep 2s linear infinite;
+          mix-blend-mode: overlay;
+        }
+        .star-sparkle {
+          position: absolute;
+          color: #c9a24b;
+          font-size: 14px;
+          line-height: 1;
+          opacity: 0;
+          text-shadow: 0 0 8px rgba(201, 162, 75, 0.9);
+          animation: starTwinkle 2.2s ease-in-out infinite;
+        }
+        .star-1 { top: 5%; left: 55%; animation-delay: 0s; }
+        .star-2 { top: 22%; right: 0%; animation-delay: 0.3s; }
+        .star-3 { bottom: 28%; right: 6%; animation-delay: 0.65s; }
+        .star-4 { bottom: 12%; left: 12%; animation-delay: 1s; }
+        .star-5 { top: 28%; left: 0%; animation-delay: 1.35s; }
+        .star-6 { top: 48%; right: -8%; animation-delay: 1.7s; }
+
+        @keyframes glowPulse {
+          0%, 100% { transform: scale(0.92); opacity: 0.55; }
+          50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        @keyframes shimmerSweep {
+          0% { transform: translateX(-100%) skewX(-20deg); }
+          100% { transform: translateX(100%) skewX(-20deg); }
+        }
+        @keyframes starTwinkle {
+          0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+          25% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+          55% { opacity: 0.5; transform: scale(0.7) rotate(90deg); }
+          80%, 100% { opacity: 0; transform: scale(0.3) rotate(135deg); }
+        }
+      `}</style>
     </main>
   );
 }
+
+export default DirectoryPage;
