@@ -62,6 +62,40 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+function Header() {
+  return (
+    <header className="border-b border-[color:var(--gold)]/20 bg-[color:var(--ivory)]/80 px-4 py-4 backdrop-blur-sm sm:px-5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
+        <Link
+          to="/"
+          className="font-serif text-lg font-semibold tracking-tight text-[color:var(--ink)] sm:text-xl"
+        >
+          The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
+        </Link>
+        <nav className="flex items-center gap-4 sm:gap-6">
+          <Link
+            to="/"
+            activeProps={{ className: "text-[color:var(--gold-deep)]" }}
+            inactiveProps={{ className: "text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]" }}
+            activeOptions={{ exact: true }}
+            className="font-sans text-xs font-medium uppercase tracking-wider transition"
+          >
+            Map
+          </Link>
+          <Link
+            to="/directory"
+            activeProps={{ className: "text-[color:var(--gold-deep)]" }}
+            inactiveProps={{ className: "text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]" }}
+            className="font-sans text-xs font-medium uppercase tracking-wider transition"
+          >
+            Directory
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -69,6 +103,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <Header />
         {children}
         <footer className="bg-[color:var(--ivory)] px-4 py-6 text-center text-xs tracking-wide text-[color:var(--ink)]/50">
           <p>© 2026 Samyuktha Subbian Prabhakaran. All rights reserved.</p>
