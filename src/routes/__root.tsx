@@ -74,15 +74,6 @@ function Header() {
         </Link>
         <nav className="flex items-center gap-4 sm:gap-6">
           <Link
-            to="/"
-            activeProps={{ className: "text-[color:var(--gold-deep)]" }}
-            inactiveProps={{ className: "text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]" }}
-            activeOptions={{ exact: true }}
-            className="font-sans text-xs font-medium uppercase tracking-wider transition"
-          >
-            Map
-          </Link>
-          <Link
             to="/directory"
             activeProps={{ className: "text-[color:var(--gold-deep)]" }}
             inactiveProps={{ className: "text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]" }}
