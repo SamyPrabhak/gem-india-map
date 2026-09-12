@@ -45,9 +45,6 @@ function DirectoryPage() {
           <h1 className="mt-3 font-serif text-2xl leading-tight sm:text-4xl md:text-5xl">
             Indian Jewelry Directory
           </h1>
-          <h2 className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-[color:var(--ink)]/70 sm:mt-5 sm:text-base md:text-lg">
-            Discover independent Indian jewelry brands, small businesses, and designers from the Indian diaspora
-          </h2>
         </header>
 
         <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
