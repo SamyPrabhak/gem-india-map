@@ -48,20 +48,20 @@ export function RegionPopup({ info, onClose }: Props) {
       onClick={onClose}
     >
       <div
-        className="relative flex max-h-[100vh] w-full max-w-2xl flex-col overflow-hidden rounded-none border border-[color:var(--gold)]/40 bg-[color:var(--ivory)] shadow-2xl sm:max-h-[90vh] sm:rounded-2xl"
+        className="relative flex max-h-[100vh] w-full max-w-2xl flex-col overflow-hidden rounded-none border border-[color:var(--gold-border)] bg-[color:var(--ivory)] shadow-2xl sm:max-h-[90vh] sm:rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-4 py-4 sm:px-8 sm:py-6">
+        <div className="sticky top-0 z-10 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-[color:var(--gold-border)] bg-[color:var(--ivory)] px-4 py-4 sm:px-8 sm:py-6">
           <div className="min-w-0">
-            <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
+            <p className="label-gold">
               {groupLabel}
             </p>
-            <h1 className="mt-1 break-words font-serif text-3xl leading-tight text-[color:var(--ink)] sm:text-5xl md:text-6xl">
+            <h1 className="mt-1 break-words font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-5xl md:text-6xl">
               {info.name}
             </h1>
-            <p className="mt-1 text-sm text-[color:var(--ink)]/60 sm:text-base">
-              Capital: <span className="text-[color:var(--ink)]/80">{info.capital}</span>
+            <p className="mt-1 text-sm text-[color:var(--text-muted)] sm:text-base">
+              Capital: <span className="text-[color:var(--text-secondary)]">{info.capital}</span>
             </p>
           </div>
           <button
@@ -77,7 +77,7 @@ export function RegionPopup({ info, onClose }: Props) {
         <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8">
           {/* About */}
           <section className="mt-2">
-            <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
+            <h3 className="label-gold">
               About the {info.group === "island" ? "Region" : groupLabel}
             </h3>
             <div className="mt-4">
@@ -106,7 +106,7 @@ export function RegionPopup({ info, onClose }: Props) {
                 ? csv.pieces.slice(0, 3).map((p) => (
                     <article
                       key={p.name}
-                      className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
+                      className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
                     >
                       <div className="flex items-start gap-3 sm:gap-4">
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15 sm:h-12 sm:w-12">
@@ -117,11 +117,15 @@ export function RegionPopup({ info, onClose }: Props) {
                         </h4>
                       </div>
                       <figure className="mt-3">
-                        <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[#D4AE4A]">
+                        <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
                           {p.imageUrl ? (
                             <button
                               type="button"
-                              onClick={() => setLightbox({ src: p.imageUrl!, alt: `${p.name} — traditional jewellery of ${info.name}` })}
+                              onClick={() => {
+                                if (p.imageUrl) {
+                                  setLightbox({ src: p.imageUrl, alt: `${p.name} — traditional jewellery of ${info.name}` });
+                                }
+                              }}
                               className="block h-full w-full"
                               aria-label={`Open image of ${p.name}`}
                             >
@@ -140,14 +144,14 @@ export function RegionPopup({ info, onClose }: Props) {
                           ) : null}
                           {p.imageUrl ? (
                             <span
-                              className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-black/35 px-1.5 py-0.5 leading-none text-[#D4AE4A]"
+                              className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-[color:var(--ink)]/70 px-1.5 py-0.5 leading-none text-[color:var(--gold)]"
                               style={{ fontSize: "11px" }}
                             >
                               Tap to enlarge
                             </span>
                           ) : null}
                           {!p.imageUrl ? (
-                            <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
+                            <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[color:var(--gold)]">
                               Image coming soon
                             </div>
                           ) : null}
@@ -172,7 +176,7 @@ export function RegionPopup({ info, onClose }: Props) {
                         ) : null}
 
                       </figure>
-                      <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
+                      <p className="mt-3 text-sm leading-relaxed text-[color:var(--text-secondary)]">
                         {p.description}
                       </p>
                     </article>
@@ -180,7 +184,7 @@ export function RegionPopup({ info, onClose }: Props) {
                 : info.styles.map((s, idx) => (
                 <article
                   key={s.name}
-                  className="rounded-xl border border-[color:var(--gold)]/30 bg-white/60 p-4 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md sm:p-5"
+                  className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15 sm:h-12 sm:w-12">
@@ -195,7 +199,7 @@ export function RegionPopup({ info, onClose }: Props) {
                       </p>
                     </div>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
+                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--text-secondary)]">
                     {s.description}
                   </p>
                   <JewelryPieceImage
@@ -228,7 +232,7 @@ export function RegionPopup({ info, onClose }: Props) {
               {info.funFacts.map((f, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 rounded-xl border border-[color:var(--gold)]/25 bg-[#f7ecc4] px-4 py-3 text-sm text-[color:var(--ink)]/85"
+                  className="flex items-start gap-3 rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] px-4 py-3 text-sm text-[color:var(--text-secondary)]"
                 >
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[color:var(--gold)]/25">
                     <Gem className="h-3.5 w-3.5 text-[color:var(--gold-deep)]" />
@@ -241,7 +245,7 @@ export function RegionPopup({ info, onClose }: Props) {
         </div>
 
         {/* Footer actions */}
-        <div className="sticky bottom-0 z-10 flex flex-col-reverse gap-3 border-t border-[color:var(--gold)]/20 bg-[color:var(--ivory)] px-4 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-8">
+        <div className="sticky bottom-0 z-10 flex flex-col-reverse gap-3 border-t border-[color:var(--gold-border)] bg-[color:var(--ivory)] px-4 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-8">
           <button
             onClick={onClose}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-5 py-3 font-sans text-sm font-medium text-[color:var(--ink)] shadow transition hover:bg-[color:var(--gold-deep)] hover:text-[color:var(--ivory)]"

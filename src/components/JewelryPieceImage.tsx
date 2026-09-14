@@ -81,7 +81,7 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
 
 
   return (
-    <figure className="mt-3 overflow-hidden rounded-xl border border-[color:var(--gold)]/25 bg-[color:var(--ivory-deep)]/60">
+    <figure className="mt-3 overflow-hidden rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)]/60">
       <div className="relative aspect-[16/9] w-full bg-[color:var(--ivory-deep)]">
         {src === undefined ? (
           <div className="absolute inset-0 flex items-center justify-center text-[color:var(--ink)]/40">
@@ -105,7 +105,7 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
         ) : null}
         {src ? (
           <span
-            className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-black/35 px-1.5 py-0.5 leading-none text-[#D4AE4A]"
+            className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-[color:var(--ink)]/70 px-1.5 py-0.5 leading-none text-[color:var(--gold)]"
             style={{ fontSize: "11px" }}
           >
             Tap to enlarge
@@ -124,7 +124,7 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
       </div>
       <ImageLightbox src={lightbox} alt={label ?? regionName} onClose={() => setLightbox(null)} />
 
-      <figcaption className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--ink)]/55 sm:px-4">
+      <figcaption className="label-gold flex flex-wrap items-center justify-between gap-2 px-3 py-2 sm:px-4">
         <span className="truncate">{label ?? "Traditional Jewellery"}</span>
         <span className="shrink-0 normal-case tracking-normal text-[11px] text-[color:var(--ink)]/50">
           {src

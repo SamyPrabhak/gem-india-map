@@ -4,8 +4,6 @@ interface Props {
   stateName: string;
 }
 
-const GOLD = "#D4AE4A";
-
 export function JewelryPieceDetails({ stateName }: Props) {
   const piece = getJewelryPiece(stateName);
   if (!piece) return null;
@@ -21,10 +19,7 @@ export function JewelryPieceDetails({ stateName }: Props) {
       </h3>
 
       {/* Image — 4:5 crop with gold hairline border */}
-      <div
-        className="mt-4 w-full overflow-hidden rounded-xl"
-        style={{ border: `1px solid ${GOLD}`, aspectRatio: "4 / 5" }}
-      >
+      <div className="mt-4 aspect-[4/5] w-full overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
         {piece.image_url ? (
           <img
             src={piece.image_url}
@@ -33,10 +28,7 @@ export function JewelryPieceDetails({ stateName }: Props) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <div
-            className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)]/60 font-serif text-sm italic"
-            style={{ color: GOLD }}
-          >
+          <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)]/60 font-serif text-sm italic text-[color:var(--gold)]">
             Image coming soon
           </div>
         )}
@@ -67,10 +59,10 @@ export function JewelryPieceDetails({ stateName }: Props) {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="font-sans text-[10px] uppercase tracking-[0.25em] text-[color:var(--gold-deep)]">
+      <dt className="label-gold">
         {label}
       </dt>
-      <dd className="mt-1 text-sm leading-relaxed text-[color:var(--ink)]/80">{value}</dd>
+      <dd className="mt-1 text-sm leading-relaxed text-[color:var(--text-secondary)]">{value}</dd>
     </div>
   );
 }
