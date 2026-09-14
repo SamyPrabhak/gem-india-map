@@ -12,6 +12,7 @@ interface HomeSearch {
 const IndiaMap = lazy(() => import("@/components/IndiaMap"));
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   validateSearch: (search): HomeSearch => ({
     region: typeof search.region === "string" ? search.region : undefined,
   }),
