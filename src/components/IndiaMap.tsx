@@ -88,7 +88,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
     const isActive = info?.group === activeGroup;
     return {
       color: isActive ? GOLD_DEEP : BORDER,
-      weight: isActive ? 1.2 : 0.6,
+      weight: isActive ? 0.8 : 0.4,
       fillColor: isActive ? GOLD : DIM,
       fillOpacity: isActive ? 0.35 : 0.18,
     };
@@ -114,7 +114,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
       mouseover: (e) => {
         const l = e.target as L.Path;
         if (info?.group === activeGroup) {
-          l.setStyle({ fillOpacity: 0.6, weight: 1.6, color: INK });
+          l.setStyle({ fillOpacity: 0.6, weight: 1.1, color: INK });
         }
       },
       mouseout: (e) => {
