@@ -7,6 +7,7 @@
 
 :root {
   --ivory: #f5edd8;
+  --ivory-light: #faf6eb;
   --ivory-deep: color-mix(in oklab, #f5edd8 86%, #c8a96e);
   --gold: #c8a050;
   --gold-deep: #5c3d1a;
