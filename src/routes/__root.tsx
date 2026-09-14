@@ -76,8 +76,8 @@ function Header() {
           <div className="flex flex-col items-center">
             <Link
               to="/directory"
-              activeProps={{ className: "text-[color:var(--gold)] hover:text-[color:var(--gold-deep)]" }}
-              inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:text-[color:var(--ink)]" }}
+              activeProps={{ className: "text-[color:var(--gold)] hover:!text-[color:var(--gold-deep)]" }}
+              inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:!text-[color:var(--ink)]" }}
               className="label-gold !text-sm font-medium transition"
             >
               Directory
