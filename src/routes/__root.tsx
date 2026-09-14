@@ -72,7 +72,7 @@ function Header() {
         >
           The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
-        <nav className="flex items-baseline gap-3 sm:gap-4">
+        <nav className="flex items-baseline gap-2 sm:gap-3">
           <div className="flex flex-col items-center">
             <Link
               to="/directory"
@@ -82,7 +82,7 @@ function Header() {
             >
               Directory
             </Link>
-            <div className="relative mt-0.5">
+            <div className="relative">
               <span className="new-badge">New</span>
               <span className="badge-sparkle sparkle-1">✦</span>
               <span className="badge-sparkle sparkle-2">✦</span>
