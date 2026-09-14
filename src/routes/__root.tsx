@@ -70,7 +70,7 @@ function Header() {
           to="/"
           className="font-display text-lg font-semibold text-[color:var(--ink)] sm:text-xl"
         >
-          The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
+          The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
         <nav className="flex items-center gap-4 sm:gap-6">
           <Link

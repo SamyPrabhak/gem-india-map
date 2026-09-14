@@ -24,7 +24,7 @@ const ISLAND_COORDS: Record<string, [number, number]> = {
   "Andaman and Nicobar": [11.7, 92.7],
 };
 
-function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: string }) {
+function FitToFeatures({ data, boundsKey }: { data: FeatureCollection | null; boundsKey: string }) {
   const map = useMap();
   useEffect(() => {
     if (!data || !data.features.length) return;
@@ -32,7 +32,7 @@ function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: 
     const b = layer.getBounds();
     if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [k]);
+  }, [boundsKey]);
   return null;
 }
 
@@ -198,7 +198,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
             </Marker>
           );
         })}
-        <FitToFeatures data={filteredFC} key={groupBoundsKey} />
+        <FitToFeatures data={filteredFC} boundsKey={groupBoundsKey} />
         <FlyToRegion
           regionKey={focusRegion}
           geo={geo}
