@@ -37,15 +37,6 @@ function DirectoryPage() {
       }}
     >
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 sm:px-5 sm:py-12 md:py-16">
-        <header className="text-center">
-          <p className="label-gold">
-            Directory
-          </p>
-          <h1 className="mt-3 font-display text-2xl leading-tight sm:text-4xl md:text-5xl">
-            Indian Jewelry Directory
-          </h1>
-        </header>
-
         <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
           {/* Diamond shine animation */}
           <div className="relative h-28 w-28 sm:h-36 sm:w-36">
