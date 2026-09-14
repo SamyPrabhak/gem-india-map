@@ -72,6 +72,20 @@ body {
   animation: newBadgeShimmer 2.4s linear infinite;
 }
 
+.badge-sparkle {
+  position: absolute;
+  color: var(--gold);
+  font-size: 8px;
+  line-height: 1;
+  opacity: 0;
+  text-shadow: 0 0 6px rgba(200, 160, 80, 0.9);
+  animation: starTwinkle 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+.sparkle-1 { top: -4px; right: -6px; animation-delay: 0s; }
+.sparkle-2 { bottom: -3px; left: -5px; animation-delay: 0.7s; }
+.sparkle-3 { top: 50%; right: -8px; transform: translateY(-50%); animation-delay: 1.4s; }
+
 @keyframes newBadgeShimmer {
   0% {
     background-position: 200% 0;
@@ -87,6 +101,13 @@ body {
     opacity: 0.85;
     filter: drop-shadow(0 0 3px rgba(200, 160, 80, 0.4));
   }
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  25% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+  55% { opacity: 0.5; transform: scale(0.7) rotate(90deg); }
+  80%, 100% { opacity: 0; transform: scale(0.3) rotate(135deg); }
 }
 
 /* Gold cursor accent on interactive elements (mouse/touchpad only) */

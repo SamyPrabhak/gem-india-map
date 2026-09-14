@@ -82,7 +82,12 @@ function Header() {
             >
               Directory
             </Link>
-            <span className="new-badge mt-1">New</span>
+            <div className="relative mt-1">
+              <span className="new-badge">New</span>
+              <span className="badge-sparkle sparkle-1">✦</span>
+              <span className="badge-sparkle sparkle-2">✦</span>
+              <span className="badge-sparkle sparkle-3">✦</span>
+            </div>
           </div>
         </nav>
       </div>
