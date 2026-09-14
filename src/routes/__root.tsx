@@ -78,7 +78,7 @@ function Header() {
               to="/directory"
               activeProps={{ className: "text-[color:var(--gold)]" }}
               inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:text-[color:var(--ink)]" }}
-              className="label-gold font-medium transition"
+              className="label-gold !text-sm font-medium transition"
             >
               Directory
             </Link>
