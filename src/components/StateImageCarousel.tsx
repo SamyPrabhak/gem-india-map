@@ -130,7 +130,7 @@ export function StateImageCarousel({ query }: Props) {
 
   if (error || (images && images.length === 0)) {
     return (
-      <div className="flex h-40 items-center justify-center gap-2 rounded-xl border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60 text-sm text-[color:var(--ink)]/50 sm:h-52">
+      <div className="flex h-40 items-center justify-center gap-2 rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)]/60 text-sm text-[color:var(--text-muted)] sm:h-52">
         <ImageOff className="h-4 w-4" /> No images available
       </div>
     );
@@ -138,7 +138,7 @@ export function StateImageCarousel({ query }: Props) {
 
   if (!images) {
     return (
-      <div className="flex h-40 items-center justify-center rounded-xl border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60 text-[color:var(--ink)]/50 sm:h-52">
+      <div className="flex h-40 items-center justify-center rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)]/60 text-[color:var(--text-muted)] sm:h-52">
         <Loader2 className="h-5 w-5 animate-spin" />
       </div>
     );
@@ -153,7 +153,7 @@ export function StateImageCarousel({ query }: Props) {
               <button
                 type="button"
                 onClick={() => setLightbox(src)}
-                className="group block w-full overflow-hidden rounded-xl border border-[color:var(--gold)]/20 bg-[color:var(--ivory-deep)]/60"
+                className="group block w-full overflow-hidden rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)]/60"
                 aria-label={`Open photo ${i + 1} of ${query}`}
               >
                 <img
@@ -201,7 +201,7 @@ export function StateImageCarousel({ query }: Props) {
 
       {lightbox && (
         <div
-          className="fixed inset-0 z-[1100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[1100] flex items-center justify-center bg-[color:var(--ink)]/85 p-4 backdrop-blur-sm"
           onClick={() => setLightbox(null)}
           role="dialog"
           aria-modal="true"

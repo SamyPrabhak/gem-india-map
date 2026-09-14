@@ -23,7 +23,7 @@ export function ImageLightbox({ src, alt, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[1200] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[1200] flex items-center justify-center bg-[color:var(--ink)]/85 p-4 backdrop-blur-sm"
       onClick={(e) => {
         e.stopPropagation();
         onClose();

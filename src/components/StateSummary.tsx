@@ -45,7 +45,7 @@ export function StateSummary({ query, fallback, override }: Props) {
 
   if (!text && !failed) {
     return (
-      <div className="mt-4 flex items-center gap-2 text-sm text-[color:var(--ink)]/50">
+      <div className="mt-4 flex items-center gap-2 text-sm text-[color:var(--text-muted)]">
         <Loader2 className="h-4 w-4 animate-spin" /> Loading history…
       </div>
     );
@@ -53,7 +53,7 @@ export function StateSummary({ query, fallback, override }: Props) {
 
   const body = text || (fallback ?? "").replace(/[—–]/g, ",");
   return (
-    <p className="mt-4 text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">{body}</p>
+    <p className="mt-4 text-sm leading-relaxed text-[color:var(--text-secondary)] sm:text-base">{body}</p>
   );
 }
 
