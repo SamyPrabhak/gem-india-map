@@ -13,10 +13,11 @@ interface Props {
   onGroupChange?: (group: RegionGroup) => void;
 }
 
-const GOLD = "#C9A24B";
-const GOLD_DEEP = "#9C7A2C";
-const INK = "#2A2622";
-const DIM = "#E8E1D2";
+const GOLD = "#C8A050";
+const GOLD_DEEP = "#5C3D1A";
+const BORDER = "#C8A96E";
+const INK = "#2C1A0A";
+const DIM = "#F5EDD8";
 
 const ISLAND_COORDS: Record<string, [number, number]> = {
   Lakshadweep: [10.57, 72.64],
@@ -86,7 +87,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
     const info = jewelryData[name];
     const isActive = info?.group === activeGroup;
     return {
-      color: isActive ? GOLD_DEEP : "#C8BFA8",
+      color: isActive ? GOLD_DEEP : BORDER,
       weight: isActive ? 1.2 : 0.6,
       fillColor: isActive ? GOLD : DIM,
       fillOpacity: isActive ? 0.35 : 0.18,
@@ -157,7 +158,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         minZoom={3}
         maxZoom={7}
         scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", background: "#FBF7EE" }}
+        style={{ height: "100%", width: "100%", background: "#F5EDD8" }}
         attributionControl={false}
       >
         {geo && (
