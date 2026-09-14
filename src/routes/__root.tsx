@@ -73,14 +73,17 @@ function Header() {
           The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
         <nav className="flex items-center gap-4 sm:gap-6">
-          <Link
-            to="/directory"
-            activeProps={{ className: "text-[color:var(--gold)]" }}
-            inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:text-[color:var(--ink)]" }}
-            className="label-gold font-medium transition"
-          >
-            Directory
-          </Link>
+          <div className="flex flex-col items-center">
+            <Link
+              to="/directory"
+              activeProps={{ className: "text-[color:var(--gold)]" }}
+              inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:text-[color:var(--ink)]" }}
+              className="label-gold font-medium transition"
+            >
+              Directory
+            </Link>
+            <span className="new-badge mt-1">New</span>
+          </div>
         </nav>
       </div>
     </header>
