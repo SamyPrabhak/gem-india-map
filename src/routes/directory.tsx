@@ -83,12 +83,6 @@ function DirectoryPage() {
               </defs>
             </svg>
 
-            <span className="star-sparkle star-1">✦</span>
-            <span className="star-sparkle star-2">✦</span>
-            <span className="star-sparkle star-3">✦</span>
-            <span className="star-sparkle star-4">✦</span>
-            <span className="star-sparkle star-5">✦</span>
-            <span className="star-sparkle star-6">✦</span>
           </div>
 
           <p className="mt-8 font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl md:text-5xl">
