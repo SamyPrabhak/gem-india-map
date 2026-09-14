@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
 
 function MapFallback() {
   return (
-    <div className="flex h-[55vh] min-h-[360px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50 sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
+    <div className="flex h-[55vh] min-h-[360px] items-center justify-center rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory)] text-[color:var(--text-muted)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
       Loading map…
     </div>
   );

@@ -47,7 +47,8 @@ function RegionNotFound() {
 
 function StatePage() {
   const { slug } = Route.useParams();
-  const info = getRegionBySlug(slug)!;
+  const info = getRegionBySlug(slug);
+  if (!info) return <RegionNotFound />;
   const csv = getCsvRegion(info.name);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 

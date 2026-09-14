@@ -11,7 +11,8 @@ interface Props {
 const cache = new Map<string, string>();
 
 async function fetchSummary(query: string): Promise<string> {
-  if (cache.has(query)) return cache.get(query)!;
+  const cached = cache.get(query);
+  if (cached) return cached;
   const title = encodeURIComponent(query.replace(/ /g, "_"));
   const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
   if (!res.ok) throw new Error("summary fetch failed");

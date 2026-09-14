@@ -71,7 +71,8 @@ async function fetchSummaryImage(title: string): Promise<string | null> {
 }
 
 async function fetchStateImages(query: string): Promise<string[]> {
-  if (cache.has(query)) return cache.get(query)!;
+  const cached = cache.get(query);
+  if (cached) return cached;
   const titles = LANDMARKS[query];
   if (titles && titles.length) {
     const results = await Promise.all(titles.map(fetchSummaryImage));

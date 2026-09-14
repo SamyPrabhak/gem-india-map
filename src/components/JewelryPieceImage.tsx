@@ -17,7 +17,8 @@ interface Props {
 const cache = new Map<string, string | null>();
 
 async function fetchWikiImage(title: string): Promise<string | null> {
-  if (cache.has(title)) return cache.get(title)!;
+  const cached = cache.get(title);
+  if (cached !== undefined) return cached;
   const enc = encodeURIComponent(title.replace(/ /g, "_"));
   try {
     const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${enc}`);
