@@ -79,7 +79,7 @@ function Index() {
           <p className="label-gold">
             An Interactive Jewelry Map
           </p>
-          <h1 className="mt-3 font-display text-3xl leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="mt-3 font-display text-4xl leading-tight sm:text-6xl md:text-7xl">
             Jewels of <span className="text-[color:var(--gold)]">India</span>
           </h1>
           <h2 className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-[color:var(--text-secondary)] sm:mt-5 sm:text-base md:text-lg">
