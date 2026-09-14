@@ -78,11 +78,11 @@ function Header() {
               to="/directory"
               activeProps={{ className: "text-[color:var(--gold)] hover:!text-[color:var(--gold-deep)]" }}
               inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:!text-[color:var(--ink)]" }}
-              className="label-gold !text-sm font-medium transition"
+              className="label-gold !text-sm font-medium transition !leading-none"
             >
               Directory
             </Link>
-            <div className="relative -mt-0.5 self-end">
+            <div className="relative -mt-1 self-end">
               <span className="new-badge">New</span>
               <span className="badge-sparkle sparkle-1">✦</span>
               <span className="badge-sparkle sparkle-2">✦</span>
