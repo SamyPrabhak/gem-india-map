@@ -6,6 +6,7 @@ import { getCsvRegion } from "@/data/csvJewelry";
 import { ImageLightbox } from "@/components/ImageLightbox";
 
 export const Route = createFileRoute("/state/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const info = getRegionBySlug(params.slug);
     if (!info) throw notFound();
