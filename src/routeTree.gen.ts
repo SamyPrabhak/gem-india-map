@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DirectoryRouteImport } from './routes/directory'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StateSlugRouteImport } from './routes/state.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const DirectoryRoute = DirectoryRouteImport.update({
   path: '/directory',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StateSlugRoute = StateSlugRouteImport.update({
   id: '/state/$slug',
   path: '/state/$slug',
@@ -32,30 +38,34 @@ const StateSlugRoute = StateSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/state/$slug': typeof StateSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/state/$slug': typeof StateSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/state/$slug': typeof StateSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/directory' | '/state/$slug'
+  fullPaths: '/' | '/directory' | '/sitemap.xml' | '/state/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/directory' | '/state/$slug'
-  id: '__root__' | '/' | '/directory' | '/state/$slug'
+  to: '/' | '/directory' | '/sitemap.xml' | '/state/$slug'
+  id: '__root__' | '/' | '/directory' | '/sitemap.xml' | '/state/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DirectoryRoute: typeof DirectoryRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StateSlugRoute: typeof StateSlugRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DirectoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/state/$slug': {
       id: '/state/$slug'
       path: '/state/$slug'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DirectoryRoute: DirectoryRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StateSlugRoute: StateSlugRoute,
 }
 export const routeTree = rootRouteImport
