@@ -32,17 +32,16 @@ function DirectoryPage() {
     <main
       className="min-h-screen"
       style={{
-        background:
-          "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
+          background: "var(--ivory)",
         color: "var(--ink)",
       }}
     >
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
-          <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
+          <p className="label-gold">
             Directory
           </p>
-          <h1 className="mt-3 font-serif text-2xl leading-tight sm:text-4xl md:text-5xl">
+          <h1 className="mt-3 font-display text-2xl leading-tight sm:text-4xl md:text-5xl">
             Indian Jewelry Directory
           </h1>
         </header>
@@ -50,7 +49,7 @@ function DirectoryPage() {
         <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
           {/* Diamond shine animation */}
           <div className="relative h-28 w-28 sm:h-36 sm:w-36">
-            <div className="diamond-glow absolute inset-0 rounded-full bg-[#c9a24b]/20 blur-2xl" />
+            <div className="diamond-glow absolute inset-0 rounded-full bg-[color:var(--gold)]/20 blur-2xl" />
             <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
 
             <svg
@@ -66,7 +65,7 @@ function DirectoryPage() {
               />
               <path
                 d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
-                stroke="#B08A33"
+                stroke="#C8A050"
                 strokeWidth="1.6"
                 strokeLinejoin="round"
                 strokeLinecap="round"
@@ -74,20 +73,20 @@ function DirectoryPage() {
               />
               <path
                 d="M12 52 L108 52"
-                stroke="#B08A33"
+                stroke="#C8A050"
                 strokeWidth="1.4"
                 strokeLinecap="round"
               />
-              <path d="M40 37.5 L32 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M60 34 L60 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M80 37.5 L88 52" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M32 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M60 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M88 52 L60 112" stroke="#B08A33" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M40 37.5 L32 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 34 L60 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M80 37.5 L88 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M32 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M88 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
               <defs>
                 <linearGradient id="diaFillDir" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#F9E8B8" />
-                  <stop offset="100%" stopColor="#C9A24B" />
+                  <stop offset="0%" stopColor="#F5EDD8" />
+                  <stop offset="100%" stopColor="#C8A050" />
                 </linearGradient>
               </defs>
             </svg>
@@ -100,7 +99,7 @@ function DirectoryPage() {
             <span className="star-sparkle star-6">✦</span>
           </div>
 
-          <p className="mt-8 font-serif text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl md:text-5xl">
+          <p className="mt-8 font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl md:text-5xl">
             Coming Soon
           </p>
         </section>
@@ -122,7 +121,7 @@ function DirectoryPage() {
         }
         .star-sparkle {
           position: absolute;
-          color: #c9a24b;
+          color: #c8a050;
           font-size: 14px;
           line-height: 1;
           opacity: 0;

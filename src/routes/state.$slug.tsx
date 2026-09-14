@@ -37,7 +37,7 @@ export const Route = createFileRoute("/state/$slug")({
 function RegionNotFound() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-24 text-center">
-      <h1 className="font-serif text-3xl text-[color:var(--ink)]">Region not found</h1>
+      <h1 className="font-display text-3xl text-[color:var(--ink)]">Region not found</h1>
       <Link to="/" className="mt-6 inline-block text-[color:var(--gold-deep)] underline">
         Back to Map
       </Link>
@@ -72,8 +72,7 @@ function StatePage() {
     <main
       className="min-h-screen"
       style={{
-        background:
-          "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
+          background: "var(--ivory)",
         color: "var(--ink)",
       }}
     >
@@ -81,18 +80,18 @@ function StatePage() {
         <Link
           to="/"
           search={{ region: slug }}
-          className="inline-flex items-center gap-2 text-sm text-[color:var(--ink)]/60 transition hover:text-[color:var(--gold-deep)]"
+          className="inline-flex items-center gap-2 text-sm text-[color:var(--text-muted)] transition hover:text-[color:var(--gold)]"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Map
         </Link>
 
         <header className="mt-6">
-          <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)]">
+          <p className="label-gold">
             {groupLabel}
           </p>
-          <h1 className="mt-2 font-serif text-4xl leading-tight sm:text-6xl">{info.name}</h1>
-          <p className="mt-2 text-sm text-[color:var(--ink)]/60 sm:text-base">
-            Capital: <span className="text-[color:var(--ink)]/80">{info.capital}</span>
+          <h1 className="mt-2 font-display text-4xl leading-tight sm:text-6xl">{info.name}</h1>
+          <p className="mt-2 text-sm text-[color:var(--text-muted)] sm:text-base">
+            Capital: <span className="text-[color:var(--text-secondary)]">{info.capital}</span>
           </p>
           <div className="mt-5 h-px w-24 bg-[color:var(--gold)]" />
         </header>
@@ -106,7 +105,7 @@ function StatePage() {
             {pieces.map((p) => (
               <article
                 key={p.name}
-                className="rounded-2xl border border-[color:var(--gold)]/30 bg-white/70 p-5 shadow-sm transition hover:border-[color:var(--gold)]/60 hover:shadow-md"
+                className="rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-5 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md"
               >
                 <div className="flex items-start gap-3">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15">
@@ -118,7 +117,7 @@ function StatePage() {
                 </div>
 
                 <figure className="mt-4">
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[#D4AE4A]">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
                     {p.imageUrl ? (
                       <>
                         <button
@@ -140,14 +139,14 @@ function StatePage() {
                           />
                         </button>
                         <span
-                          className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-black/35 px-1.5 py-0.5 leading-none text-[#D4AE4A]"
+                          className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-[color:var(--ink)]/70 px-1.5 py-0.5 leading-none text-[color:var(--gold)]"
                           style={{ fontSize: "11px" }}
                         >
                           Tap to enlarge
                         </span>
                       </>
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[#D4AE4A]">
+                      <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[color:var(--gold)]">
                         Image coming soon
                       </div>
                     )}
@@ -172,7 +171,7 @@ function StatePage() {
                   ) : null}
                 </figure>
 
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--text-secondary)]">
                   {p.description}
                 </p>
               </article>
