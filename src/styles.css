@@ -80,32 +80,13 @@ body {
   80%, 100% { opacity: 0; transform: scale(0.3) rotate(135deg); }
 }
 
-/* Gold cursor accent on interactive elements (mouse/touchpad only) */
+/* Gold cursor accent on the map only (mouse/touchpad only) */
 @media (hover: hover) and (pointer: fine) {
-  a,
-  button,
-  [role="button"],
-  summary,
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"],
+  .leaflet-container,
   .leaflet-container .leaflet-interactive,
-  .cursor-gold {
-    cursor: url("/gold-cursor.svg") 0 0, auto;
-  }
-
-  /* Keep default text cursor on inputs and selectable text */
-  input[type="text"],
-  input[type="search"],
-  input[type="email"],
-  input[type="url"],
-  input[type="tel"],
-  input[type="number"],
-  input[type="password"],
-  textarea,
-  [contenteditable],
-  .cursor-text {
-    cursor: text;
+  .leaflet-container a,
+  .leaflet-container button {
+    cursor: url("/gold-cursor.svg") 0 0, auto !important;
   }
 }
 
