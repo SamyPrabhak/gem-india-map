@@ -88,7 +88,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
     const isActive = info?.group === activeGroup;
     return {
       color: isActive ? GOLD_DEEP : BORDER,
-      weight: isActive ? 1.2 : 0.6,
+      weight: isActive ? 0.8 : 0.4,
       fillColor: isActive ? GOLD : DIM,
       fillOpacity: isActive ? 0.35 : 0.18,
     };
