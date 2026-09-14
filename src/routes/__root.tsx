@@ -64,8 +64,8 @@ export const Route = createRootRoute({
 
 function Header() {
   return (
-    <header className="bg-[color:var(--ivory-light)]/95 px-4 py-4 backdrop-blur-sm sm:px-5">
-      <div className="mx-auto flex max-w-6xl items-baseline justify-center gap-4 sm:gap-6">
+    <header className="bg-[color:var(--ivory)]/90 px-4 py-4 backdrop-blur-sm sm:px-5">
+      <div className="mx-auto flex max-w-6xl items-baseline justify-between">
         <Link
           to="/"
           className="font-display text-xl font-semibold text-[color:var(--ink)] sm:text-2xl md:text-3xl"
