@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
 
 function MapFallback() {
   return (
-    <div className="flex h-[55vh] min-h-[360px] items-center justify-center rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] text-[color:var(--ink)]/50 sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
+    <div className="flex h-[55vh] min-h-[360px] items-center justify-center rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory)] text-[color:var(--text-muted)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
       Loading map…
     </div>
   );
@@ -70,20 +70,19 @@ function Index() {
       <main
         className="min-h-screen"
         style={{
-          background:
-            "radial-gradient(1200px 600px at 50% -10%, #f3ecd9 0%, #fbf7ee 60%, #fbf7ee 100%)",
+          background: "var(--ivory)",
           color: "var(--ink)",
         }}
       >
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-12 md:py-16">
         <header className="text-center">
-          <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-deep)] sm:text-xs sm:tracking-[0.4em]">
+          <p className="label-gold">
             An Interactive Jewelry Map
           </p>
-          <h1 className="mt-3 font-serif text-2xl leading-tight sm:text-4xl md:text-5xl">
-            The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>: An Interactive Map of Regional Jewelry Traditions
+          <h1 className="mt-3 font-display text-2xl leading-tight sm:text-4xl md:text-5xl">
+            The Jewels of <span className="text-[color:var(--gold)]">India</span>: An Interactive Map of Regional Jewelry Traditions
           </h1>
-          <h2 className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-[color:var(--ink)]/70 sm:mt-5 sm:text-base md:text-lg">
+          <h2 className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-[color:var(--text-secondary)] sm:mt-5 sm:text-base md:text-lg">
             Discover the craftsmanship, materials, and cultural stories behind jewelry from every region of India — click any state to explore.
           </h2>
           
@@ -91,7 +90,7 @@ function Index() {
 
         <div className="mt-10 flex flex-col items-center gap-4">
           <GroupTabs active={group} onChange={setGroup} />
-          <p className="text-center text-sm text-[color:var(--ink)]/60">
+          <p className="text-center text-sm text-[color:var(--text-muted)]">
             Tap a highlighted region on the map to reveal its signature jewelry.
           </p>
         </div>
@@ -106,7 +105,7 @@ function Index() {
           )}
         </div>
 
-        <footer className="mt-12 text-center text-xs uppercase tracking-[0.3em] text-[color:var(--ink)]/50">
+        <footer className="label-gold mt-12 text-center">
           Crafted with reverence for India's artisans
         </footer>
       </div>

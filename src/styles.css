@@ -6,29 +6,43 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --ivory: #fbf7ee;
-  --ivory-deep: #f3ecd9;
-  --gold: #c9a24b;
-  --gold-deep: #9c7a2c;
-  --ink: #2a2622;
-  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --ivory: #f5edd8;
+  --ivory-deep: color-mix(in oklab, #f5edd8 86%, #c8a96e);
+  --gold: #c8a050;
+  --gold-deep: #5c3d1a;
+  --gold-border: #c8a96e;
+  --ink: #2c1a0a;
+  --text-secondary: #5c3d1a;
+  --text-muted: #7a5230;
+  --font-display: "Masakali", "Cormorant Garamond", serif;
+  --font-serif: "Philosopher", Georgia, serif;
+  --font-sans: "Philosopher", Georgia, serif;
 }
 
+.font-display { font-family: var(--font-display); }
 .font-serif { font-family: var(--font-serif); }
 .font-sans { font-family: var(--font-sans); }
+
+.label-gold {
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
 
 body {
   font-family: var(--font-sans);
 }
 
 .india-tooltip {
-  background: #2a2622 !important;
-  color: #fbf7ee !important;
-  border: 1px solid #c9a24b !important;
+  background: var(--ink) !important;
+  color: var(--ivory) !important;
+  border: 1px solid var(--gold-border) !important;
   border-radius: 4px !important;
   padding: 4px 10px !important;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 14px;
   letter-spacing: 0.04em;
   box-shadow: none !important;
@@ -125,38 +139,38 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --background: oklch(0.944 0.029 85.1);
+  --foreground: oklch(0.225 0.055 58.2);
+  --card: oklch(0.965 0.019 84.8);
+  --card-foreground: oklch(0.225 0.055 58.2);
+  --popover: oklch(0.965 0.019 84.8);
+  --popover-foreground: oklch(0.225 0.055 58.2);
+  --primary: oklch(0.707 0.105 80.8);
+  --primary-foreground: oklch(0.225 0.055 58.2);
+  --secondary: oklch(0.381 0.071 65.3);
+  --secondary-foreground: oklch(0.944 0.029 85.1);
+  --muted: oklch(0.911 0.037 82.9);
+  --muted-foreground: oklch(0.482 0.082 64.8);
+  --accent: oklch(0.707 0.105 80.8);
+  --accent-foreground: oklch(0.225 0.055 58.2);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.749 0.076 78.6);
+  --input: oklch(0.749 0.076 78.6);
+  --ring: oklch(0.707 0.105 80.8);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.944 0.029 85.1);
+  --sidebar-foreground: oklch(0.225 0.055 58.2);
+  --sidebar-primary: oklch(0.707 0.105 80.8);
+  --sidebar-primary-foreground: oklch(0.225 0.055 58.2);
+  --sidebar-accent: oklch(0.911 0.037 82.9);
+  --sidebar-accent-foreground: oklch(0.381 0.071 65.3);
+  --sidebar-border: oklch(0.749 0.076 78.6);
+  --sidebar-ring: oklch(0.707 0.105 80.8);
 }
 
 .dark {

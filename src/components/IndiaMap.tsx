@@ -13,17 +13,18 @@ interface Props {
   onGroupChange?: (group: RegionGroup) => void;
 }
 
-const GOLD = "#C9A24B";
-const GOLD_DEEP = "#9C7A2C";
-const INK = "#2A2622";
-const DIM = "#E8E1D2";
+const GOLD = "#C8A050";
+const GOLD_DEEP = "#5C3D1A";
+const BORDER = "#C8A96E";
+const INK = "#2C1A0A";
+const DIM = "#F5EDD8";
 
 const ISLAND_COORDS: Record<string, [number, number]> = {
   Lakshadweep: [10.57, 72.64],
   "Andaman and Nicobar": [11.7, 92.7],
 };
 
-function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: string }) {
+function FitToFeatures({ data, boundsKey }: { data: FeatureCollection | null; boundsKey: string }) {
   const map = useMap();
   useEffect(() => {
     if (!data || !data.features.length) return;
@@ -31,7 +32,7 @@ function FitToFeatures({ data, key: k }: { data: FeatureCollection | null; key: 
     const b = layer.getBounds();
     if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [k]);
+  }, [boundsKey]);
   return null;
 }
 
@@ -86,7 +87,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
     const info = jewelryData[name];
     const isActive = info?.group === activeGroup;
     return {
-      color: isActive ? GOLD_DEEP : "#C8BFA8",
+      color: isActive ? GOLD_DEEP : BORDER,
       weight: isActive ? 1.2 : 0.6,
       fillColor: isActive ? GOLD : DIM,
       fillOpacity: isActive ? 0.35 : 0.18,
@@ -147,7 +148,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
 
   return (
     <div
-      className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--ivory)] shadow-[0_30px_60px_-30px_rgba(42,38,34,0.35)] sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]"
+      className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory)] shadow-lg sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]"
       role="img"
       aria-label="Interactive map of India showing regional jewelry traditions"
     >
@@ -157,7 +158,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         minZoom={3}
         maxZoom={7}
         scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", background: "#FBF7EE" }}
+        style={{ height: "100%", width: "100%", background: "#F5EDD8" }}
         attributionControl={false}
       >
         {geo && (
@@ -197,7 +198,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
             </Marker>
           );
         })}
-        <FitToFeatures data={filteredFC} key={groupBoundsKey} />
+        <FitToFeatures data={filteredFC} boundsKey={groupBoundsKey} />
         <FlyToRegion
           regionKey={focusRegion}
           geo={geo}

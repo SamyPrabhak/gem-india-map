@@ -11,7 +11,8 @@ interface Props {
 const cache = new Map<string, string>();
 
 async function fetchSummary(query: string): Promise<string> {
-  if (cache.has(query)) return cache.get(query)!;
+  const cached = cache.get(query);
+  if (cached) return cached;
   const title = encodeURIComponent(query.replace(/ /g, "_"));
   const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
   if (!res.ok) throw new Error("summary fetch failed");
@@ -45,7 +46,7 @@ export function StateSummary({ query, fallback, override }: Props) {
 
   if (!text && !failed) {
     return (
-      <div className="mt-4 flex items-center gap-2 text-sm text-[color:var(--ink)]/50">
+      <div className="mt-4 flex items-center gap-2 text-sm text-[color:var(--text-muted)]">
         <Loader2 className="h-4 w-4 animate-spin" /> Loading history…
       </div>
     );
@@ -53,7 +54,7 @@ export function StateSummary({ query, fallback, override }: Props) {
 
   const body = text || (fallback ?? "").replace(/[—–]/g, ",");
   return (
-    <p className="mt-4 text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">{body}</p>
+    <p className="mt-4 text-sm leading-relaxed text-[color:var(--text-secondary)] sm:text-base">{body}</p>
   );
 }
 

@@ -49,7 +49,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Philosopher:wght@400;700&display=swap",
       },
       {
         rel: "stylesheet",
@@ -64,20 +64,20 @@ export const Route = createRootRoute({
 
 function Header() {
   return (
-    <header className="border-b border-[color:var(--gold)]/20 bg-[color:var(--ivory)]/80 px-4 py-4 backdrop-blur-sm sm:px-5">
+    <header className="border-b border-[color:var(--gold-border)] bg-[color:var(--ivory)]/90 px-4 py-4 backdrop-blur-sm sm:px-5">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link
           to="/"
-          className="font-serif text-lg font-semibold tracking-tight text-[color:var(--ink)] sm:text-xl"
+          className="font-display text-lg font-semibold text-[color:var(--ink)] sm:text-xl"
         >
-          The Jewels of <span className="text-[color:var(--gold-deep)]">India</span>
+          The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
         <nav className="flex items-center gap-4 sm:gap-6">
           <Link
             to="/directory"
-            activeProps={{ className: "text-[color:var(--gold-deep)]" }}
-            inactiveProps={{ className: "text-[color:var(--ink)]/70 hover:text-[color:var(--ink)]" }}
-            className="font-sans text-xs font-medium uppercase tracking-wider transition"
+            activeProps={{ className: "text-[color:var(--gold)]" }}
+            inactiveProps={{ className: "text-[color:var(--text-secondary)] hover:text-[color:var(--ink)]" }}
+            className="label-gold font-medium transition"
           >
             Directory
           </Link>
@@ -96,7 +96,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <footer className="bg-[color:var(--ivory)] px-4 py-6 text-center text-xs tracking-wide text-[color:var(--ink)]/50">
+        <footer className="border-t border-[color:var(--gold-border)] bg-[color:var(--ivory)] px-4 py-6 text-center text-xs text-[color:var(--text-muted)]">
           <p>© 2026 Samyuktha Subbian Prabhakaran. All rights reserved.</p>
         </footer>
         <Scripts />
