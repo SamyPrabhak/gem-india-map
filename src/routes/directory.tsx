@@ -105,22 +105,6 @@ function DirectoryPage() {
           animation: shimmerSweep 2s linear infinite;
           mix-blend-mode: overlay;
         }
-        .star-sparkle {
-          position: absolute;
-          color: #c8a050;
-          font-size: 14px;
-          line-height: 1;
-          opacity: 0;
-          text-shadow: 0 0 8px rgba(201, 162, 75, 0.9);
-          animation: starTwinkle 2.2s ease-in-out infinite;
-        }
-        .star-1 { top: 5%; left: 55%; animation-delay: 0s; }
-        .star-2 { top: 22%; right: 0%; animation-delay: 0.3s; }
-        .star-3 { bottom: 28%; right: 6%; animation-delay: 0.65s; }
-        .star-4 { bottom: 12%; left: 12%; animation-delay: 1s; }
-        .star-5 { top: 28%; left: 0%; animation-delay: 1.35s; }
-        .star-6 { top: 48%; right: -8%; animation-delay: 1.7s; }
-
         @keyframes glowPulse {
           0%, 100% { transform: scale(0.92); opacity: 0.55; }
           50% { transform: scale(1.08); opacity: 0.85; }
@@ -128,12 +112,6 @@ function DirectoryPage() {
         @keyframes shimmerSweep {
           0% { transform: translateX(-100%) skewX(-20deg); }
           100% { transform: translateX(100%) skewX(-20deg); }
-        }
-        @keyframes starTwinkle {
-          0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
-          25% { opacity: 1; transform: scale(1.2) rotate(45deg); }
-          55% { opacity: 0.5; transform: scale(0.7) rotate(90deg); }
-          80%, 100% { opacity: 0; transform: scale(0.3) rotate(135deg); }
         }
       `}</style>
     </main>
