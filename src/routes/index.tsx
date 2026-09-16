@@ -30,6 +30,18 @@ export const Route = createFileRoute("/")({
         content:
           "Explore India's jewelry heritage region by region. The Jewels of India is an interactive map covering all 36 states and union territories, from Kundan in Rajasthan to Temple jewelry in Tamil Nadu.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        property: "og:image",
+        content:
+          "https://thejewelsofindia.lovable.app/__l5e/assets-v1/fc345b19-c666-481a-849a-1a8be26c9898/site-preview.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://thejewelsofindia.lovable.app/__l5e/assets-v1/fc345b19-c666-481a-849a-1a8be26c9898/site-preview.png",
+      },
     ],
   }),
   component: Index,
