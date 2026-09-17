@@ -139,7 +139,7 @@ function DirectoryPage() {
             />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-start gap-2">
             {FILTERS.map((f) => {
               const active = filter === f;
               return (
