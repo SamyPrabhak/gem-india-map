@@ -52,11 +52,26 @@ body {
 
 /* New badge under Directory nav link */
 .new-badge {
-  color: var(--gold);
+  background: linear-gradient(
+    110deg,
+    var(--gold) 40%,
+    #f0d9a0 50%,
+    var(--gold) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   line-height: 1;
+  animation: badgeShimmer 2.4s linear infinite;
+}
+
+@keyframes badgeShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .badge-sparkle {
