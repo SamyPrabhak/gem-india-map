@@ -107,7 +107,7 @@ function DirectoryPage() {
     >
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-10 sm:px-5 sm:py-14">
         {/* Header */}
-        <section className="flex flex-col items-start text-left">
+        <section className="flex flex-col items-center text-center">
           <p className="label-gold">Discover</p>
           <h1 className="mt-3 font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl md:text-5xl">
             Indian Jewelry Directory
