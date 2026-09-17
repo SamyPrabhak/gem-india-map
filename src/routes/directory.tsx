@@ -162,7 +162,7 @@ function DirectoryPage() {
         </section>
 
         {/* Card grid */}
-        <section className="mt-10 grid flex-grow content-start gap-5 pb-4 text-left sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <section className="mt-10 grid flex-grow content-start gap-5 pb-4 text-left sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {visibleBrands.map((brand) => (
             <article
               key={brand.name}
