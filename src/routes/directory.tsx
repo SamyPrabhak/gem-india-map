@@ -124,7 +124,7 @@ function DirectoryPage() {
         </section>
 
         {/* Search + filters */}
-        <section className="mt-8 flex flex-col items-start gap-4">
+        <section className="mt-8 flex flex-col items-center gap-4">
           <div className="relative w-full max-w-xl">
             <Search
               aria-hidden="true"
@@ -139,7 +139,7 @@ function DirectoryPage() {
             />
           </div>
 
-          <div className="flex flex-wrap items-center justify-start gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {FILTERS.map((f) => {
               const active = filter === f;
               return (
