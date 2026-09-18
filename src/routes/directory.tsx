@@ -102,7 +102,82 @@ function DirectoryPage() {
             })}
           </div>
         </section>
+
+        {/* Coming Soon */}
+        <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
+          <div className="relative h-28 w-28 sm:h-36 sm:w-36">
+            <div className="diamond-glow absolute inset-0 rounded-full bg-[color:var(--gold)]/20 blur-2xl" />
+            <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
+
+            <svg
+              viewBox="0 0 120 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="relative h-full w-full drop-shadow-[0_14px_34px_rgba(201,162,75,0.35)]"
+            >
+              <path
+                d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+                fill="url(#diaFillDir)"
+                opacity="0.35"
+              />
+              <path
+                d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+                stroke="#C8A050"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M12 52 L108 52"
+                stroke="#C8A050"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
+              <path d="M40 37.5 L32 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 34 L60 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M80 37.5 L88 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M32 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M60 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M88 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+              <defs>
+                <linearGradient id="diaFillDir" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#F5EDD8" />
+                  <stop offset="100%" stopColor="#C8A050" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <p className="mt-8 font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl">
+            Coming Soon
+          </p>
+        </section>
       </div>
+
+      <style>{`
+        .diamond-glow {
+          animation: glowPulse 2.4s ease-in-out infinite;
+        }
+        .shimmer-bar {
+          background: linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.85) 50%,
+            transparent 65%
+          );
+          animation: shimmerSweep 2s linear infinite;
+          mix-blend-mode: overlay;
+        }
+        @keyframes glowPulse {
+          0%, 100% { transform: scale(0.92); opacity: 0.55; }
+          50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        @keyframes shimmerSweep {
+          0% { transform: translateX(-100%) skewX(-20deg); }
+          100% { transform: translateX(100%) skewX(-20deg); }
+        }
+      `}</style>
     </main>
   );
 }
