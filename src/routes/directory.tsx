@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 export const Route = createFileRoute("/directory")({
   staticData: { sitemap: true },
@@ -30,15 +30,6 @@ export const Route = createFileRoute("/directory")({
   component: DirectoryPage,
 });
 
-type Brand = {
-  name: string;
-  badge: "Diaspora" | "India";
-  location: string;
-  description: string;
-  tags: string[];
-  url: string;
-};
-
 const FILTERS = [
   "All",
   "Based in India",
@@ -48,57 +39,9 @@ const FILTERS = [
   "Bridal",
 ] as const;
 
-const BRANDS: Brand[] = [
-  {
-    name: "Amara Jewels",
-    badge: "Diaspora",
-    location: "New Jersey, USA",
-    description:
-      "Handcrafted kundan and polki bridal sets made in small batches, blending Mughal-era techniques with modern silhouettes.",
-    tags: ["Bridal", "Kundan", "Polki"],
-    url: "#",
-  },
-  {
-    name: "Ratnavali Studio",
-    badge: "India",
-    location: "Jaipur, Rajasthan",
-    description:
-      "A family workshop specializing in traditional meenakari and jadau pieces, working directly with local artisan clusters.",
-    tags: ["Traditional", "Meenakari", "Jadau"],
-    url: "#",
-  },
-  {
-    name: "Tara & Co.",
-    badge: "Diaspora",
-    location: "London, UK",
-    description:
-      "Contemporary temple-inspired jewelry in recycled gold, designed for everyday wear and heirloom gifting.",
-    tags: ["Contemporary", "Temple", "Bridal"],
-    url: "#",
-  },
-];
-
 function DirectoryPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
-
-  const visibleBrands = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return BRANDS.filter((brand) => {
-      const matchesFilter =
-        filter === "All" ||
-        (filter === "Based in India" && brand.badge === "India") ||
-        (filter === "Diaspora Brand" && brand.badge === "Diaspora") ||
-        brand.tags.includes(filter);
-      const matchesQuery =
-        q.length === 0 ||
-        [brand.name, brand.location, brand.description, ...brand.tags]
-          .join(" ")
-          .toLowerCase()
-          .includes(q);
-      return matchesFilter && matchesQuery;
-    });
-  }, [query, filter]);
 
   return (
     <main
@@ -158,76 +101,6 @@ function DirectoryPage() {
               );
             })}
           </div>
-        </section>
-
-        {/* Card grid */}
-        <section className="mt-10 grid flex-grow content-start gap-5 pb-4 text-left sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {visibleBrands.map((brand) => (
-            <article
-              key={brand.name}
-              className="flex flex-col overflow-hidden rounded-lg border border-[color:var(--gold-border)] bg-card transition hover:border-[color:var(--gold)]"
-            >
-              {/* Logo image area */}
-              <div
-                className="flex h-20 items-center justify-center"
-                style={{ background: "#E8D8B0" }}
-              >
-                <div
-                  aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-sm border border-[color:var(--gold)] bg-card/60"
-                >
-                  <span
-                    className="text-lg leading-none"
-                    style={{ color: "var(--gold)" }}
-                  >
-                    ✦
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex flex-grow flex-col gap-3 p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <h2 className="font-display text-lg leading-snug text-[color:var(--ink)] sm:text-xl">
-                    {brand.name}
-                  </h2>
-                  <span className="shrink-0 rounded-full border border-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--gold)]">
-                    {brand.badge}
-                  </span>
-                </div>
-
-                <p className="label-gold">{brand.location}</p>
-
-                <p className="font-serif text-sm leading-relaxed text-[color:var(--text-secondary)]">
-                  {brand.description}
-                </p>
-
-                <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
-                  {brand.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--gold)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href={brand.url}
-                  className="inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-[color:var(--gold)] transition hover:text-[color:var(--gold-deep)]"
-                >
-                  Visit website
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </div>
-            </article>
-          ))}
-
-          {visibleBrands.length === 0 && (
-            <p className="col-span-full py-12 text-center font-serif text-sm text-[color:var(--text-muted)]">
-              No brands match your search yet — check back soon.
-            </p>
-          )}
         </section>
       </div>
     </main>
