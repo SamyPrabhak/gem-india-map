@@ -4,22 +4,110 @@ import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div className="flex min-h-[calc(100vh-140px)] flex-col items-center justify-center bg-[color:var(--ivory)] px-4 py-12 text-center">
+      <div className="relative flex flex-col items-center">
+        {/* Diamond with shimmer, matching the splash animation */}
+        <div className="relative h-24 w-24 sm:h-28 sm:w-28">
+          <div className="diamond-glow absolute inset-0 rounded-full bg-[color:var(--gold)]/20 blur-2xl" />
+          <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
+          <svg
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="relative h-full w-full drop-shadow-[0_14px_34px_rgba(201,162,75,0.35)]"
+          >
+            <path
+              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              fill="url(#diaFill404)"
+              opacity="0.35"
+            />
+            <path
+              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              stroke="var(--gold)"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path d="M12 52 L108 52" stroke="var(--gold)" strokeWidth="1.4" strokeLinecap="round" />
+            <path d="M40 37.5 L32 52" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 34 L60 52" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M80 37.5 L88 52" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M32 52 L60 112" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M60 52 L60 112" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M88 52 L60 112" stroke="var(--gold)" strokeWidth="1.2" strokeLinecap="round" />
+            <defs>
+              <linearGradient id="diaFill404" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#F5EDD8" />
+                <stop offset="100%" stopColor="#C8A050" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span className="star-sparkle star-1">✦</span>
+          <span className="star-sparkle star-2">✦</span>
+          <span className="star-sparkle star-3">✦</span>
+          <span className="star-sparkle star-4">✦</span>
+        </div>
+
+        <p className="label-gold mt-8">404</p>
+        <h1 className="mt-2 font-display text-4xl leading-tight text-[color:var(--ink)] sm:text-5xl">
+          Page Not Found
+        </h1>
+        <p className="mt-3 max-w-md font-serif text-sm text-[color:var(--text-muted)] sm:text-base">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="mt-8 inline-flex items-center justify-center border border-[color:var(--gold-border)] bg-transparent px-6 py-2.5 text-sm font-medium text-[color:var(--gold-deep)] transition-colors hover:bg-[color:var(--gold)]/10"
+        >
+          Back to Map
+        </Link>
       </div>
+
+      <style>{`
+        .diamond-glow {
+          animation: glowPulse 2.4s ease-in-out infinite;
+        }
+        .shimmer-bar {
+          background: linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.85) 50%,
+            transparent 65%
+          );
+          animation: shimmerSweep 2s linear infinite;
+          mix-blend-mode: overlay;
+        }
+        .star-sparkle {
+          position: absolute;
+          color: var(--gold);
+          font-size: 13px;
+          line-height: 1;
+          opacity: 0;
+          text-shadow: 0 0 8px rgba(200, 160, 80, 0.9);
+          animation: starTwinkle 2.2s ease-in-out infinite;
+          pointer-events: none;
+        }
+        .star-1 { top: 5%; left: 55%; animation-delay: 0s; }
+        .star-2 { top: 22%; right: 0%; animation-delay: 0.3s; }
+        .star-3 { bottom: 28%; right: 6%; animation-delay: 0.65s; }
+        .star-4 { bottom: 12%; left: 12%; animation-delay: 1s; }
+
+        @keyframes glowPulse {
+          0%, 100% { transform: scale(0.92); opacity: 0.55; }
+          50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        @keyframes shimmerSweep {
+          0% { transform: translateX(-100%) skewX(-20deg); }
+          100% { transform: translateX(100%) skewX(-20deg); }
+        }
+        @keyframes starTwinkle {
+          0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+          25% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+          55% { opacity: 0.5; transform: scale(0.7) rotate(90deg); }
+          80%, 100% { opacity: 0; transform: scale(0.3) rotate(135deg); }
+        }
+      `}</style>
     </div>
   );
 }
