@@ -97,7 +97,7 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
           >
             <img
               src={src}
-              alt={label ? `${label} — traditional jewellery of ${regionName}` : regionName}
+              alt={label ? `${label}, traditional jewellery of ${regionName}` : regionName}
               loading="lazy"
               className="h-full w-full cursor-zoom-in object-cover"
               onError={() => setSrc(null)}
