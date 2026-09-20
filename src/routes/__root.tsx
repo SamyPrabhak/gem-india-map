@@ -193,7 +193,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <footer className="border-t border-[color:var(--gold-border)] bg-[color:var(--ivory)] px-4 py-6 text-center text-xs text-[color:var(--text-muted)]">
+        <footer className="border-t border-[color:var(--gold-border)] px-4 py-6 text-center text-xs text-[color:var(--text-muted)]">
           <p>© 2026 Samyuktha Subbian Prabhakaran. All rights reserved.</p>
         </footer>
         <Scripts />
