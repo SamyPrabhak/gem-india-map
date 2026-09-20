@@ -20,8 +20,8 @@ const INK = "#2C1A0A";
 const DIM = "#F5EDD8";
 
 const ISLAND_COORDS: Record<string, [number, number]> = {
-  Lakshadweep: [10.57, 72.64],
-  "Andaman and Nicobar": [11.7, 92.7],
+  Lakshadweep: [9.99, 72.9],
+  "Andaman and Nicobar": [10.85, 93.24],
 };
 
 function FitToFeatures({ data, boundsKey }: { data: FeatureCollection | null; boundsKey: string }) {
@@ -47,14 +47,8 @@ function FlyToRegion({
 }) {
   const map = useMap();
   useEffect(() => {
-    if (!regionKey) return;
-    const islandPos = ISLAND_COORDS[regionKey];
-    if (islandPos) {
-      map.flyTo(islandPos, 6, { duration: 0.9 });
-      const t = setTimeout(onDone, 950);
-      return () => clearTimeout(t);
-    }
-    if (!geo) return;
+    if (!regionKey || !geo) return;
+    // Fly to the real island polygons so their original shapes are visible
     const feature = geo.features.find(
       (f) => (f.properties as { NAME_1?: string })?.NAME_1 === regionKey,
     );
@@ -62,7 +56,7 @@ function FlyToRegion({
     const layer = L.geoJSON(feature);
     const b = layer.getBounds();
     if (b.isValid()) {
-      map.flyToBounds(b, { padding: [40, 40], maxZoom: 6, duration: 0.9 });
+      map.flyToBounds(b, { padding: [40, 40], maxZoom: 8, duration: 0.9 });
       const t = setTimeout(onDone, 950);
       return () => clearTimeout(t);
     }
@@ -156,7 +150,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         center={[22.5, 80]}
         zoom={4}
         minZoom={3}
-        maxZoom={7}
+        maxZoom={10}
         scrollWheelZoom={false}
         style={{ height: "100%", width: "100%", background: "#F5EDD8" }}
         attributionControl={false}
