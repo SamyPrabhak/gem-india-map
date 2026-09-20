@@ -123,7 +123,7 @@ export function RegionPopup({ info, onClose }: Props) {
                               type="button"
                               onClick={() => {
                                 if (p.imageUrl) {
-                                  setLightbox({ src: p.imageUrl, alt: `${p.name}, traditional jewellery of ${info.name}` });
+                                  setLightbox({ src: p.imageUrl, alt: `${p.name} — traditional jewellery of ${info.name}` });
                                 }
                               }}
                               className="block h-full w-full"
@@ -131,7 +131,7 @@ export function RegionPopup({ info, onClose }: Props) {
                             >
                               <img
                                 src={p.imageUrl}
-                                alt={`${p.name}, traditional jewellery of ${info.name}`}
+                                alt={`${p.name} — traditional jewellery of ${info.name}`}
                                 loading="lazy"
                                 className="h-full w-full cursor-zoom-in object-cover"
                                 onError={(e) => {

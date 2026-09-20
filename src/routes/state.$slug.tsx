@@ -15,10 +15,10 @@ export const Route = createFileRoute("/state/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Region not found | The Jewels of India" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Region not found — The Jewels of India" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.name} Jewellery | The Jewels of India`;
+    const title = `${loaderData.name} Jewellery — The Jewels of India`;
     const description = `Famous traditional jewellery styles of ${loaderData.name}, with images, descriptions and sources.`;
     return {
       meta: [
@@ -127,7 +127,7 @@ function StatePage() {
                           onClick={() =>
                             setLightbox({
                               src: p.imageUrl,
-                              alt: `${p.name}, traditional jewellery of ${info.name}`,
+                              alt: `${p.name} — traditional jewellery of ${info.name}`,
                             })
                           }
                           className="block h-full w-full"
@@ -135,7 +135,7 @@ function StatePage() {
                         >
                           <img
                             src={p.imageUrl}
-                            alt={`${p.name}, traditional jewellery of ${info.name}`}
+                            alt={`${p.name} — traditional jewellery of ${info.name}`}
                             loading="lazy"
                             className="h-full w-full cursor-zoom-in object-cover"
                           />

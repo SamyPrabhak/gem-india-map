@@ -61,7 +61,7 @@ function DirectoryPage() {
           />
           <p className="mt-5 max-w-xl font-serif text-base text-[color:var(--text-secondary)] sm:text-lg">
             A curated space celebrating jewelry makers across India and its
-            diaspora, launching soon.
+            diaspora — launching soon.
           </p>
         </section>
 

@@ -43,7 +43,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Karimnagar silver filigree and elaborate gold bridal sets with floral motifs.",
     "Andhra Pradesh, on India's southeastern coast, is famed for temples, classical Kuchipudi dance and a long goldsmithing tradition centred around Karimnagar and Hyderabad's Deccan workshops.",
     [
-      { name: "Karimnagar Filigree", tagline: "Gossamer silver lacework", description: "Hair-thin silver wires twisted into peacocks, lamps and floral medallions, a GI-tagged craft over 200 years old." },
+      { name: "Karimnagar Filigree", tagline: "Gossamer silver lacework", description: "Hair-thin silver wires twisted into peacocks, lamps and floral medallions — a GI-tagged craft over 200 years old." },
       { name: "Buttalu", tagline: "Bridal coin necklace", description: "Layered gold coin necklaces worn by Telugu brides, often featuring Lakshmi motifs and uncut diamonds." },
       { name: "Vaddanam", tagline: "Ornate waist belt", description: "A heavy gold waistband with floral and goddess motifs, central to South Indian bridal trousseaus." },
     ],
@@ -71,13 +71,13 @@ export const jewelryData: Record<string, JewelryInfo> = {
       { name: "Lokaparo", tagline: "Twin-pigeon pendant", description: "Two birds back-to-back in 24k gold, representing love and partnership." },
       { name: "Dhol Biri", tagline: "Drum-shaped pendant", description: "Inspired by the Bihu dhol drum, hammered in gold with red meenakari accents." },
     ],
-    ["Assamese gold is among the purest used in Indian jewelry, often 24k.", "Each motif is named after a household or natural object.", "Bihu dancers wear up to 8 different gohona pieces."],
+    ["Assamese gold is among the purest used in Indian jewelry — often 24k.", "Each motif is named after a household or natural object.", "Bihu dancers wear up to 8 different gohona pieces."],
   ),
   Bihar: make(
     "Bihar", "state", "Patna",
     "Lac & Silver Tribal Jewelry",
     "Lacquered bangles, hansli necklaces and chunky silver anklets rooted in Madhubani tradition.",
-    "Bihar's jewelry mirrors its folk-art heritage, bold lac bangles from Muzaffarpur and tribal silver from the Mithila region.",
+    "Bihar's jewelry mirrors its folk-art heritage — bold lac bangles from Muzaffarpur and tribal silver from the Mithila region.",
     [
       { name: "Lac Bangles", tagline: "Mirror-set lacquer", description: "Glossy lacquer bangles studded with mirrors and beads, dyed in vivid reds and greens." },
       { name: "Hansli", tagline: "Rigid silver collar", description: "A solid silver torque worn close to the neck, often gifted at weddings." },
@@ -93,9 +93,9 @@ export const jewelryData: Record<string, JewelryInfo> = {
     [
       { name: "Dhokra Pendants", tagline: "4,000-year-old craft", description: "Lost-wax brass pendants featuring tribal figures, animals and tree-of-life motifs." },
       { name: "Paijan", tagline: "Bell-anklets", description: "Heavy silver anklets with tiny bells, worn during Karma and Suwa folk dances." },
-      { name: "Cowrie Necklaces", tagline: "Forest currency", description: "Strung cowrie shells with brass beads, once used as both ornament and currency." },
+      { name: "Cowrie Necklaces", tagline: "Forest currency", description: "Strung cowrie shells with brass beads — once used as both ornament and currency." },
     ],
-    ["The Mohenjo-Daro 'Dancing Girl' bronze used the same Dhokra technique.", "Bastar artisans never use moulds, every piece is unique.", "Tribal women wear silver weighing up to 2kg on festival days."],
+    ["The Mohenjo-Daro 'Dancing Girl' bronze used the same Dhokra technique.", "Bastar artisans never use moulds — every piece is unique.", "Tribal women wear silver weighing up to 2kg on festival days."],
   ),
   Goa: make(
     "Goa", "state", "Panaji",
@@ -113,7 +113,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Gujarat", "state", "Gandhinagar",
     "Jadtar & Kutchi Silver",
     "Kundan-set jadtar from Ahmedabad and tribal Kutchi silver with bells, mirrors and chunky cuffs.",
-    "Gujarat's twin jewelry traditions, refined Ahmedabad jadtar for royalty and bold Kutchi tribal silver, span centuries of Rajput, Mughal and Rabari heritage.",
+    "Gujarat's twin jewelry traditions — refined Ahmedabad jadtar for royalty and bold Kutchi tribal silver — span centuries of Rajput, Mughal and Rabari heritage.",
     [
       { name: "Jadtar", tagline: "Uncut diamond setting", description: "Polki diamonds set in 22k gold foil, with reverse meenakari enamel." },
       { name: "Kutchi Silver", tagline: "Mirrored tribal cuffs", description: "Heavy silver cuffs and necklaces with mirror inlays from Banni grasslands." },
@@ -125,13 +125,13 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Haryana", "state", "Chandigarh",
     "Pazeb & Hansli",
     "Heavy silver anklets, nose rings and rigid hansli necklaces central to rural bridal trousseaus.",
-    "Haryana's robust folk culture is reflected in its substantial silver jewelry, designed to be heirloom and visible from afar.",
+    "Haryana's robust folk culture is reflected in its substantial silver jewelry — designed to be heirloom and visible from afar.",
     [
       { name: "Pazeb", tagline: "Chiming silver anklets", description: "Multi-chain silver anklets with bells, worn at weddings and ghoomar dances." },
       { name: "Nath", tagline: "Ringed nose ornament", description: "Large gold nose rings with pearl drops, signature of Haryanvi brides." },
       { name: "Hansli", tagline: "Solid silver torque", description: "A rigid neck ring of pure silver, often given by maternal uncles." },
     ],
-    ["A bride's pazeb can weigh over 500 grams per leg.", "Haryanvi silversmiths still cast in earthen moulds.", "The hansli is never removed, even at night."],
+    ["A bride's pazeb can weigh over 500 grams per leg.", "Haryanvi silversmiths still cast in earthen moulds.", "The hansli is never removed — even at night."],
   ),
   "Himachal Pradesh": make(
     "Himachal Pradesh", "state", "Shimla",
@@ -184,7 +184,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Jharkhand", "state", "Ranchi",
     "Tribal Brass & Cowrie",
     "Santhal and Munda communities craft cowrie-shell necklaces, brass hairpins and beaded waistbands.",
-    "Jharkhand's tribal jewelry is deeply functional, every ornament carries clan identity, ritual meaning or harvest symbolism.",
+    "Jharkhand's tribal jewelry is deeply functional — every ornament carries clan identity, ritual meaning or harvest symbolism.",
     [
       { name: "Cowrie Necklaces", tagline: "Shells of fortune", description: "Strands of cowrie shells believed to bring wealth and ward off evil." },
       { name: "Brass Hairpins", tagline: "Sohrai-etched", description: "Long brass pins decorated with Sohrai art motifs, used to hold elaborate hair buns." },
@@ -208,7 +208,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Kerala", "state", "Thiruvananthapuram",
     "Palakka Mala & Mullamottu",
     "Iconic green-stone palakka necklaces, jasmine-bud mullamottu malas and heavy gold mango malas.",
-    "Kerala's matrilineal society made women custodians of family gold, producing some of India's most distinctive bridal designs.",
+    "Kerala's matrilineal society made women custodians of family gold — producing some of India's most distinctive bridal designs.",
     [
       { name: "Palakka Mala", tagline: "Emerald leaf pendants", description: "A necklace of green-stone leaf pendants set in gold, worn at temple weddings." },
       { name: "Mullamottu Mala", tagline: "Jasmine-bud chain", description: "Tiny gold beads shaped like jasmine buds, strung in long ropes." },
@@ -234,7 +234,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Snug gold-bead thushi chokers and the auspicious Kolhapuri Saaj with 21 leaf-shaped pendants.",
     "Maharashtra's bridal jewelry traditions are anchored by the Peshwa-era Kolhapuri Saaj and the Maratha thushi choker.",
     [
-      { name: "Kolhapuri Saaj", tagline: "21 sacred pendants", description: "A necklace of 21 leaf-shaped pendants, each representing a deity, only worn by married women." },
+      { name: "Kolhapuri Saaj", tagline: "21 sacred pendants", description: "A necklace of 21 leaf-shaped pendants — each representing a deity — only worn by married women." },
       { name: "Thushi", tagline: "Snug gold beads", description: "Tightly packed gold-bead choker that sits high on the throat." },
       { name: "Nath", tagline: "Paisley nose ring", description: "Large paisley-shaped nose ring strung with pearls and a single ruby." },
     ],
@@ -268,7 +268,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Mizoram", "state", "Aizawl",
     "Thi-hna & Amber Beads",
     "Mizo necklaces of amber, agate and brass, paired with traditional puanchei textiles.",
-    "Mizoram's hill-tribe jewelry fuses Burmese, Chin and indigenous Mizo aesthetics, favouring warm amber and bold brass.",
+    "Mizoram's hill-tribe jewelry fuses Burmese, Chin and indigenous Mizo aesthetics — favouring warm amber and bold brass.",
     [
       { name: "Thi-hna", tagline: "Amber & agate", description: "Multi-strand necklaces of golden amber and red agate beads." },
       { name: "Darbu", tagline: "Brass earrings", description: "Heavy brass disc earrings traditional to Mizo women." },
@@ -280,9 +280,9 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Nagaland", "state", "Kohima",
     "Naga Beadwork",
     "Each tribe wears distinct multi-strand bead necklaces with conch shells, boar tusks and brass heads marking status.",
-    "Nagaland's 16 tribes each maintain a distinct visual identity, and beadwork is the loudest expression of clan, valor and marriage status.",
+    "Nagaland's 16 tribes each maintain a distinct visual identity — and beadwork is the loudest expression of clan, valor and marriage status.",
     [
-      { name: "Konyak Beads", tagline: "Warrior strands", description: "Red, yellow and black bead strands featuring miniature brass heads, historically signifying conquests." },
+      { name: "Konyak Beads", tagline: "Warrior strands", description: "Red, yellow and black bead strands featuring miniature brass heads — historically signifying conquests." },
       { name: "Ao Necklace", tagline: "Conch & cornelian", description: "White conch and orange cornelian strands worn at the Moatsu festival." },
       { name: "Boar Tusk Pendants", tagline: "Hunter's pride", description: "Pendants of polished boar tusks set in brass, marking hunting prowess." },
     ],
@@ -294,7 +294,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Cuttack's silver filigree creates gossamer earrings, brooches and the famed Durga tableaux.",
     "Odisha's silver filigree craft, called Tarakasi, has thrived in Cuttack for over 500 years and is now GI-protected.",
     [
-      { name: "Tarakasi", tagline: "Silver lacework", description: "Filigree silver wires shaped into peacocks, lotuses and fish, gossamer-thin and weightless." },
+      { name: "Tarakasi", tagline: "Silver lacework", description: "Filigree silver wires shaped into peacocks, lotuses and fish — gossamer-thin and weightless." },
       { name: "Jhumka", tagline: "Filigree bells", description: "Bell-shaped silver earrings made entirely from twisted filigree wire." },
       { name: "Tahia", tagline: "Odissi hair crown", description: "An elaborate silver and white-flower headpiece worn by Odissi dancers." },
     ],
@@ -304,7 +304,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Punjab", "state", "Chandigarh",
     "Kaintha & Phulkari Beads",
     "Heavy gold kaintha necklaces, jhumkas and ivory-and-red chooda bangles define Punjabi bridal jewelry.",
-    "Punjab's exuberant bridal jewelry mirrors the energy of its bhangra and giddha, bold, layered and gold-rich.",
+    "Punjab's exuberant bridal jewelry mirrors the energy of its bhangra and giddha — bold, layered and gold-rich.",
     [
       { name: "Kaintha", tagline: "Heavy gold collar", description: "A flat gold collar with stone-set pendants, central to Punjabi bridal looks." },
       { name: "Chooda", tagline: "Bridal bangles", description: "Ivory and red bangles worn for 40 days post-wedding by Punjabi brides." },
@@ -316,11 +316,11 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Rajasthan", "state", "Jaipur",
     "Kundan, Polki & Meenakari",
     "Jaipur and Bikaner perfected uncut-diamond polki, kundan setting and vibrant meenakari enamel reverse-work.",
-    "Rajasthan is India's jewelry capital, Jaipur alone houses over 600 years of royal goldsmithing patronised by the Mughal and Rajput courts.",
+    "Rajasthan is India's jewelry capital — Jaipur alone houses over 600 years of royal goldsmithing patronised by the Mughal and Rajput courts.",
     [
-      { name: "Kundan", tagline: "Pure-gold setting", description: "Glass and gemstones set in 24k gold foil, the technique pioneered in Mughal Rajasthan." },
-      { name: "Polki", tagline: "Uncut diamond brilliance", description: "Uncut, unfaceted diamonds set in their natural form, bridal heirloom material." },
-      { name: "Meenakari", tagline: "Reverse enamel", description: "Vibrant enamel work on the reverse of polki pieces, making jewelry beautiful from both sides." },
+      { name: "Kundan", tagline: "Pure-gold setting", description: "Glass and gemstones set in 24k gold foil — the technique pioneered in Mughal Rajasthan." },
+      { name: "Polki", tagline: "Uncut diamond brilliance", description: "Uncut, unfaceted diamonds set in their natural form — bridal heirloom material." },
+      { name: "Meenakari", tagline: "Reverse enamel", description: "Vibrant enamel work on the reverse of polki pieces — making jewelry beautiful from both sides." },
     ],
     ["Jaipur cuts more coloured gemstones than anywhere else on earth.", "Meenakari was brought to Jaipur from Lahore by Raja Man Singh.", "A bridal kundan set can take 6 months to make."],
   ),
@@ -328,7 +328,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Sikkim", "state", "Gangtok",
     "Yencho & Khao",
     "Bhutia and Lepcha gold yencho earrings and khao necklaces blend Tibetan turquoise with coral.",
-    "Sikkim's jewelry is distinctly Himalayan, fusing Buddhist symbolism with Tibetan turquoise and coral trade routes.",
+    "Sikkim's jewelry is distinctly Himalayan — fusing Buddhist symbolism with Tibetan turquoise and coral trade routes.",
     [
       { name: "Yencho", tagline: "Tibetan turquoise drops", description: "Long earrings featuring rough-cut turquoise set in 22k gold." },
       { name: "Khao", tagline: "Coral & gold strand", description: "A multi-strand necklace of red coral and gold beads worn by Bhutia brides." },
@@ -339,11 +339,11 @@ export const jewelryData: Record<string, JewelryInfo> = {
   "Tamil Nadu": make(
     "Tamil Nadu", "state", "Chennai",
     "Temple Jewelry",
-    "Born in Chola temples, featuring goddess motifs, rubies and emeralds, worn by Bharatanatyam dancers and brides.",
+    "Born in Chola temples, featuring goddess motifs, rubies and emeralds — worn by Bharatanatyam dancers and brides.",
     "Tamil Nadu's temple jewelry tradition began in the 9th-century Chola dynasty, originally crafted to adorn temple deities and now central to bridal and dance traditions.",
     [
       { name: "Vanki", tagline: "Inverted-V armlet", description: "An armlet shaped like an inverted V, set with rubies and emeralds, worn high on the upper arm." },
-      { name: "Oddiyanam", tagline: "Royal waist belt", description: "An ornate gold waist belt with goddess motifs, central to Bharatanatyam costuming." },
+      { name: "Oddiyanam", tagline: "Royal waist belt", description: "An ornate gold waist belt with goddess motifs — central to Bharatanatyam costuming." },
       { name: "Maatal", tagline: "Ear-to-hair chain", description: "A chain that loops from the earring up to the hair, popular in Chettinad bridal looks." },
     ],
     ["Original temple jewelry was never worn by humans, only by deities.", "Each motif corresponds to a Hindu mantra.", "Chettinad weddings showcase 30+ pieces per bride."],
@@ -354,11 +354,11 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Hyderabad's Basra pearls, Nizami satlada necklaces and jadau sets reflect a rich Deccan-Mughal legacy.",
     "Telangana's capital Hyderabad has been the global hub of pearl trading for over 400 years, courtesy of the Nizam's patronage.",
     [
-      { name: "Satlada", tagline: "Seven-strand pearls", description: "A seven-strand Basra pearl necklace, the signature Nizami bridal piece." },
+      { name: "Satlada", tagline: "Seven-strand pearls", description: "A seven-strand Basra pearl necklace — the signature Nizami bridal piece." },
       { name: "Jadau", tagline: "Mughal stone-setting", description: "Uncut diamonds, emeralds and rubies set in 22k gold with reverse meenakari." },
       { name: "Karanphool", tagline: "Floral ear cluster", description: "A flower-shaped ear ornament with a chain hooked into the hair." },
     ],
-    ["Basra pearls are now extinct, only heirlooms remain.", "Hyderabad processes 90% of India's pearls.", "The Nizam's jewels are valued at over $2 billion."],
+    ["Basra pearls are now extinct — only heirlooms remain.", "Hyderabad processes 90% of India's pearls.", "The Nizam's jewels are valued at over $2 billion."],
   ),
   Tripura: make(
     "Tripura", "state", "Agartala",
@@ -400,7 +400,7 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "West Bengal", "state", "Kolkata",
     "Filigree & Shola Pith",
     "Bengali brides wear Sita haar gold necklaces, jhumkas and the white shola-pith mukut on their wedding day.",
-    "Bengal's jewelry traditions are steeped in Tagore-era refinement and Durga Puja symbolism, light, lyrical and storied.",
+    "Bengal's jewelry traditions are steeped in Tagore-era refinement and Durga Puja symbolism — light, lyrical and storied.",
     [
       { name: "Sita Haar", tagline: "Long bridal chain", description: "A multi-layered long gold necklace named after Sita, worn by Bengali brides." },
       { name: "Mukut", tagline: "Shola-pith crown", description: "White conical crowns made from shola-pith reed, worn by both bride and groom." },
@@ -440,10 +440,10 @@ export const jewelryData: Record<string, JewelryInfo> = {
     "Andaman & Nicobar Islands", "island", "Port Blair",
     "Shell, Coral & Coconut",
     "Indigenous communities craft necklaces and earrings from conch shells, red coral, mother-of-pearl and carved coconut.",
-    "The Andaman & Nicobar Islands' indigenous tribes, Jarawa, Onge, Sentinelese and Nicobarese, craft jewelry exclusively from sea materials.",
+    "The Andaman & Nicobar Islands' indigenous tribes — Jarawa, Onge, Sentinelese and Nicobarese — craft jewelry exclusively from sea materials.",
     [
       { name: "Shell Strands", tagline: "Conch & cowrie", description: "Multi-strand necklaces of conch, cowrie and clamshell beads." },
-      { name: "Coral Earrings", tagline: "Red sea fire", description: "Red coral earrings, historically used as both ornament and trade currency." },
+      { name: "Coral Earrings", tagline: "Red sea fire", description: "Red coral earrings — historically used as both ornament and trade currency." },
       { name: "Coconut Discs", tagline: "Carved palm jewelry", description: "Disc-shaped earrings and pendants carved from coconut shells." },
     ],
     ["Some shells are believed to ward off cyclones.", "Coral harvesting is now strictly regulated.", "Nicobarese designs use only naturally bleached white shells."],
