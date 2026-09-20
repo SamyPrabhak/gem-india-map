@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- vertical threads -->
+  <rect x="0.5" y="0" width="3.4" height="24" fill="#c8a96e" opacity="0.09"/>
+  <rect x="12.5" y="0" width="3.4" height="24" fill="#c8a96e" opacity="0.09"/>
+  <!-- horizontal threads -->
+  <rect x="0" y="0.5" width="24" height="3.4" fill="#c8a96e" opacity="0.09"/>
+  <rect x="0" y="12.5" width="24" height="3.4" fill="#c8a96e" opacity="0.09"/>
+  <!-- over-under weave shading -->
+  <rect x="0.5" y="0" width="3.4" height="11" fill="#b98f3e" opacity="0.10"/>
+  <rect x="12.5" y="12" width="3.4" height="12" fill="#b98f3e" opacity="0.10"/>
+  <rect x="12" y="0.5" width="12" height="3.4" fill="#b98f3e" opacity="0.10"/>
+  <rect x="0" y="12.5" width="11" height="3.4" fill="#b98f3e" opacity="0.10"/>
+  <!-- soft fiber slubs, hand-woven irregularity -->
+  <rect x="5" y="17" width="5" height="1.2" fill="#5c3d1a" opacity="0.05"/>
+  <rect x="17" y="5" width="1.2" height="5" fill="#5c3d1a" opacity="0.05"/>
+  <rect x="9" y="9" width="3" height="1" fill="#f7f0dc" opacity="0.35"/>
+  <rect x="2" y="20" width="1" height="3" fill="#f7f0dc" opacity="0.30"/>
+</svg>
