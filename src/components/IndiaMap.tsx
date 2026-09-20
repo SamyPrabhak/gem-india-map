@@ -181,9 +181,9 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
           if (!info) return null;
           const diamondIcon = L.divIcon({
             className: "india-diamond-icon",
-            html: `<svg width="22" height="26" viewBox="0 0 22 26" style="filter:drop-shadow(0 2px 4px rgba(42,38,34,0.35));"><path d="M3 6 L11 1 L19 6 L11 25 Z" fill="${GOLD}" stroke="${GOLD_DEEP}" stroke-width="2" stroke-linejoin="round"/></svg>`,
-            iconSize: [22, 26],
-            iconAnchor: [11, 13],
+            html: `<svg width="26" height="28" viewBox="0 0 26 28" style="filter:drop-shadow(0 2px 4px rgba(42,38,34,0.35));"><path d="M2 8 L13 1 L24 8 L13 27 Z" fill="${GOLD}" stroke="${GOLD_DEEP}" stroke-width="2" stroke-linejoin="round"/></svg>`,
+            iconSize: [26, 28],
+            iconAnchor: [13, 14],
           });
           return (
             <Marker
