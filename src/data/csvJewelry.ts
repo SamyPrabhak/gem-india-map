@@ -214,6 +214,12 @@ export const csvRegions: CsvRegion[] = [
         "description": "Toe rings traditionally worn by married Hindu women, often crafted in silver.",
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIhCjdjJUaKKVD5y-wbz9mAFrUI6WFpvwIJ--C2yc0vw&s=10",
         "source": "Google"
+      },
+      {
+        "name": "Gulabi Meenakari",
+        "description": "Gulabi Meenakari is a rare and exquisite craft practiced by the skilled karigars (artisans) of Varanasi. This intricate art form involves colouring precious metal surfaces by fusing 5 different layers of enamel, to protect it from wear and tear.",
+        "imageUrl": "https://shahiqala.com/wp-content/uploads/2026/03/landing-page-hero.jpg",
+        "source": "https://shahiqala.com/"
       }
     ]
   },
@@ -807,11 +813,6 @@ export const csvRegions: CsvRegion[] = [
   }
 ];
 
-const normalize = (s: string) =>
-  s.toLowerCase().replace(/&/g, "and").replace(/\bislands?\b/g, "").replace(/[^a-z]/g, "");
-
-const index = new Map(csvRegions.map((r) => [normalize(r.state), r]));
-
-export function getCsvRegion(stateName: string): CsvRegion | undefined {
-  return index.get(normalize(stateName));
+export function getCsvRegion(state: string): CsvRegion | undefined {
+  return csvRegions.find((r) => r.state === state);
 }
