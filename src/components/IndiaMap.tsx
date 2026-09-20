@@ -80,11 +80,12 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
     const name = feature?.properties?.NAME_1 ?? "";
     const info = jewelryData[name];
     const isActive = info?.group === activeGroup;
+    const isIsland = info?.group === "island";
     return {
       color: isActive ? GOLD_DEEP : BORDER,
-      weight: isActive ? 0.8 : 0.4,
-      fillColor: isActive ? GOLD : DIM,
-      fillOpacity: isActive ? 0.35 : 0.18,
+      weight: isActive ? 0.8 : isIsland ? 0.7 : 0.4,
+      fillColor: isActive ? GOLD : isIsland ? "#E0D0A4" : DIM,
+      fillOpacity: isActive ? 0.35 : isIsland ? 0.55 : 0.18,
     };
   };
 
