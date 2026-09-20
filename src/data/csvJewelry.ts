@@ -669,7 +669,7 @@ export const csvRegions: CsvRegion[] = [
   },
   {
     "state": "Kerala",
-    "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters — a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
+    "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters, a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
     "pieces": [
       {
         "name": "Elakkathali",
