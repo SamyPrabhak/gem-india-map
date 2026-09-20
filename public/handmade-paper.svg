@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <defs>
+    <!-- fine grain, tileable -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix"
+        values="0 0 0 0 0.45
+                0 0 0 0 0.36
+                0 0 0 0 0.20
+                0 0 0 0.04 0"/>
+    </filter>
+    <!-- soft tonal mottling, tileable -->
+    <filter id="mottle" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="11" stitchTiles="stitch" result="m"/>
+      <feColorMatrix in="m" type="matrix"
+        values="0 0 0 0 0.42
+                0 0 0 0 0.33
+                0 0 0 0 0.18
+                0 0 0 0.035 0"/>
+    </filter>
+  </defs>
+
+  <!-- warm mottled deckle tone -->
+  <rect width="400" height="400" filter="url(#mottle)"/>
+  <!-- speckled fiber grain -->
+  <rect width="400" height="400" filter="url(#grain)"/>
+
+  <!-- stray pulp fibers: short, thin, varied angles -->
+  <g stroke="#7a5230" stroke-width="0.55" stroke-linecap="round" opacity="0.06">
+    <path d="M22 38 l16 -5"/>
+    <path d="M148 22 l12 6"/>
+    <path d="M268 44 l14 -4"/>
+    <path d="M356 96 l-12 7"/>
+    <path d="M70 112 l15 4"/>
+    <path d="M204 128 l-11 -6"/>
+    <path d="M320 150 l13 5"/>
+    <path d="M44 190 l14 -6"/>
+    <path d="M168 206 l12 5"/>
+    <path d="M292 218 l-13 -4"/>
+    <path d="M372 250 l-14 6"/>
+    <path d="M96 262 l13 -5"/>
+    <path d="M228 278 l11 6"/>
+    <path d="M340 300 l-12 5"/>
+    <path d="M24 322 l14 4"/>
+    <path d="M150 336 l12 -6"/>
+    <path d="M276 356 l13 4"/>
+    <path d="M66 372 l-12 5"/>
+  </g>
+
+  <!-- tiny embedded flecks -->
+  <g fill="#7a5230" opacity="0.08">
+    <circle cx="64" cy="88" r="0.7"/>
+    <circle cx="212" cy="56" r="0.6"/>
+    <circle cx="338" cy="122" r="0.8"/>
+    <circle cx="118" cy="182" r="0.6"/>
+    <circle cx="272" cy="196" r="0.7"/>
+    <circle cx="38" cy="286" r="0.6"/>
+    <circle cx="232" cy="312" r="0.7"/>
+    <circle cx="366" cy="266" r="0.6"/>
+    <circle cx="156" cy="372" r="0.6"/>
+    <circle cx="300" cy="34" r="0.6"/>
+  </g>
+</svg>

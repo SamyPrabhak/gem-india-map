@@ -34,9 +34,9 @@
 
 body {
   font-family: var(--font-sans);
-  /* Hand-woven cotton (khadi) texture layered over the ivory base */
-  background-image: url("/khadi-weave.svg");
-  background-size: 24px 24px;
+  /* Handmade paper texture layered over the ivory base */
+  background-image: url("/handmade-paper.svg");
+  background-size: 400px 400px;
 }
 
 .india-tooltip {
