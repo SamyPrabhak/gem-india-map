@@ -157,7 +157,7 @@ function Header() {
       <div className="mx-auto flex max-w-6xl items-baseline justify-between">
         <Link
           to="/"
-          className="font-display text-xl font-semibold text-[color:var(--ink)] sm:text-2xl md:text-3xl"
+          className="shrink-0 whitespace-nowrap font-display text-xl font-semibold text-[color:var(--ink)] sm:text-2xl md:text-3xl"
         >
           The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
