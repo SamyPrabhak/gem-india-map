@@ -60,8 +60,8 @@ function DirectoryPage() {
             style={{ background: "var(--gold)" }}
           />
           <p className="mt-5 max-w-xl font-serif text-base text-[color:var(--text-secondary)] sm:text-lg">
-            Independent brands, small businesses and diaspora designers keeping
-            India's jewelry traditions alive.
+            A curated space celebrating jewelry makers across India and its
+            diaspora — launching soon.
           </p>
         </section>
 
