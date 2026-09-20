@@ -7,7 +7,7 @@ export const Route = createFileRoute("/directory")({
   head: () => ({
     meta: [
       {
-        title: "Indian Jewelry Directory | The Jewels of India",
+        title: "Directory | The Jewels of India",
       },
       {
         name: "description",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/directory")({
       },
       {
         property: "og:title",
-        content: "Indian Jewelry Directory | The Jewels of India",
+        content: "Directory | The Jewels of India",
       },
       {
         property: "og:description",
@@ -52,7 +52,7 @@ function DirectoryPage() {
         {/* Header */}
         <section className="flex flex-col items-center text-center">
           <h1 className="font-display text-4xl leading-tight text-[color:var(--ink)] sm:text-6xl md:text-7xl">
-            Indian Jewelry Directory
+            Directory
           </h1>
           <div
             aria-hidden="true"
