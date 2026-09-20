@@ -46,7 +46,7 @@ function DirectoryPage() {
   return (
     <main
       className="min-h-screen"
-      style={{ background: "var(--ivory)", color: "var(--ink)" }}
+      style={{ color: "var(--ink)" }}
     >
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-10 sm:px-5 sm:py-14">
         {/* Header */}

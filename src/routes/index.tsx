@@ -83,7 +83,6 @@ function Index() {
       <main
         className="min-h-screen"
         style={{
-          background: "var(--ivory)",
           color: "var(--ink)",
         }}
       >

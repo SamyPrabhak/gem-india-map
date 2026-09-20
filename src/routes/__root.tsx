@@ -4,7 +4,7 @@ import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-[calc(100vh-140px)] flex-col items-center justify-center bg-[color:var(--ivory)] px-4 py-12 text-center">
+    <div className="flex min-h-[calc(100vh-140px)] flex-col items-center justify-center px-4 py-12 text-center">
       <div className="relative flex flex-col items-center">
         {/* Diamond with shimmer, matching the splash animation */}
         <div className="relative h-24 w-24 sm:h-28 sm:w-28">
@@ -193,7 +193,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <footer className="border-t border-[color:var(--gold-border)] bg-[color:var(--ivory)] px-4 py-6 text-center text-xs text-[color:var(--text-muted)]">
+        <footer className="border-t border-[color:var(--gold-border)] px-4 py-6 text-center text-xs text-[color:var(--text-muted)]">
           <p>© 2026 Samyuktha Subbian Prabhakaran. All rights reserved.</p>
         </footer>
         <Scripts />
