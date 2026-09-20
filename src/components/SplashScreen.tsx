@@ -51,48 +51,52 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
           <div className="shimmer-bar pointer-events-none absolute inset-0 z-10 rounded-full" />
 
           <svg
-            viewBox="0 0 120 120"
+            viewBox="0 0 200 170"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="relative h-full w-full drop-shadow-[0_14px_34px_rgba(201,162,75,0.35)]"
           >
             {/* Subtle fill for depth */}
             <path
-              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              d="M45 26 L156 24 L191 62 L101 149 L9 64 Z"
               fill="url(#diaFill)"
-              opacity="0.35"
+              opacity="0.3"
             />
 
             {/* Outer diamond outline */}
             <path
-              d="M28 40 Q60 34 92 40 L108 52 L60 112 L12 52 Z"
+              d="M45 26 L156 24 L191 62 L101 149 L9 64 Z"
               stroke="#C8A050"
-              strokeWidth="1.6"
+              strokeWidth="3"
               strokeLinejoin="round"
               strokeLinecap="round"
               fill="none"
             />
 
-            {/* Crown band bottom line */}
+            {/* Girdle line */}
             <path
-              d="M12 52 L108 52"
+              d="M9 64 L191 62"
               stroke="#C8A050"
-              strokeWidth="1.4"
+              strokeWidth="2.6"
               strokeLinecap="round"
             />
 
-            {/* Crown vertical facet lines */}
-            <path d="M40 37.5 L32 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M60 34 L60 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M80 37.5 L88 52" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+            {/* Crown facets: three triangles with bases on the top edge */}
+            <path d="M45 26 L68 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M85 27 L68 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M85 27 L100 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M115 26 L100 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M115 26 L132 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M156 24 L132 62" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
 
-            {/* Pavilion facet lines converging to bottom point */}
-            <path d="M32 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M60 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M88 52 L60 112" stroke="#C8A050" strokeWidth="1.2" strokeLinecap="round" />
+            {/* Pavilion facets converging to the bottom point */}
+            <path d="M42 63 L100 148" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M72 63 L100 148" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M128 63 L100 148" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M158 63 L100 148" stroke="#C8A050" strokeWidth="2.4" strokeLinecap="round" />
 
             <defs>
-              <linearGradient id="diaFill" x1="60" y1="34" x2="60" y2="112" gradientUnits="userSpaceOnUse">
+              <linearGradient id="diaFill" x1="100" y1="24" x2="100" y2="149" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#F5EDD8" />
                 <stop offset="100%" stopColor="#C8A050" />
               </linearGradient>
