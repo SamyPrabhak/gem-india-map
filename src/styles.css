@@ -36,7 +36,7 @@ body {
   font-family: var(--font-sans);
   /* Handmade paper texture layered over the ivory base */
   background-image: url("/handmade-paper.svg");
-  background-size: 300px 300px;
+  background-size: 400px 400px;
 }
 
 .india-tooltip {
