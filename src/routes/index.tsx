@@ -72,9 +72,11 @@ function Index() {
   }, []);
 
   useEffect(() => {
-    if (search.region && jewelryData[search.region]) {
-      setSelected(search.region);
-    }
+    if (!search.region) return;
+    const key = jewelryData[search.region]
+      ? search.region
+      : getRegionKeyBySlug(search.region);
+    if (key) setSelected(key);
   }, [search.region]);
 
   return (
