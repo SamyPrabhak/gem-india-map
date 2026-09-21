@@ -4,6 +4,7 @@ import { GroupTabs } from "@/components/GroupTabs";
 import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
+import { getRegionKeyBySlug } from "@/lib/regionSlug";
 
 interface HomeSearch {
   region?: string;
