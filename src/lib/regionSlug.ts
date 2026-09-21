@@ -8,8 +8,15 @@ export function toRegionSlug(name: string): string {
     .replace(/^-|-$/g, "");
 }
 
-export function getRegionBySlug(slug: string): JewelryInfo | undefined {
+export function getRegionKeyBySlug(slug: string): string | undefined {
   const target = slug.toLowerCase();
-  const key = Object.keys(jewelryData).find((n) => toRegionSlug(n) === target);
+  return Object.keys(jewelryData).find(
+    (key) =>
+      toRegionSlug(key) === target || toRegionSlug(jewelryData[key]!.name) === target,
+  );
+}
+
+export function getRegionBySlug(slug: string): JewelryInfo | undefined {
+  const key = getRegionKeyBySlug(slug);
   return key ? jewelryData[key] : undefined;
 }

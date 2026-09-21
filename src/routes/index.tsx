@@ -4,6 +4,7 @@ import { GroupTabs } from "@/components/GroupTabs";
 import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
+import { getRegionKeyBySlug } from "@/lib/regionSlug";
 
 interface HomeSearch {
   region?: string;
@@ -72,9 +73,11 @@ function Index() {
   }, []);
 
   useEffect(() => {
-    if (search.region && jewelryData[search.region]) {
-      setSelected(search.region);
-    }
+    if (!search.region) return;
+    const key = jewelryData[search.region]
+      ? search.region
+      : getRegionKeyBySlug(search.region);
+    if (key) setSelected(key);
   }, [search.region]);
 
   return (
