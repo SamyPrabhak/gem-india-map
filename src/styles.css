@@ -251,9 +251,9 @@ body {
 }
 
 .map-frame {
-  --band: 26px;
+  --band: 16px;
   position: relative;
-  border-radius: 14px;
+  border-radius: 10px;
   background: var(--frame-blue);
   padding: var(--band);
   box-shadow:
@@ -263,7 +263,7 @@ body {
 
 @media (min-width: 640px) {
   .map-frame {
-    --band: 34px;
+    --band: 20px;
   }
 }
 
