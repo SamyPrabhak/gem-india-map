@@ -144,7 +144,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
 
   return (
     <div
-      className="relative w-full border-[22px] border-solid border-transparent drop-shadow-xl sm:border-[34px] md:border-[46px]"
+      className="relative mx-auto aspect-[736/965] w-full max-w-3xl border-[22px] border-solid border-transparent drop-shadow-xl sm:border-[34px] md:border-[46px]"
       style={{
         borderImageSource: `url(${ornateMapFrame.url})`,
         borderImageSlice: "130 120 115 120 fill",
@@ -154,7 +154,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
       role="img"
       aria-label="Interactive map of India showing regional jewelry traditions"
     >
-      <div className="relative h-[55vh] min-h-[360px] w-full overflow-hidden bg-[color:var(--ivory)] shadow-inner sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
+      <div className="relative h-full w-full overflow-hidden bg-[color:var(--ivory)] shadow-inner">
         <MapContainer
           center={[22.5, 80]}
           zoom={4}
