@@ -18,15 +18,15 @@ export const csvRegions: CsvRegion[] = [
     "about": "Jammu and Kashmir is a union territory administered by India, covering the southern and southwestern parts of the Kashmir region. Srinagar serves as the summer capital and Jammu as the winter capital. The region is known for its mountains, valleys, and scenic landscapes.",
     "pieces": [
       {
-        "name": "Dejihor",
-        "description": "Worn by every Pandit woman as a symbol of her marriage, the dejihor is a dangler earring that hangs from the upper portion of the ear. It is believed to have been designed by the great Kashmiri acharyas to infuse divine strength in married women.",
-        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Dejihor_001.jpg",
-        "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
-      },
-      {
         "name": "Halqaband",
         "description": "A traditional tight choker, the halqaband is worn around the neck. It is usually made of gold and has interlocking sections joined together with thread.",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786723067/Halqaband_001.jpg",
+        "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
+      },
+      {
+        "name": "Dejihor",
+        "description": "Worn by every Pandit woman as a symbol of her marriage, the dejihor is a dangler earring that hangs from the upper portion of the ear. It is believed to have been designed by the great Kashmiri acharyas to infuse divine strength in married women.",
+        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Dejihor_001.jpg",
         "source": "https://www.mygoldguide.in/kashmiri-jewellery-traditional-gold-jewellery-designs-from-jammu-kashmir"
       },
       {
@@ -72,6 +72,12 @@ export const csvRegions: CsvRegion[] = [
     "about": "Punjab is a state at the heart of India's Sikh community. Its name means \"land of five rivers.\" The region features rich farmlands, a deep history tied to the Indus Valley Civilization, and a vibrant culture famous for Bhangra dance and its distinct cuisine.",
     "pieces": [
       {
+        "name": "latkan nath",
+        "description": "The latkan nath stands out from the rest with its unique embellishment that includes a floral motif that is attached to the chain of the nath.",
+        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542142/Latkan_Nath.png",
+        "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-punjabi-bride/"
+      },
+      {
         "name": "ChandBali",
         "description": "Crescent or round shaped earring is elegant yet bold with its intricate designs and drop stones that comprise of pearls or precious stones.",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542143/Chandbali.png",
@@ -81,12 +87,6 @@ export const csvRegions: CsvRegion[] = [
         "name": "Saggi Phul",
         "description": "A central gold head stud that supports the phulkari dupatta, the Saggi phul is also embossed with floral motifs",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542143/Saggi.png",
-        "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-punjabi-bride/"
-      },
-      {
-        "name": "latkan nath",
-        "description": "The latkan nath stands out from the rest with its unique embellishment that includes a floral motif that is attached to the chain of the nath.",
-        "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542142/Latkan_Nath.png",
         "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-punjabi-bride/"
       }
     ]
@@ -102,15 +102,15 @@ export const csvRegions: CsvRegion[] = [
         "source": "https://www.mygoldguide.in/uttarakhand-traditional-jewellery-charm-of-pahari-women"
       },
       {
-        "name": "Pahunchi",
-        "description": "pahunchi are gold bangles worn by women on special events. They are popular in the Kumaon and Garhwal regions and are another form of auspicious jewellery for married women. Typically, you’ll see women wearing such jewellery during important family functions and festivals. What makes these bangles unique is how they are made using small gold beads studded on a red cloth.",
-        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Wearing_gold_in_Uttarakhand_Pahunchi_001.jpg",
-        "source": "https://www.mygoldguide.in/uttarakhand-traditional-jewellery-charm-of-pahari-women"
-      },
-      {
         "name": "Kaanphool",
         "description": "‘Kaan’ means ear and ‘phool’ means flower. Made of gold, kaanphool are earrings carved with floral motifs that usually cover the entire ear. Jaunsari women most commonly wear these.",
         "imageUrl": "https://www.mygoldguide.in/sites/default/files/Wearing_gold_in_Uttarakhand_Kaanphool_001.jpg",
+        "source": "https://www.mygoldguide.in/uttarakhand-traditional-jewellery-charm-of-pahari-women"
+      },
+      {
+        "name": "Pahunchi",
+        "description": "pahunchi are gold bangles worn by women on special events. They are popular in the Kumaon and Garhwal regions and are another form of auspicious jewellery for married women. Typically, you’ll see women wearing such jewellery during important family functions and festivals. What makes these bangles unique is how they are made using small gold beads studded on a red cloth.",
+        "imageUrl": "https://www.mygoldguide.in/sites/default/files/Wearing_gold_in_Uttarakhand_Pahunchi_001.jpg",
         "source": "https://www.mygoldguide.in/uttarakhand-traditional-jewellery-charm-of-pahari-women"
       }
     ]
@@ -610,12 +610,6 @@ export const csvRegions: CsvRegion[] = [
         "description": "A choker necklace crafted out of gold beads in varying sizes, the Thushi is adjustable thanks to a soft thread that can be adjusted according to the wearer’s convenience.",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542483/Screenshot_2026-08-12_at_9.47.58_AM.png",
         "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-maharashtrian-bride/"
-      },
-      {
-        "name": "Tanmani",
-        "description": "Maharashtrian heritage necklace featuring multi-strand pearl strings and an ornate, gemstone-studded central pendant known as a khod.",
-        "imageUrl": "https://assets.storzapp.com/a4a49a3e-bb30-4b32-b795-131211b12054/productImage/63be517b456b5a1bc86bef3f/Peacock%20style%20tanmani%20mopankhi.webp",
-        "source": "Google"
       }
     ]
   },
@@ -637,15 +631,9 @@ export const csvRegions: CsvRegion[] = [
       },
       {
         "name": "Pichodi",
-        "description": "A bangle crafted out of gold and adorned with a delicate crown-like design",
+        "description": "Crafted out of gold and adorned with a delicate crown-like design",
         "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786559459/Screenshot_2026-08-12_at_2.30.21_PM.png",
         "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-konkani-bride/"
-      },
-      {
-        "name": "Kadkadya ati",
-        "description": "A hair ornament that has lightweight golden flowers on golden springs that shake slightly when the wearer moves her head.",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBRtauWsUQdMo0qolsDoPCVjgr5SCEmaw0aGFHUCPTaup61WfF9Sxdoow&s=10",
-        "source": "https://www.instagram.com/reel/DFIisebsbAe/?hl=en"
       }
     ]
   },
@@ -681,7 +669,7 @@ export const csvRegions: CsvRegion[] = [
   },
   {
     "state": "Kerala",
-    "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters , a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
+    "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters — a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
     "pieces": [
       {
         "name": "Elakkathali",
