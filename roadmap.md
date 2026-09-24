@@ -9,3 +9,4 @@
 - [x] Standardize gold uppercase labels at 10px with 2px spacing
 - [x] Verify desktop and mobile pages, popup, and interactions
 - [x] Darken Directory nav link to a deeper gold
+- [x] Fetch updated Jewels of India Google Sheet and refresh site jewelry data
