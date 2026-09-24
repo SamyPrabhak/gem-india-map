@@ -244,3 +244,103 @@ body {
     color: var(--color-foreground);
   }
 }
+
+/* Ornamental map frame (manuscript-inspired blue band with gold vine) */
+:root {
+  --frame-blue: #1e4da0;
+}
+
+.map-frame {
+  --band: 26px;
+  position: relative;
+  border-radius: 14px;
+  background: var(--frame-blue);
+  padding: var(--band);
+  box-shadow:
+    0 0 0 1px var(--gold-deep),
+    0 12px 32px -14px rgba(44, 26, 10, 0.4);
+}
+
+@media (min-width: 640px) {
+  .map-frame {
+    --band: 34px;
+  }
+}
+
+.map-frame-edge {
+  position: absolute;
+  pointer-events: none;
+  background-image: url("/map-frame-vine.svg");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: center;
+}
+
+.map-frame-edge-t {
+  top: 0;
+  left: var(--band);
+  right: var(--band);
+  height: var(--band);
+}
+
+.map-frame-edge-b {
+  bottom: 0;
+  left: var(--band);
+  right: var(--band);
+  height: var(--band);
+}
+
+.map-frame-edge-l,
+.map-frame-edge-r {
+  background-image: url("/map-frame-vine-v.svg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  width: var(--band);
+  top: var(--band);
+  bottom: var(--band);
+}
+
+.map-frame-edge-l {
+  left: 0;
+}
+
+.map-frame-edge-r {
+  right: 0;
+}
+
+.map-frame-corner {
+  position: absolute;
+  pointer-events: none;
+  width: var(--band);
+  height: var(--band);
+  background: url("/map-frame-corner.svg") center / contain no-repeat;
+}
+
+.map-frame-corner-tl {
+  top: 0;
+  left: 0;
+}
+
+.map-frame-corner-tr {
+  top: 0;
+  right: 0;
+}
+
+.map-frame-corner-bl {
+  bottom: 0;
+  left: 0;
+}
+
+.map-frame-corner-br {
+  bottom: 0;
+  right: 0;
+}
+
+.map-frame-inner {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  background: var(--ivory);
+  padding: 6px;
+  box-shadow: 0 0 0 1px var(--gold-deep);
+}

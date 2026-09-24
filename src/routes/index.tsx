@@ -110,13 +110,15 @@ function Index() {
         </div>
 
         <div className="mt-8">
-          {mounted ? (
-            <Suspense fallback={<MapFallback />}>
-              <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />
-            </Suspense>
-          ) : (
-            <MapFallback />
-          )}
+          <MapFrame>
+            {mounted ? (
+              <Suspense fallback={<MapFallback />}>
+                <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />
+              </Suspense>
+            ) : (
+              <MapFallback />
+            )}
+          </MapFrame>
         </div>
 
         <footer className="label-gold mt-12 text-center">
