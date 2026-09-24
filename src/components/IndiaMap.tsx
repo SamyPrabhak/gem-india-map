@@ -208,6 +208,15 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         </MapContainer>
         <RegionSearch onPick={handlePick} />
       </div>
+      {/* Ornate frame overlay rendered at its native proportions so the carving never stretches */}
+      <img
+        src={ornateMapFrame.url}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full select-none"
+        style={{ filter: "drop-shadow(0 14px 26px rgba(44, 26, 10, 0.28))" }}
+      />
     </div>
   );
 }
