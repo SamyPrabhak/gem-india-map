@@ -6,7 +6,6 @@ import "leaflet/dist/leaflet.css";
 import indiaGeo from "@/data/india.geojson?url";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
 import { RegionSearch } from "@/components/RegionSearch";
-import ornateMapFrame from "@/assets/ornate-map-frame.png.asset.json";
 
 interface Props {
   activeGroup: RegionGroup;
