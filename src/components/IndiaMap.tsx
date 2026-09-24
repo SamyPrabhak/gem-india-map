@@ -152,7 +152,7 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
       <div className="frame-map">
         <MapContainer
           center={[22.5, 80]}
-          zoom={4}
+          zoom={typeof window !== "undefined" && window.innerWidth < 640 ? 3 : 4}
           minZoom={3}
           maxZoom={10}
           scrollWheelZoom={false}
