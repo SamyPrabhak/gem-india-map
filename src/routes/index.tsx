@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { GroupTabs } from "@/components/GroupTabs";
+import { MapFrame } from "@/components/MapFrame";
 import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
