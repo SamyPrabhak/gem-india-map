@@ -11,3 +11,4 @@
 - [x] Darken Directory nav link to a deeper gold
 
 - [x] Refresh jewelry data from the updated Jewels of India Google Sheet and verify all regions.
+- [ ] Use the uploaded gold photo frame JPEG as the interactive map border.
