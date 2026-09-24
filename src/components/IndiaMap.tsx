@@ -144,12 +144,11 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
 
   return (
     <div
-      className="frame-stage"
+      className="relative mx-auto h-[55vh] min-h-[360px] w-full overflow-hidden sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]"
       role="img"
       aria-label="Interactive map of India showing regional jewelry traditions"
     >
-      {/* Map area sits exactly inside the frame's scaled opening (449x676 of 736x965) */}
-      <div className="frame-map">
+      <div className="relative h-full w-full">
         <MapContainer
           center={[22.5, 80]}
           zoom={typeof window !== "undefined" && window.innerWidth < 640 ? 3 : 4}
