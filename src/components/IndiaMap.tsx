@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import indiaGeo from "@/data/india.geojson?url";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
 import { RegionSearch } from "@/components/RegionSearch";
+import ornateMapFrame from "@/assets/ornate-map-frame.png.asset.json";
 
 interface Props {
   activeGroup: RegionGroup;
@@ -143,64 +144,72 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
 
   return (
     <div
-      className="relative h-[55vh] min-h-[360px] w-full overflow-hidden rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory)] shadow-lg sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]"
+      className="relative w-full border-[22px] border-solid border-transparent drop-shadow-xl sm:border-[34px] md:border-[46px]"
+      style={{
+        borderImageSource: `url(${ornateMapFrame.url})`,
+        borderImageSlice: "130 120 115 120 fill",
+        borderImageWidth: "1",
+        borderImageRepeat: "stretch",
+      }}
       role="img"
       aria-label="Interactive map of India showing regional jewelry traditions"
     >
-      <MapContainer
-        center={[22.5, 80]}
-        zoom={4}
-        minZoom={3}
-        maxZoom={10}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", background: "#F5EDD8" }}
-        attributionControl={false}
-      >
-        {geo && (
-          <GeoJSON
-            key="india"
-            data={geo}
-            style={styleFor as L.StyleFunction}
-            onEachFeature={onEach}
-            ref={(l) => {
-              layerRef.current = l ?? null;
-            }}
+      <div className="relative h-[55vh] min-h-[360px] w-full overflow-hidden bg-[color:var(--ivory)] shadow-inner sm:h-[65vh] sm:min-h-[480px] md:h-[70vh] md:min-h-[540px]">
+        <MapContainer
+          center={[22.5, 80]}
+          zoom={4}
+          minZoom={3}
+          maxZoom={10}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%", background: "var(--ivory)" }}
+          attributionControl={false}
+        >
+          {geo && (
+            <GeoJSON
+              key="india"
+              data={geo}
+              style={styleFor as L.StyleFunction}
+              onEachFeature={onEach}
+              ref={(l) => {
+                layerRef.current = l ?? null;
+              }}
+            />
+          )}
+          {/* Island clickable markers (polygons too small to click) */}
+          {[
+            { name: "Lakshadweep", pos: ISLAND_COORDS.Lakshadweep },
+            { name: "Andaman and Nicobar", pos: ISLAND_COORDS["Andaman and Nicobar"] },
+          ].map(({ name, pos }) => {
+            const info = jewelryData[name];
+            if (!info) return null;
+            const diamondIcon = L.divIcon({
+              className: "india-diamond-icon",
+              html: `<svg width="26" height="28" viewBox="0 0 26 28" style="filter:drop-shadow(0 2px 4px rgba(42,38,34,0.35));"><path d="M2 8 L13 1 L24 8 L13 27 Z" fill="${GOLD}" stroke="${GOLD_DEEP}" stroke-width="2" stroke-linejoin="round"/></svg>`,
+              iconSize: [26, 28],
+              iconAnchor: [13, 14],
+            });
+            return (
+              <Marker
+                key={name}
+                position={pos}
+                icon={diamondIcon}
+                eventHandlers={{ click: () => onSelect(name) }}
+              >
+                <Tooltip direction="top" className="india-tooltip">
+                  {info.name}
+                </Tooltip>
+              </Marker>
+            );
+          })}
+          <FitToFeatures data={filteredFC} boundsKey={groupBoundsKey} />
+          <FlyToRegion
+            regionKey={focusRegion}
+            geo={geo}
+            onDone={() => setFocusRegion(null)}
           />
-        )}
-        {/* Island clickable markers (polygons too small to click) */}
-        {[
-          { name: "Lakshadweep", pos: ISLAND_COORDS.Lakshadweep },
-          { name: "Andaman and Nicobar", pos: ISLAND_COORDS["Andaman and Nicobar"] },
-        ].map(({ name, pos }) => {
-          const info = jewelryData[name];
-          if (!info) return null;
-          const diamondIcon = L.divIcon({
-            className: "india-diamond-icon",
-            html: `<svg width="26" height="28" viewBox="0 0 26 28" style="filter:drop-shadow(0 2px 4px rgba(42,38,34,0.35));"><path d="M2 8 L13 1 L24 8 L13 27 Z" fill="${GOLD}" stroke="${GOLD_DEEP}" stroke-width="2" stroke-linejoin="round"/></svg>`,
-            iconSize: [26, 28],
-            iconAnchor: [13, 14],
-          });
-          return (
-            <Marker
-              key={name}
-              position={pos}
-              icon={diamondIcon}
-              eventHandlers={{ click: () => onSelect(name) }}
-            >
-              <Tooltip direction="top" className="india-tooltip">
-                {info.name}
-              </Tooltip>
-            </Marker>
-          );
-        })}
-        <FitToFeatures data={filteredFC} boundsKey={groupBoundsKey} />
-        <FlyToRegion
-          regionKey={focusRegion}
-          geo={geo}
-          onDone={() => setFocusRegion(null)}
-        />
-      </MapContainer>
-      <RegionSearch onPick={handlePick} />
+        </MapContainer>
+        <RegionSearch onPick={handlePick} />
+      </div>
     </div>
   );
 }
