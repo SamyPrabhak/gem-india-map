@@ -244,3 +244,47 @@ body {
     color: var(--color-foreground);
   }
 }
+
+/* Ornate frame around the map: the picture scales to a thinner border while the
+   map area always sits exactly inside its transparent opening (449x676 of 736x965). */
+.frame-stage {
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 56rem;
+  aspect-ratio: 736 / 965;
+  --frame-w: 88%;
+  --map-left: 22.87%;
+  --map-top: 19.68%;
+  --map-right: 23.34%;
+  --map-bottom: 18.59%;
+}
+@media (min-width: 640px) {
+  .frame-stage {
+    --frame-w: 75%;
+    --map-left: 26.87%;
+    --map-top: 24.16%;
+    --map-right: 27.28%;
+    --map-bottom: 23.23%;
+  }
+}
+.frame-picture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--frame-w);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+  filter: drop-shadow(0 14px 26px rgba(44, 26, 10, 0.28));
+}
+.frame-map {
+  position: absolute;
+  overflow: hidden;
+  background: var(--ivory);
+  left: var(--map-left);
+  top: var(--map-top);
+  right: var(--map-right);
+  bottom: var(--map-bottom);
+}
