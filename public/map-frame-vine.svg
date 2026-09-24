@@ -1,30 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 32" width="96" height="32">
-  <path d="M0 16 C16 4 32 4 48 16 C64 28 80 28 96 16" fill="none" stroke="#C8A050" stroke-width="1.8"/>
-  <g transform="translate(24,9)">
-    <g fill="#C8A050" stroke="#7A5230" stroke-width="0.5">
-      <circle cx="0" cy="-4" r="2.6"/>
-      <circle cx="3.8" cy="-1.2" r="2.6"/>
-      <circle cx="2.4" cy="3.2" r="2.6"/>
-      <circle cx="-2.4" cy="3.2" r="2.6"/>
-      <circle cx="-3.8" cy="-1.2" r="2.6"/>
-    </g>
-    <circle r="1.8" fill="#5C3D1A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 18" width="48" height="18">
+  <rect width="48" height="18" fill="#E8D8B0"/>
+  <path d="M0 1.4H48M0 16.6H48" fill="none" stroke="#5C3D1A" stroke-width="0.7"/>
+  <path d="M0 3H48M0 15H48" fill="none" stroke="#C8A050" stroke-width="1.2"/>
+  <g fill="#C8A050" stroke="#7A5230" stroke-width="0.55" stroke-linejoin="round">
+    <path d="M0 13C3.4 11.7 5.7 8.4 6 4.2C8.1 6.1 9 8.4 8.6 11.2C10.2 9.9 11.3 7.5 12 4.2C12.7 7.5 13.8 9.9 15.4 11.2C15 8.4 15.9 6.1 18 4.2C18.3 8.4 20.6 11.7 24 13Z"/>
+    <path d="M24 13C27.4 11.7 29.7 8.4 30 4.2C32.1 6.1 33 8.4 32.6 11.2C34.2 9.9 35.3 7.5 36 4.2C36.7 7.5 37.8 9.9 39.4 11.2C39 8.4 39.9 6.1 42 4.2C42.3 8.4 44.6 11.7 48 13Z"/>
   </g>
-  <g transform="translate(72,23)">
-    <g fill="#C8A050" stroke="#7A5230" stroke-width="0.5">
-      <circle cx="0" cy="-4" r="2.6"/>
-      <circle cx="3.8" cy="-1.2" r="2.6"/>
-      <circle cx="2.4" cy="3.2" r="2.6"/>
-      <circle cx="-2.4" cy="3.2" r="2.6"/>
-      <circle cx="-3.8" cy="-1.2" r="2.6"/>
-    </g>
-    <circle r="1.8" fill="#5C3D1A"/>
+  <path d="M0 13H48" fill="none" stroke="#5C3D1A" stroke-width="0.55"/>
+  <g fill="#C8A050" stroke="#7A5230" stroke-width="0.35">
+    <circle cx="3" cy="14.9" r="0.8"/><circle cx="9" cy="14.9" r="0.8"/>
+    <circle cx="15" cy="14.9" r="0.8"/><circle cx="21" cy="14.9" r="0.8"/>
+    <circle cx="27" cy="14.9" r="0.8"/><circle cx="33" cy="14.9" r="0.8"/>
+    <circle cx="39" cy="14.9" r="0.8"/><circle cx="45" cy="14.9" r="0.8"/>
   </g>
-  <g fill="#C8A96E" stroke="#7A5230" stroke-width="0.4">
-    <ellipse cx="8" cy="12" rx="4" ry="1.8" transform="rotate(-30 8 12)"/>
-    <ellipse cx="40" cy="21" rx="4" ry="1.8" transform="rotate(30 40 21)"/>
-    <ellipse cx="56" cy="11" rx="4" ry="1.8" transform="rotate(-30 56 11)"/>
-    <ellipse cx="88" cy="20" rx="4" ry="1.8" transform="rotate(30 88 20)"/>
-  </g>
-  <circle cx="48" cy="16" r="2" fill="#C8A050" stroke="#7A5230" stroke-width="0.4"/>
 </svg>
