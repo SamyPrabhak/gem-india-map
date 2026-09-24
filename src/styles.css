@@ -245,25 +245,21 @@ body {
   }
 }
 
-/* Ornamental map frame (manuscript-inspired blue band with gold vine) */
-:root {
-  --frame-blue: #1e4da0;
-}
-
+/* Slim gold lotus frame inspired by traditional carved jewellery borders */
 .map-frame {
-  --band: 16px;
+  --band: 10px;
   position: relative;
-  border-radius: 10px;
-  background: var(--frame-blue);
+  border-radius: 5px;
+  background: var(--ivory-deep);
   padding: var(--band);
   box-shadow:
     0 0 0 1px var(--gold-deep),
-    0 12px 32px -14px rgba(44, 26, 10, 0.4);
+    0 7px 20px -14px color-mix(in oklab, var(--ink) 48%, transparent);
 }
 
 @media (min-width: 640px) {
   .map-frame {
-    --band: 20px;
+    --band: 12px;
   }
 }
 
@@ -274,6 +270,7 @@ body {
   background-repeat: repeat-x;
   background-size: auto 100%;
   background-position: center;
+  overflow: hidden;
 }
 
 .map-frame-edge-t {
@@ -315,6 +312,7 @@ body {
 
 .map-frame-inner {
   position: relative;
-  border-radius: 8px;
+  border-radius: 3px;
   overflow: hidden;
+  box-shadow: 0 0 0 1px var(--gold-deep);
 }
