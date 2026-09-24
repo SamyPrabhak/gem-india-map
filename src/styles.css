@@ -318,6 +318,6 @@ body {
   border-radius: 8px;
   border: 1px solid var(--gold-border);
   background: var(--ivory);
-  padding: 6px;
+  padding: 0;
   box-shadow: 0 0 0 1px var(--gold-deep);
 }
