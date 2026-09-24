@@ -144,17 +144,15 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
 
   return (
     <div
-      className="relative mx-auto aspect-[736/965] w-full max-w-3xl border-[22px] border-solid border-transparent drop-shadow-xl sm:border-[34px] md:border-[46px]"
-      style={{
-        borderImageSource: `url(${ornateMapFrame.url})`,
-        borderImageSlice: "130 120 115 120 fill",
-        borderImageWidth: "1",
-        borderImageRepeat: "stretch",
-      }}
+      className="relative mx-auto aspect-[736/965] w-full max-w-3xl"
       role="img"
       aria-label="Interactive map of India showing regional jewelry traditions"
     >
-      <div className="relative h-full w-full overflow-hidden bg-[color:var(--ivory)] shadow-inner">
+      {/* Map area sits exactly inside the frame's transparent opening (449x676 of 736x965) */}
+      <div
+        className="absolute overflow-hidden bg-[color:var(--ivory)]"
+        style={{ left: "19.16%", top: "15.54%", right: "19.7%", bottom: "14.3%" }}
+      >
         <MapContainer
           center={[22.5, 80]}
           zoom={4}
@@ -210,6 +208,15 @@ export function IndiaMap({ activeGroup, onSelect, onGroupChange }: Props) {
         </MapContainer>
         <RegionSearch onPick={handlePick} />
       </div>
+      {/* Ornate frame overlay rendered at its native proportions so the carving never stretches */}
+      <img
+        src={ornateMapFrame.url}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full select-none"
+        style={{ filter: "drop-shadow(0 14px 26px rgba(44, 26, 10, 0.28))" }}
+      />
     </div>
   );
 }

@@ -12,3 +12,6 @@
 
 - [x] Refresh jewelry data from the updated Jewels of India Google Sheet and verify all regions.
 - [x] Use the uploaded gold photo frame JPEG as the interactive map border.
+
+## Ornate photo frame at true proportions
+- [x] Replace border-image with pixel-accurate frame overlay (map inset to opening)
