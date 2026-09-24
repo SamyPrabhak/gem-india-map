@@ -245,12 +245,12 @@ body {
   }
 }
 
-/* Slim gold lotus frame inspired by traditional carved jewellery borders */
+/* Slim map frame made from the supplied gold ornament photograph */
 .map-frame {
-  --band: 10px;
+  --band: 11px;
   position: relative;
   border-radius: 5px;
-  background: var(--ivory-deep);
+  background: var(--ivory);
   padding: var(--band);
   box-shadow:
     0 0 0 1px var(--gold-deep),
@@ -259,18 +259,21 @@ body {
 
 @media (min-width: 640px) {
   .map-frame {
-    --band: 12px;
+    --band: 14px;
   }
 }
 
 .map-frame-edge {
   position: absolute;
   pointer-events: none;
-  background-image: url("/map-frame-vine.svg");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  background-position: center;
   overflow: hidden;
+}
+
+.map-frame-edge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .map-frame-edge-t {
@@ -289,12 +292,20 @@ body {
 
 .map-frame-edge-l,
 .map-frame-edge-r {
-  background-image: url("/map-frame-vine-v.svg");
-  background-repeat: repeat-y;
-  background-size: 100% auto;
   width: var(--band);
   top: 0;
   bottom: 0;
+}
+
+.map-frame-edge-l img,
+.map-frame-edge-r img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: var(--band);
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .map-frame-edge-l {
