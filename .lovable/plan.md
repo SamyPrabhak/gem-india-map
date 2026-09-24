@@ -1,31 +1,29 @@
-# Populate the Directory page with the brand list
+# Decorative Frame Around the Map
 
-## Scope
-- Replace the "Coming Soon" placeholder on /directory with a real, searchable brand directory containing the 11 brands provided.
-- Keep the existing centered header ("Directory" title, gold divider, subheading), search bar, and filter pill styling exactly as they are.
-- Keep the "New" badge with gold shimmer next to Directory in the nav (already in place).
+Add an ornamental frame around the interactive map on the homepage, inspired by the uploaded manuscript border: a deep blue band with a gold floral vine, finished with a thin gold inner line. The uploaded image is used as visual reference only; the frame is recreated as original artwork.
 
-## Data
-- Add the 11 brands (BySimran, Kaju Studios, Amrapali, Kavya Potluri, Shahi Qala, Sabyasachi, Misho Designs, Amama, Outhouse Jewellery, Baka, Bhavya Ramesh) as a typed data file `src/data/brands.ts` with name, location, category (Based in India / Diaspora Brand), jewelry types, description, and website URL.
-- Rewrite the descriptions to remove every "—" (em dash) per the project rule, keeping the meaning intact.
-- Websites link out (target _blank, rel noopener) to the given domains.
+## What changes
 
-## Page changes (src/routes/directory.tsx)
-- Filter pills: add "Fine Jewelry" to the existing list (All, Based in India, Diaspora Brand, Traditional, Contemporary, Bridal, Fine Jewelry). Category filters match the brand's category; style filters match its jewelry-type tags.
-- Search filters by brand name or jewelry type (case-insensitive), combined with the active pill filter.
-- Card grid in 3 columns (2 on tablet, 1 on mobile), left-aligned content inside cards:
-  - Logo placeholder strip at the top (~80px, warm cream #E8D8B0) with a centered square logo placeholder.
-  - Brand name as heading, category badge (Diaspora / India) at top right.
-  - Location in small uppercase gold text (.label-gold style).
-  - Short description in the body font.
-  - Jewelry type tags as small gold pills.
-  - "Visit website" link in gold with an arrow icon.
-- Remove the "Coming Soon" diamond section as the default view; show it (or a short text empty state) only when a search or filter returns no results.
-- Update the subheading so it no longer says "launching soon" (it is live now), e.g. keep "A curated space celebrating jewelry makers across India and its diaspora."
+1. **New frame artwork** (`public/map-frame-vine.svg`)
+   - A seamless, repeating SVG tile: gold floral vine (flowers, buds, leaves on a curling stem) drawn in the site's gold tones (`#C8A050`, `#C8A96E`, deep gold `#5C3D1A` accents) on a deep manuscript blue band.
+   - Hand-drawn in code to echo the reference's style; no part of the uploaded image is embedded.
 
-## Styling
-- Use only existing semantic tokens (--ivory, --gold, --gold-border, --ink, --text-secondary, --text-muted) and fonts (font-display, font-serif) so the page matches the rest of the site. No em dashes anywhere in user-facing text.
+2. **New `MapFrame` component** (`src/components/MapFrame.tsx`)
+   - Wraps the map (and its loading fallback) on the homepage.
+   - Structure, outside in: thin gold hairline, deep blue vine band (repeating tile, ~28-36px wide), thin gold inner keyline, small ivory gutter, then the existing map.
+   - Corners get a slightly larger floral medallion so the vine turns cleanly.
+   - Rounded corners kept subtle so the Leaflet map still clips neatly inside.
+   - Responsive: band width scales down slightly on mobile; frame does not affect map interactions, popups, or the gold map cursor.
+
+3. **Homepage wiring** (`src/routes/index.tsx`)
+   - Wrap the `IndiaMap` / `MapFallback` block in `MapFrame`.
+
+## Design tokens
+
+- Blue band: a new token `--frame-blue` (deep lapis blue, e.g. `#1E3F8F`-range) added to `src/styles.css`; all golds reuse existing tokens.
+- No other pages, nav, or popup styling changes.
 
 ## Verification
-- Build passes; check /directory in the preview at desktop and mobile widths.
-- Confirm search ("kundan" by type, "Sabyasachi" by name), each filter pill, combined search + filter, the empty state, and that website links open correctly.
+
+- `bun run build` passes.
+- Playwright check on `/` at desktop and mobile widths: frame renders evenly on all four sides, corners look clean, map still pans/zooms and region clicks still open the popup.
