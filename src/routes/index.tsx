@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { GroupTabs } from "@/components/GroupTabs";
+import { MapFrame } from "@/components/MapFrame";
 import { RegionPopup } from "@/components/RegionPopup";
 import { SplashScreen } from "@/components/SplashScreen";
 import { jewelryData, type RegionGroup } from "@/data/jewelry";
@@ -110,13 +111,15 @@ function Index() {
         </div>
 
         <div className="mt-8">
-          {mounted ? (
-            <Suspense fallback={<MapFallback />}>
-              <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />
-            </Suspense>
-          ) : (
-            <MapFallback />
-          )}
+          <MapFrame>
+            {mounted ? (
+              <Suspense fallback={<MapFallback />}>
+                <IndiaMap activeGroup={group} onSelect={setSelected} onGroupChange={setGroup} />
+              </Suspense>
+            ) : (
+              <MapFallback />
+            )}
+          </MapFrame>
         </div>
 
         <footer className="label-gold mt-12 text-center">
