@@ -314,3 +314,26 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+/* Aged parchment card inspired by a hand-rolled scroll */
+.parchment-card {
+  position: relative;
+  border: 1px solid color-mix(in oklab, var(--gold-border) 80%, var(--gold-deep));
+  border-radius: 14px 4px 16px 5px / 5px 16px 4px 14px;
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(255, 250, 235, 0.85), transparent 55%),
+    radial-gradient(140% 110% at 85% 100%, rgba(122, 82, 48, 0.16), transparent 60%),
+    linear-gradient(160deg, #f3e6c4 0%, #ecd9ae 45%, #e2c893 100%);
+  box-shadow:
+    inset 0 0 26px rgba(122, 82, 48, 0.18),
+    inset 0 1px 0 rgba(255, 252, 240, 0.7),
+    0 10px 24px -14px rgba(44, 26, 10, 0.45);
+}
+.parchment-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px solid color-mix(in oklab, var(--gold) 55%, transparent);
+  border-radius: 10px 3px 12px 4px / 4px 12px 3px 10px;
+}
