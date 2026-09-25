@@ -35,6 +35,9 @@ const safeServiceDefines = Object.fromEntries(
 );
 
 const config = defineConfig({
+  // The preview proxy can close in-flight requests during rebuilds. Its SSR
+  // reporter promotes those normal ECONNRESET events into blank-screen errors.
+  ssrErrorLogger: false,
   vite: {
     define: safeServiceDefines,
     environments: {
