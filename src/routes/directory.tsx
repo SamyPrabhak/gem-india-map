@@ -124,11 +124,8 @@ function DirectoryPage() {
                 key={b.name}
                 className="flex flex-col overflow-hidden rounded-md border border-[color:var(--gold-border)] bg-[color:var(--ivory)]"
               >
-                <div className="relative flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
+                <div className="flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
                   <BrandLogo name={b.name} website={b.website} />
-                  <span className="absolute right-3 top-3 rounded-full border border-[color:var(--gold)] bg-[color:var(--ivory)] px-2 py-0.5 text-[10px] uppercase tracking-[2px] text-[color:var(--gold-deep)]">
-                    {b.category === "Diaspora Brand" ? "Diaspora" : "India"}
-                  </span>
                 </div>
                 <div className="flex flex-grow flex-col p-5">
                   <h2 className="font-serif text-xl font-bold text-[color:var(--ink)]">{b.name}</h2>
