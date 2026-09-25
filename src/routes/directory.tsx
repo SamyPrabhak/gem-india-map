@@ -108,25 +108,8 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           aria-expanded={open}
           aria-controls={contentId}
           aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
-          onClick={() => {
-            if (dragged.current) {
-              dragged.current = false;
-              return;
-            }
-            setOpen((current) => !current);
-          }}
-          onPointerDown={(event) => {
-            dragStart.current = event.clientY;
-            setDragging(true);
-            event.currentTarget.setPointerCapture(event.pointerId);
-          }}
-          onPointerUp={(event) => finishDrag(event.clientY)}
-          onPointerCancel={() => {
-            dragStart.current = null;
-            setDragging(false);
-          }}
-          data-dragging={dragging ? "true" : "false"}
-          className="brand-scroll-toggle rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
+          onClick={() => setOpen((current) => !current)}
+          className="brand-scroll-toggle active:scale-95 rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
         >
           <ChevronDown className="brand-scroll-chevron" />
         </Button>
