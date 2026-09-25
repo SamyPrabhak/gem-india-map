@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
 import { brands } from "@/data/brands";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,17 @@ function BrandLogo({ name, website, logo }: { name: string; website: string; log
 
 function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
   const [open, setOpen] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const dragStart = useRef<number | null>(null);
   const contentId = `brand-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  const finishDrag = (clientY: number) => {
+    if (dragStart.current === null) return;
+    const distance = clientY - dragStart.current;
+    if ((!open && distance > 24) || (open && distance < -24)) setOpen((current) => !current);
+    dragStart.current = null;
+    setDragging(false);
+  };
 
   return (
     <article className={`brand-scroll ${open ? "is-open" : "is-closed"}`}>
@@ -108,6 +118,17 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           aria-controls={contentId}
           aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
           onClick={() => setOpen((current) => !current)}
+          onPointerDown={(event) => {
+            dragStart.current = event.clientY;
+            setDragging(true);
+            event.currentTarget.setPointerCapture(event.pointerId);
+          }}
+          onPointerUp={(event) => finishDrag(event.clientY)}
+          onPointerCancel={() => {
+            dragStart.current = null;
+            setDragging(false);
+          }}
+          data-dragging={dragging ? "true" : "false"}
           className="brand-scroll-toggle rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
         >
           <ChevronDown className="brand-scroll-chevron" />
