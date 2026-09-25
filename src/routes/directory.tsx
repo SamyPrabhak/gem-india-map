@@ -122,8 +122,10 @@ function DirectoryPage() {
             {results.map((b) => (
               <article
                 key={b.name}
-                className="parchment-card flex flex-col overflow-hidden"
+                className="parchment-card relative flex flex-col"
               >
+                <div className="scroll-roller top" aria-hidden="true" />
+                <div className="scroll-roller bottom" aria-hidden="true" />
                 <div className="flex h-20 items-center justify-center">
                   <BrandLogo name={b.name} website={b.website} logo={b.logo} />
                 </div>
