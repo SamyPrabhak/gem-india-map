@@ -125,7 +125,7 @@ function DirectoryPage() {
                 className="flex flex-col overflow-hidden rounded-md border border-[color:var(--gold-border)] bg-[color:var(--ivory)]"
               >
                 <div className="flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
-                  <BrandLogo name={b.name} website={b.website} />
+                  <BrandLogo name={b.name} website={b.website} logo={b.logo} />
                 </div>
                 <div className="flex flex-grow flex-col p-5">
                   <h2 className="font-serif text-xl font-bold text-[color:var(--ink)]">{b.name}</h2>
