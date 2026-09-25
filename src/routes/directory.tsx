@@ -122,9 +122,9 @@ function DirectoryPage() {
             {results.map((b) => (
               <article
                 key={b.name}
-                className="flex flex-col overflow-hidden rounded-md border border-[color:var(--gold-border)] bg-[color:var(--ivory)]"
+                className="parchment-card flex flex-col overflow-hidden"
               >
-                <div className="flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
+                <div className="flex h-20 items-center justify-center">
                   <BrandLogo name={b.name} website={b.website} logo={b.logo} />
                 </div>
                 <div className="flex flex-grow flex-col p-5">
