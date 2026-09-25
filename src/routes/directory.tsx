@@ -33,6 +33,28 @@ export const Route = createFileRoute("/directory")({
 
 const FILTERS = ["All", "Based in India", "Diaspora Brand", "Traditional", "Contemporary", "Bridal", "Fine Jewelry"];
 
+function BrandLogo({ name, website }: { name: string; website: string }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-sm border border-[color:var(--gold-border)] bg-[color:var(--ivory)] font-display text-xl text-[color:var(--gold-deep)]">
+      {failed ? (
+        name.charAt(0)
+      ) : (
+        <img
+          src={`https://www.google.com/s2/favicons?domain=${website}&sz=128`}
+          alt={`${name} logo`}
+          loading="lazy"
+          className="h-full w-full object-contain p-1"
+          onError={() => setFailed(true)}
+          onLoad={(e) => {
+            if (e.currentTarget.naturalWidth <= 16) setFailed(true);
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 function DirectoryPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All");
@@ -103,9 +125,7 @@ function DirectoryPage() {
                 className="flex flex-col overflow-hidden rounded-md border border-[color:var(--gold-border)] bg-[color:var(--ivory)]"
               >
                 <div className="relative flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-[color:var(--gold-border)] bg-[color:var(--ivory)] font-display text-xl text-[color:var(--gold-deep)]">
-                    {b.name.charAt(0)}
-                  </div>
+                  <BrandLogo name={b.name} website={b.website} />
                   <span className="absolute right-3 top-3 rounded-full border border-[color:var(--gold)] bg-[color:var(--ivory)] px-2 py-0.5 text-[10px] uppercase tracking-[2px] text-[color:var(--gold-deep)]">
                     {b.category === "Diaspora Brand" ? "Diaspora" : "India"}
                   </span>
