@@ -108,10 +108,9 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           aria-expanded={open}
           aria-controls={contentId}
           aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
-          className="brand-scroll-toggle h-auto w-auto rounded-full"
           onClick={() => setOpen((current) => !current)}
-          className="brand-scroll-toggle active:scale-95 rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
-          >
+          className="brand-scroll-toggle h-auto w-auto rounded-full"
+        >
             <span className="brand-scroll-tassel-icon" aria-hidden="true">
               <svg viewBox="0 0 24 44" fill="none">
                 <path d="M12 0.5v6.5" stroke="#5C3D1A" strokeWidth="1.6" strokeLinecap="round" />
