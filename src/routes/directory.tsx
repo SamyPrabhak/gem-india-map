@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
 import { brands } from "@/data/brands";
 import { Button } from "@/components/ui/button";
