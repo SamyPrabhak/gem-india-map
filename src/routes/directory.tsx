@@ -136,11 +136,11 @@ function DirectoryPage() {
                     {b.description}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
-                    <span className="rounded-full border border-[color:var(--gold)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--gold-deep)]">
+                    <span className="rounded-full bg-[color:var(--gold)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
                       {b.category === "Diaspora Brand" ? "Diaspora" : "India"}
                     </span>
                     {b.types.map((t) => (
-                      <span key={t} className="rounded-full border border-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--gold-deep)]">
+                      <span key={t} className="rounded-full bg-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
                         {t}
                       </span>
                     ))}
