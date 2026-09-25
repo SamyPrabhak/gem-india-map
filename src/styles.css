@@ -382,17 +382,31 @@ body {
 }
 
 .brand-scroll-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
   align-items: center;
-  gap: 12px;
   min-height: 70px;
   padding: 18px 18px 10px;
 }
 
 .brand-scroll-toggle {
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  z-index: 4;
+  width: 32px;
+  height: 32px;
+  transform: translateX(-50%);
+  border: 1px solid var(--gold-deep);
+  background: var(--ivory-deep);
+  box-shadow: 0 3px 7px color-mix(in oklab, var(--ink) 35%, transparent);
+  cursor: grab;
+  touch-action: none;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.brand-scroll-toggle[data-dragging="true"] {
+  cursor: grabbing;
+  transform: translateX(-50%) translateY(5px);
 }
 
 .brand-scroll-chevron {

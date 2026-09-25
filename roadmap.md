@@ -14,3 +14,4 @@
 - [x] Remove the inner gap so the ornamental frame is the map's only border
 - [x] Make each Directory brand scroll open and close independently
 - [x] Keep the brand logo above the closed scroll
+- [x] Add a centered drag handle that pulls each brand scroll open and closed
