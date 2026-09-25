@@ -391,30 +391,49 @@ body {
 .brand-scroll-toggle {
   position: absolute;
   left: 50%;
-  bottom: -16px;
+  top: calc(100% - 6px);
   z-index: 4;
-  width: 32px;
-  height: 32px;
   transform: translateX(-50%);
-  border: 1px solid var(--gold-deep);
-  background: var(--ivory-deep);
-  box-shadow: 0 3px 7px color-mix(in oklab, var(--ink) 35%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
-  transition: transform 180ms ease, background-color 180ms ease;
 }
 
-.brand-scroll-toggle:active {
-  transform: translateX(-50%) scale(0.9);
+.brand-scroll-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-
-.brand-scroll-chevron {
-  transition: transform 300ms ease;
+.brand-scroll-tassel-icon {
+  width: 22px;
+  height: 42px;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
-.brand-scroll.is-open .brand-scroll-chevron {
-  transform: rotate(180deg);
+.brand-scroll-toggle:hover .brand-scroll-tassel-icon {
+  transform: translateY(2px);
 }
+
+.brand-scroll.is-open .brand-scroll-tassel-icon {
+  opacity: 0.55;
+}
+
+.brand-scroll-tassel-hint {
+  font-family: var(--font-serif);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+
 
 .brand-scroll-reveal {
   display: grid;
