@@ -118,7 +118,7 @@ function DirectoryPage() {
         </section>
 
         {results.length > 0 ? (
-          <section className="mt-10 grid sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          <section className="mt-10 grid gap-x-8 gap-y-9 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
             {results.map((b) => (
               <article
                 key={b.name}
