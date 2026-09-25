@@ -23,5 +23,28 @@ export default async function viteConfig(
     }
   }
 
-  return config(environment);
+  const resolved = await config(environment);
+  const isPlaceholder = (v: unknown) =>
+    typeof v === "string" && /globalThis\.process\.env\.\w+\s*\?\?/.test(v);
+  const strip = (define?: Record<string, unknown>) => {
+    if (!define) return;
+    for (const k of Object.keys(define)) {
+      if (isPlaceholder(define[k])) delete define[k];
+    }
+  };
+  strip(resolved.define as Record<string, unknown> | undefined);
+  resolved.plugins = [
+    ...(resolved.plugins ?? []),
+    {
+      name: "strip-unresolved-env-placeholders",
+      enforce: "post",
+      configResolved(c: { define?: Record<string, unknown> }) {
+        strip(c.define);
+      },
+      configEnvironment(_name: string, env: { define?: Record<string, unknown> }) {
+        strip(env.define);
+      },
+    },
+  ];
+  return resolved;
 }
