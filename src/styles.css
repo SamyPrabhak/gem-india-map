@@ -412,10 +412,18 @@ body {
 }
 
 .brand-scroll-tassel-icon {
+  display: block;
   width: 22px;
   height: 42px;
   transition: opacity 200ms ease, transform 200ms ease;
 }
+
+.brand-scroll-tassel-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 
 .brand-scroll-toggle:hover .brand-scroll-tassel-icon {
   transform: translateY(2px);
