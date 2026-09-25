@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import { brands } from "@/data/brands";
 import { Button } from "@/components/ui/button";
 
@@ -109,12 +109,24 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           aria-controls={contentId}
           aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
           onClick={() => setOpen((current) => !current)}
-          className="brand-scroll-toggle active:scale-95 rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
+          className="brand-scroll-toggle h-auto w-auto rounded-full"
         >
-          <ChevronDown className="brand-scroll-chevron" />
-        </Button>
-      </div>
-    </article>
+            <span className="brand-scroll-tassel-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 44" fill="none">
+                <path d="M12 0.5v6.5" stroke="#5C3D1A" strokeWidth="1.6" strokeLinecap="round" />
+                <rect x="8" y="7" width="8" height="7.5" rx="2.5" fill="#C8A050" />
+                <rect x="8.6" y="12.4" width="6.8" height="2.6" rx="1.3" fill="#5C3D1A" opacity="0.5" />
+                <path d="M9.2 16 C8.4 23 8 29 7.6 36" stroke="#C8A050" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M10.6 16 C10.4 23 10.3 29 10.2 38" stroke="#C8A050" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M12 16v22" stroke="#B08B3E" strokeWidth="1.4" strokeLinecap="round" />
+                <path d="M13.4 16 C13.6 23 13.7 29 13.8 38" stroke="#C8A050" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M14.8 16 C15.6 23 16 29 16.4 36" stroke="#C8A050" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </span>
+            <span className="brand-scroll-tassel-hint" aria-hidden="true">click</span>
+          </Button>
+        </div>
+      </article>
   );
 }
 
@@ -181,7 +193,7 @@ function DirectoryPage() {
         </section>
 
         {results.length > 0 ? (
-          <section className="mt-10 grid gap-x-8 gap-y-9 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          <section className="mt-10 grid gap-x-8 gap-y-16 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
             {results.map((brand) => <BrandScroll key={brand.name} brand={brand} />)}
           </section>
         ) : (
