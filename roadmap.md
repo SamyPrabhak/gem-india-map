@@ -11,3 +11,4 @@
 - [x] Darken Directory nav link to a deeper gold
 - [x] Fetch updated Jewels of India Google Sheet and refresh site jewelry data
 - [x] Removed frame corner medallions (user circled all four corners)
+- [x] Remove the inner gap so the ornamental frame is the map's only border

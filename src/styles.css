@@ -312,7 +312,5 @@ body {
 
 .map-frame-inner {
   position: relative;
-  border-radius: 3px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px var(--gold-deep);
 }
