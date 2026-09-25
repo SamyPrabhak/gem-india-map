@@ -245,15 +245,15 @@ body {
   }
 }
 
-/* Slim gold lotus frame inspired by traditional carved jewellery borders */
+/* Carved teak wood frame around the map */
 .map-frame {
   --band: 10px;
   position: relative;
   border-radius: 5px;
-  background: var(--ivory-deep);
+  background: #7a4a22;
   padding: var(--band);
   box-shadow:
-    0 0 0 1px var(--gold-deep),
+    0 0 0 1px #4a2c10,
     0 7px 20px -14px color-mix(in oklab, var(--ink) 48%, transparent);
 }
 
@@ -266,7 +266,7 @@ body {
 .map-frame-edge {
   position: absolute;
   pointer-events: none;
-  background-image: url("/map-frame-vine.svg");
+  background-image: url("/map-frame-wood.svg");
   background-repeat: repeat-x;
   background-size: auto 100%;
   background-position: center;
@@ -278,6 +278,9 @@ body {
   left: 0;
   right: 0;
   height: var(--band);
+  background-image:
+    linear-gradient(180deg, rgba(255, 236, 200, 0.16), rgba(44, 26, 10, 0.28)),
+    url("/map-frame-wood.svg");
 }
 
 .map-frame-edge-b {
@@ -285,11 +288,13 @@ body {
   left: 0;
   right: 0;
   height: var(--band);
+  background-image:
+    linear-gradient(0deg, rgba(255, 236, 200, 0.12), rgba(44, 26, 10, 0.22)),
+    url("/map-frame-wood.svg");
 }
 
 .map-frame-edge-l,
 .map-frame-edge-r {
-  background-image: url("/map-frame-vine-v.svg");
   background-repeat: repeat-y;
   background-size: 100% auto;
   width: var(--band);
@@ -299,10 +304,16 @@ body {
 
 .map-frame-edge-l {
   left: 0;
+  background-image:
+    linear-gradient(90deg, rgba(255, 236, 200, 0.14), rgba(44, 26, 10, 0.22)),
+    url("/map-frame-wood-v.svg");
 }
 
 .map-frame-edge-r {
   right: 0;
+  background-image:
+    linear-gradient(90deg, rgba(44, 26, 10, 0.22), rgba(255, 236, 200, 0.14)),
+    url("/map-frame-wood-v.svg");
 }
 
 
