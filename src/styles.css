@@ -363,3 +363,75 @@ body {
 .scroll-roller::before { left: -4px; }
 .scroll-roller::after { right: -4px; }
 .parchment-card { padding-top: 10px; padding-bottom: 10px; }
+
+/* Independently opening brand scrolls */
+.brand-scroll {
+  position: relative;
+  align-self: start;
+  padding-top: 34px;
+}
+
+.brand-scroll-logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 4;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  box-shadow: 0 5px 12px -7px color-mix(in oklab, var(--ink) 65%, transparent);
+}
+
+.brand-scroll-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 70px;
+  padding: 18px 18px 10px;
+}
+
+.brand-scroll-toggle {
+  position: relative;
+  z-index: 3;
+}
+
+.brand-scroll-chevron {
+  transition: transform 300ms ease;
+}
+
+.brand-scroll.is-open .brand-scroll-chevron {
+  transform: rotate(180deg);
+}
+
+.brand-scroll-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 420ms ease, opacity 240ms ease;
+}
+
+.brand-scroll.is-open .brand-scroll-reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.brand-scroll-content {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+}
+
+.brand-scroll.is-open .brand-scroll-content {
+  padding-bottom: 18px;
+}
+
+.brand-scroll.is-closed .parchment-card {
+  border-radius: 7px 3px 8px 4px / 4px 8px 3px 7px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-scroll-chevron,
+  .brand-scroll-reveal {
+    transition: none;
+  }
+}
