@@ -12,3 +12,5 @@
 - [x] Fetch updated Jewels of India Google Sheet and refresh site jewelry data
 - [x] Removed frame corner medallions (user circled all four corners)
 - [x] Remove the inner gap so the ornamental frame is the map's only border
+- [x] Make each Directory brand scroll open and close independently
+- [x] Keep the brand logo above the closed scroll

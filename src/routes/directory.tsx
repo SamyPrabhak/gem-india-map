@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
 import { brands } from "@/data/brands";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/directory")({
   staticData: { sitemap: true },
@@ -52,6 +53,67 @@ function BrandLogo({ name, website, logo }: { name: string; website: string; log
         />
       )}
     </div>
+  );
+}
+
+function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
+  const [open, setOpen] = useState(false);
+  const contentId = `brand-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  return (
+    <article className={`brand-scroll ${open ? "is-open" : "is-closed"}`}>
+      <div className="brand-scroll-logo">
+        <BrandLogo name={brand.name} website={brand.website} logo={brand.logo} />
+      </div>
+      <div className="parchment-card relative flex flex-col">
+        <div className="scroll-roller top" aria-hidden="true" />
+        <div className="scroll-roller bottom" aria-hidden="true" />
+        <div className="brand-scroll-heading">
+          <h2 className="min-w-0 truncate font-serif text-xl font-bold text-[color:var(--ink)]">
+            {brand.name}
+          </h2>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-expanded={open}
+            aria-controls={contentId}
+            aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
+            onClick={() => setOpen((current) => !current)}
+            className="brand-scroll-toggle shrink-0 rounded-full text-[color:var(--gold-deep)] hover:bg-[color:var(--gold)]/20 hover:text-[color:var(--ink)]"
+          >
+            <ChevronDown className="brand-scroll-chevron" />
+          </Button>
+        </div>
+        <div id={contentId} className="brand-scroll-reveal" aria-hidden={!open}>
+          <div className="brand-scroll-content">
+            <p className="label-gold">{brand.location}</p>
+            <p className="mt-3 font-serif text-sm leading-relaxed text-[color:var(--text-secondary)]">
+              {brand.description}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              <span className="rounded-full bg-[color:var(--gold)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
+                {brand.category === "Diaspora Brand" ? "Diaspora" : "India"}
+              </span>
+              {brand.types.map((type) => (
+                <span key={type} className="rounded-full bg-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
+                  {type}
+                </span>
+              ))}
+            </div>
+            <a
+              href={`https://${brand.website}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={open ? undefined : -1}
+              className="mt-5 inline-flex items-center gap-1.5 font-serif text-sm text-[color:var(--gold-deep)] hover:text-[color:var(--gold)]"
+            >
+              Visit website <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -119,43 +181,7 @@ function DirectoryPage() {
 
         {results.length > 0 ? (
           <section className="mt-10 grid gap-x-8 gap-y-9 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
-            {results.map((b) => (
-              <article
-                key={b.name}
-                className="parchment-card relative flex flex-col"
-              >
-                <div className="scroll-roller top" aria-hidden="true" />
-                <div className="scroll-roller bottom" aria-hidden="true" />
-                <div className="flex h-20 items-center justify-center">
-                  <BrandLogo name={b.name} website={b.website} logo={b.logo} />
-                </div>
-                <div className="flex flex-grow flex-col p-5">
-                  <h2 className="font-serif text-xl font-bold text-[color:var(--ink)]">{b.name}</h2>
-                  <p className="label-gold mt-1">{b.location}</p>
-                  <p className="mt-3 flex-grow font-serif text-sm leading-relaxed text-[color:var(--text-secondary)]">
-                    {b.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    <span className="rounded-full bg-[color:var(--gold)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
-                      {b.category === "Diaspora Brand" ? "Diaspora" : "India"}
-                    </span>
-                    {b.types.map((t) => (
-                      <span key={t} className="rounded-full bg-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--ink)]">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={`https://${b.website}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 font-serif text-sm text-[color:var(--gold-deep)] hover:text-[color:var(--gold)]"
-                  >
-                    Visit website <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </article>
-            ))}
+            {results.map((brand) => <BrandScroll key={brand.name} brand={brand} />)}
           </section>
         ) : (
         <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
