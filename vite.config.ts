@@ -14,7 +14,7 @@ export default async function viteConfig(
   // Some build environments expose unresolved secret placeholders as literal
   // JavaScript expressions. Build plugins then reject those strings as invalid
   // define values. Remove only unresolved placeholders, never real credentials.
-  for (const [key, value] of Object.entries({})) {
+  for (const [key, value] of Object.entries(process.env)) {
     if (
       value?.includes(`globalThis.process.env.${key}`) &&
       value.includes("undefined")
