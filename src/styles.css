@@ -337,3 +337,32 @@ body {
   border: 1px solid color-mix(in oklab, var(--gold) 55%, transparent);
   border-radius: 10px 3px 12px 4px / 4px 12px 3px 10px;
 }
+
+/* Rolled scroll rods for parchment cards */
+.scroll-roller {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  height: 16px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #8a5a2e 0%, #c99a5e 30%, #e8c98f 50%, #b0803f 72%, #6e4420 100%);
+  box-shadow: 0 3px 6px rgba(44, 26, 10, 0.45), inset 0 1px 1px rgba(255, 240, 210, 0.6);
+  z-index: 2;
+}
+.scroll-roller.top { top: -8px; }
+.scroll-roller.bottom { bottom: -8px; }
+.scroll-roller::before,
+.scroll-roller::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 22px;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  background: linear-gradient(180deg, #5c3a16 0%, #8a5a2e 45%, #4a2c10 100%);
+  box-shadow: 0 2px 4px rgba(44, 26, 10, 0.5);
+}
+.scroll-roller::before { left: -4px; }
+.scroll-roller::after { right: -4px; }
+.parchment-card { padding-top: 10px; padding-bottom: 10px; }
