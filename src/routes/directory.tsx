@@ -58,19 +58,8 @@ function BrandLogo({ name, website, logo }: { name: string; website: string; log
 
 function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
   const [open, setOpen] = useState(false);
-  const [dragging, setDragging] = useState(false);
-  const dragStart = useRef<number | null>(null);
-  const dragged = useRef(false);
   const contentId = `brand-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
-  const finishDrag = (clientY: number) => {
-    if (dragStart.current === null) return;
-    const distance = clientY - dragStart.current;
-    dragged.current = Math.abs(distance) > 8;
-    if ((!open && distance > 24) || (open && distance < -24)) setOpen((current) => !current);
-    dragStart.current = null;
-    setDragging(false);
-  };
 
   return (
     <article className={`brand-scroll ${open ? "is-open" : "is-closed"}`}>
