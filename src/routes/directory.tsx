@@ -72,18 +72,6 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           <h2 className="min-w-0 truncate font-serif text-xl font-bold text-[color:var(--ink)]">
             {brand.name}
           </h2>
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            aria-expanded={open}
-            aria-controls={contentId}
-            aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
-            onClick={() => setOpen((current) => !current)}
-            className="brand-scroll-toggle shrink-0 rounded-full text-[color:var(--gold-deep)] hover:bg-[color:var(--gold)]/20 hover:text-[color:var(--ink)]"
-          >
-            <ChevronDown className="brand-scroll-chevron" />
-          </Button>
         </div>
         <div id={contentId} className="brand-scroll-reveal" aria-hidden={!open}>
           <div className="brand-scroll-content">
@@ -112,6 +100,18 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
             </a>
           </div>
         </div>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          aria-expanded={open}
+          aria-controls={contentId}
+          aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
+          onClick={() => setOpen((current) => !current)}
+          className="brand-scroll-toggle rounded-full text-[color:var(--ink)] hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]"
+        >
+          <ChevronDown className="brand-scroll-chevron" />
+        </Button>
       </div>
     </article>
   );
