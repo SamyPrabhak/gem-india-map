@@ -4,18 +4,21 @@
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Some build environments expose unresolved secret placeholders as literal
 // JavaScript expressions. Remove them before defineConfig can capture them.
 for (const [key, value] of Object.entries(process.env)) {
   if (
-    value?.includes(`globalThis.process.env.${key}`) &&
-    value.includes("undefined")
+    value?.includes("globalThis.process.env.") &&
+    value.includes("??")
   ) {
     delete process.env[key];
   }
 }
+
+// This import must happen after sanitization. Static imports execute before the
+// module body and let downstream plugins capture malformed placeholder values.
+const { defineConfig } = await import("@lovable.dev/vite-tanstack-config");
 
 const serviceEnvKeys = [
   "SUPABASE_ANON_KEY",
