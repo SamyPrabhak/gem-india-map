@@ -313,6 +313,7 @@ body {
 .map-frame-inner {
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--gold-border) 70%, var(--gold-deep));
 }
 
 /* Aged parchment card inspired by a hand-rolled scroll */
