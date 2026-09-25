@@ -60,11 +60,13 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
   const [open, setOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
+  const dragged = useRef(false);
   const contentId = `brand-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   const finishDrag = (clientY: number) => {
     if (dragStart.current === null) return;
     const distance = clientY - dragStart.current;
+    dragged.current = Math.abs(distance) > 8;
     if ((!open && distance > 24) || (open && distance < -24)) setOpen((current) => !current);
     dragStart.current = null;
     setDragging(false);
@@ -117,7 +119,13 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
           aria-expanded={open}
           aria-controls={contentId}
           aria-label={`${open ? "Close" : "Open"} ${brand.name} scroll`}
-          onClick={() => setOpen((current) => !current)}
+          onClick={() => {
+            if (dragged.current) {
+              dragged.current = false;
+              return;
+            }
+            setOpen((current) => !current);
+          }}
           onPointerDown={(event) => {
             dragStart.current = event.clientY;
             setDragging(true);
