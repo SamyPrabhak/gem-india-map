@@ -399,15 +399,14 @@ body {
   border: 1px solid var(--gold-deep);
   background: var(--ivory-deep);
   box-shadow: 0 3px 7px color-mix(in oklab, var(--ink) 35%, transparent);
-  cursor: grab;
-  touch-action: none;
+  cursor: pointer;
   transition: transform 180ms ease, background-color 180ms ease;
 }
 
-.brand-scroll-toggle[data-dragging="true"] {
-  cursor: grabbing;
-  transform: translateX(-50%) translateY(5px);
+.brand-scroll-toggle:active {
+  transform: translateX(-50%) scale(0.9);
 }
+
 
 .brand-scroll-chevron {
   transition: transform 300ms ease;
