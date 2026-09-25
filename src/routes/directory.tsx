@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowUpRight, Search } from "lucide-react";
+import { brands } from "@/data/brands";
 
 export const Route = createFileRoute("/directory")({
   staticData: { sitemap: true },
@@ -28,7 +31,17 @@ export const Route = createFileRoute("/directory")({
   component: DirectoryPage,
 });
 
+const FILTERS = ["All", "Based in India", "Diaspora Brand", "Traditional", "Contemporary", "Bridal", "Fine Jewelry"];
+
 function DirectoryPage() {
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("All");
+  const q = query.trim().toLowerCase();
+  const results = brands.filter((b) => {
+    const pill = filter === "All" || b.category === filter || b.types.includes(filter);
+    const text = !q || b.name.toLowerCase().includes(q) || b.types.some((t) => t.toLowerCase().includes(q)) || b.location.toLowerCase().includes(q);
+    return pill && text;
+  });
   return (
     <main
       className="min-h-screen"
@@ -47,11 +60,82 @@ function DirectoryPage() {
           />
           <p className="mt-5 max-w-xl font-serif text-base text-[color:var(--text-secondary)] sm:text-lg">
             A curated space celebrating jewelry makers across India and its
-            diaspora, launching soon.
+            diaspora.
           </p>
+          <div className="relative mt-8 w-full max-w-xl">
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--gold)]" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search brands or jewelry type..."
+              aria-label="Search brands"
+              className="w-full rounded-full border border-[color:var(--gold-border)] bg-[color:var(--ivory)] py-3 pl-11 pr-4 font-serif text-sm text-[color:var(--ink)] placeholder:text-[color:var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[color:var(--gold)]"
+            />
+          </div>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {FILTERS.map((f) => {
+              const active = f === filter;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setFilter(f)}
+                  aria-pressed={active}
+                  className={`rounded-full border px-4 py-1.5 font-serif text-xs uppercase tracking-[2px] transition-colors ${
+                    active
+                      ? "border-[color:var(--gold)] bg-[color:var(--gold)] text-[color:var(--ink)]"
+                      : "border-[color:var(--gold-border)] text-[color:var(--text-secondary)] hover:border-[color:var(--gold)]"
+                  }`}
+                >
+                  {f}
+                </button>
+              );
+            })}
+          </div>
         </section>
 
-        {/* Coming Soon */}
+        {results.length > 0 ? (
+          <section className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
+            {results.map((b) => (
+              <article
+                key={b.name}
+                className="flex flex-col overflow-hidden rounded-md border border-[color:var(--gold-border)] bg-[color:var(--ivory)]"
+              >
+                <div className="relative flex h-20 items-center justify-center" style={{ background: "#E8D8B0" }}>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-[color:var(--gold-border)] bg-[color:var(--ivory)] font-display text-xl text-[color:var(--gold-deep)]">
+                    {b.name.charAt(0)}
+                  </div>
+                  <span className="absolute right-3 top-3 rounded-full border border-[color:var(--gold)] bg-[color:var(--ivory)] px-2 py-0.5 text-[10px] uppercase tracking-[2px] text-[color:var(--gold-deep)]">
+                    {b.category === "Diaspora Brand" ? "Diaspora" : "India"}
+                  </span>
+                </div>
+                <div className="flex flex-grow flex-col p-5">
+                  <h2 className="font-serif text-xl font-bold text-[color:var(--ink)]">{b.name}</h2>
+                  <p className="label-gold mt-1">{b.location}</p>
+                  <p className="mt-3 flex-grow font-serif text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                    {b.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {b.types.map((t) => (
+                      <span key={t} className="rounded-full border border-[color:var(--gold-border)] px-2.5 py-0.5 text-[10px] uppercase tracking-[1.5px] text-[color:var(--gold-deep)]">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={`https://${b.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1.5 font-serif text-sm text-[color:var(--gold-deep)] hover:text-[color:var(--gold)]"
+                  >
+                    Visit website <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </section>
+        ) : (
         <section className="flex flex-grow flex-col items-center justify-center py-16 text-center">
           <div className="relative h-28 w-28 sm:h-36 sm:w-36">
             <div className="diamond-glow absolute inset-0 rounded-full bg-[color:var(--gold)]/20 blur-2xl" />
@@ -98,9 +182,10 @@ function DirectoryPage() {
           </div>
 
           <p className="mt-8 font-display text-3xl leading-tight text-[color:var(--ink)] sm:text-4xl">
-            Coming Soon
+            No brands found
           </p>
         </section>
+        )}
       </div>
 
       <style>{`
