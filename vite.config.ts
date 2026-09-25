@@ -6,4 +6,22 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig();
+const config = defineConfig();
+
+export default async function viteConfig(
+  environment: Parameters<typeof config>[0],
+) {
+  // Some build environments expose unresolved secret placeholders as literal
+  // JavaScript expressions. Build plugins then reject those strings as invalid
+  // define values. Remove only unresolved placeholders, never real credentials.
+  for (const [key, value] of Object.entries(process.env)) {
+    if (
+      value?.includes(`globalThis.process.env.${key}`) &&
+      value.includes("undefined")
+    ) {
+      delete process.env[key];
+    }
+  }
+
+  return config(environment);
+}
