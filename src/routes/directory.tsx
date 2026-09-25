@@ -33,7 +33,7 @@ export const Route = createFileRoute("/directory")({
 
 const FILTERS = ["All", "Based in India", "Diaspora Brand", "Traditional", "Contemporary", "Bridal", "Fine Jewelry"];
 
-function BrandLogo({ name, website }: { name: string; website: string }) {
+function BrandLogo({ name, website, logo }: { name: string; website: string; logo?: string }) {
   const [failed, setFailed] = useState(false);
   return (
     <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-sm border border-[color:var(--gold-border)] bg-[color:var(--ivory)] font-display text-xl text-[color:var(--gold-deep)]">
@@ -41,7 +41,7 @@ function BrandLogo({ name, website }: { name: string; website: string }) {
         name.charAt(0)
       ) : (
         <img
-          src={`https://www.google.com/s2/favicons?domain=${website}&sz=128`}
+          src={logo ?? `https://www.google.com/s2/favicons?domain=${website}&sz=128`}
           alt={`${name} logo`}
           loading="lazy"
           className="h-full w-full object-contain p-1"

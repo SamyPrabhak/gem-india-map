@@ -1,4 +1,6 @@
 // Generated from the Jewels of India directory Google Sheet.
+import amrapaliLogo from "@/assets/brand-logos/amrapali.png";
+
 export interface Brand {
   name: string;
   location: string;
@@ -6,6 +8,7 @@ export interface Brand {
   types: string[];
   description: string;
   website: string;
+  logo?: string;
 }
 
 export const brands: Brand[] = [
