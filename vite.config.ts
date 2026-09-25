@@ -17,7 +17,32 @@ for (const [key, value] of Object.entries(process.env)) {
   }
 }
 
-const config = defineConfig();
+const serviceEnvKeys = [
+  "SUPABASE_ANON_KEY",
+  "SUPABASE_PROJECT_ID",
+  "SUPABASE_URL",
+] as const;
+
+const safeServiceDefines = Object.fromEntries(
+  serviceEnvKeys.flatMap((key) => {
+    const value = process.env[key];
+    const replacement = value === undefined ? "undefined" : JSON.stringify(value);
+    return [
+      [`process.env.${key}`, replacement],
+      [`import.meta.env.${key}`, replacement],
+    ];
+  }),
+);
+
+const config = defineConfig({
+  vite: {
+    define: safeServiceDefines,
+    environments: {
+      client: { define: safeServiceDefines },
+      server: { define: safeServiceDefines },
+    },
+  },
+});
 
 export default async function viteConfig(
   environment: Parameters<typeof config>[0],
