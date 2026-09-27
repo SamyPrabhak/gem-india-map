@@ -136,6 +136,21 @@ export const Route = createRootRoute({
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "The Jewels of India",
+          alternateName: ["Jewels of India", "JewelsOfIndia"],
+          url: "https://thejewelsofindia.lovable.app",
+          inLanguage: "en",
+          description:
+            "An interactive political map of India's states, union territories and islands, sharing the famous regional jewellery traditions of each region.",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
