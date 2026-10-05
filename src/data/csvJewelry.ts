@@ -174,7 +174,7 @@ export const csvRegions: CsvRegion[] = [
           "source": "https://meirajewellery.com/en-us/pages/rajasthani-jewellery"
         },
         {
-          "name": "Gajara(Bangles)",
+          "name": "Gajra Jodi",
           "description": "Bangadi has a thick lining and small gold protrusions.Traditionally, Bangadi used to be made in gold and plastic but now many variations of it are available.",
           "imageUrl": "https://cdn.shopify.com/s/files/1/2798/8644/files/rajasthan_gajra.jpg?v=1594712295",
           "source": "https://meirajewellery.com/en-us/pages/rajasthani-jewellery"
