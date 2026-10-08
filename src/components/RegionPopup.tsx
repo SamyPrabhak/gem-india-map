@@ -108,7 +108,7 @@ export function RegionPopup({ info, onClose }: Props) {
                       key={p.name}
                       className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
                     >
-                      <h4 className="min-w-0 font-serif text-lg text-[color:var(--ink)] sm:text-xl">
+                      <h4 className="min-w-0 break-words font-serif text-2xl leading-tight text-[color:var(--ink)] sm:text-3xl">
                         {p.name}
                       </h4>
                       <figure className="mt-3">
@@ -183,7 +183,7 @@ export function RegionPopup({ info, onClose }: Props) {
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-serif text-lg text-[color:var(--ink)] sm:text-xl">
+                      <h4 className="break-words font-serif text-2xl leading-tight text-[color:var(--ink)] sm:text-3xl">
                         {s.name}
                       </h4>
                       <p className="text-xs italic text-[color:var(--gold-deep)] sm:text-sm">

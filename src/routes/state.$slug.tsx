@@ -108,7 +108,7 @@ function StatePage() {
                 key={p.name}
                 className="rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-5 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md"
               >
-                <h3 className="min-w-0 font-serif text-xl text-[color:var(--ink)]">
+                <h3 className="min-w-0 break-words font-serif text-2xl leading-tight text-[color:var(--ink)] sm:text-3xl">
                   {p.name}
                 </h3>
 
