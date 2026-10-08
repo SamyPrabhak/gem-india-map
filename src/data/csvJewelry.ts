@@ -88,6 +88,12 @@ export const csvRegions: CsvRegion[] = [
           "description": "The latkan nath stands out from the rest with its unique embellishment that includes a floral motif that is attached to the chain of the nath.",
           "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786542142/Latkan_Nath.png",
           "source": "https://weddingsutra.com/bride/bridal-fashion/traditional-jewellery-guide-for-the-punjabi-bride/"
+        },
+        {
+          "name": "paranda (also spelled parandi)",
+          "description": "A colorful, long-threaded tassel or braided extension woven into a woman's hair.Historically given as a cherished cultural or romantic gift within Punjabi tradition.",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_kS4cSvVJRB12d3945fMdTxUPn1TXFjqfROip0Ek73QcDt1ioRLcOG9M&s=10",
+          "source": ""
         }
       ]
     },
