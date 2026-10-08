@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, Gem } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getRegionBySlug } from "@/lib/regionSlug";
 import { getCsvRegion } from "@/data/csvJewelry";
 import { ImageLightbox } from "@/components/ImageLightbox";
@@ -108,14 +108,9 @@ function StatePage() {
                 key={p.name}
                 className="rounded-2xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-5 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md"
               >
-                <div className="flex items-start gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15">
-                    <Gem className="h-5 w-5 text-[color:var(--gold-deep)]" />
-                  </div>
-                  <h3 className="min-w-0 flex-1 font-serif text-xl text-[color:var(--ink)]">
-                    {p.name}
-                  </h3>
-                </div>
+                <h3 className="min-w-0 font-serif text-xl text-[color:var(--ink)]">
+                  {p.name}
+                </h3>
 
                 <figure className="mt-4">
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[color:var(--gold-border)]">

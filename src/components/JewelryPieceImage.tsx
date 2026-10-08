@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Gem, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { jewelryPieceWiki } from "@/data/jewelryPieceWiki";
 import { ImageLightbox } from "@/components/ImageLightbox";
 
@@ -114,9 +114,6 @@ export function JewelryPieceImage({ regionName, styleName, imageUrl, sourceLabel
         ) : null}
         {src === undefined || src ? null : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[color:var(--gold)]/10 to-[color:var(--gold)]/25 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--gold)]/25">
-              <Gem className="h-7 w-7 text-[color:var(--gold-deep)]" />
-            </div>
             <p className="px-4 font-serif text-sm italic text-[color:var(--ink)]/60">
               Image of {label ?? "this piece"} coming soon
             </p>
