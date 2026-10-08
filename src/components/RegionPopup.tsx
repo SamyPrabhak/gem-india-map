@@ -108,14 +108,9 @@ export function RegionPopup({ info, onClose }: Props) {
                       key={p.name}
                       className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
                     >
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15 sm:h-12 sm:w-12">
-                          <Gem className="h-5 w-5 text-[color:var(--gold-deep)] sm:h-6 sm:w-6" />
-                        </div>
-                        <h4 className="min-w-0 flex-1 font-serif text-lg text-[color:var(--ink)] sm:text-xl">
-                          {p.name}
-                        </h4>
-                      </div>
+                      <h4 className="min-w-0 font-serif text-lg text-[color:var(--ink)] sm:text-xl">
+                        {p.name}
+                      </h4>
                       <figure className="mt-3">
                         <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
                           {p.imageUrl ? (
@@ -187,9 +182,6 @@ export function RegionPopup({ info, onClose }: Props) {
                   className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[color:var(--gold)]/15 sm:h-12 sm:w-12">
-                      <Gem className="h-5 w-5 text-[color:var(--gold-deep)] sm:h-6 sm:w-6" />
-                    </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="font-serif text-lg text-[color:var(--ink)] sm:text-xl">
                         {s.name}
