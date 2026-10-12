@@ -4,7 +4,7 @@ import { sitemapPathForLocation, sitemapStaticPaths, sitemapXML, type SitemapEnt
 import { csvRegions } from "@/data/csvJewelry";
 import { toRegionSlug } from "@/lib/regionSlug";
 
-const BASE_URL = "https://thejewelsofindia.lovable.app";
+const BASE_URL = "https://jewelsofindiamap.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   staticData: { sitemap: false },

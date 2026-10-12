@@ -119,6 +119,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "32V7046H2srKI4qssVlqMzoTGWWYydeIqaIKPxiMKus" },
+      { name: "google-site-verification", content: "xO3pMEZdI5i4K71sABcxFmn8oRKmLsy-QzSN57AXw9U" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "The Jewels of India" },
     ],
@@ -144,7 +145,7 @@ export const Route = createRootRoute({
           "@type": "WebSite",
           name: "The Jewels of India",
           alternateName: ["Jewels of India", "JewelsOfIndia"],
-          url: "https://thejewelsofindia.lovable.app",
+          url: "https://jewelsofindiamap.com",
           inLanguage: "en",
           description:
             "An interactive political map of India's states, union territories and islands, sharing the famous regional jewellery traditions of each region.",
