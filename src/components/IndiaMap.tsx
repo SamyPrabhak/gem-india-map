@@ -30,9 +30,14 @@ function FitToFeatures({ data, boundsKey }: { data: FeatureCollection | null; bo
     if (!data || !data.features.length) return;
     const layer = L.geoJSON(data);
     const b = layer.getBounds();
-    if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [boundsKey]);
+    const fit = () => {
+      map.invalidateSize();
+      if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+    };
+    fit();
+    map.on("resize", fit);
+    return () => { map.off("resize", fit); };
+  }, [data, boundsKey, map]);
   return null;
 }
 

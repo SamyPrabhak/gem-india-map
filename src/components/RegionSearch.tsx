@@ -71,7 +71,7 @@ export function RegionSearch({ onPick }: Props) {
   return (
     <div
       ref={wrapRef}
-      className="absolute right-3 top-3 z-[1000] w-[78%] max-w-[300px] sm:w-[300px]"
+      className="absolute right-3 top-3 z-[1000] w-[calc(100%-64px)] max-w-[300px] sm:w-[300px]"
     >
       <div className="relative">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--gold)]" />
@@ -85,7 +85,8 @@ export function RegionSearch({ onPick }: Props) {
           onFocus={() => setOpen(true)}
           onKeyDown={onKey}
           placeholder="Search a state or island…"
-          className="h-10 w-full rounded-full border border-[color:var(--gold-border)] bg-[color:var(--ivory)]/95 pl-9 pr-9 font-sans text-sm text-[color:var(--ink)] shadow-sm outline-none backdrop-blur placeholder:text-[color:var(--text-muted)] focus:border-[color:var(--gold)] focus:ring-2 focus:ring-[color:var(--gold)]/30"
+          aria-label="Search a state or island"
+          className="h-11 w-full rounded-full border border-[color:var(--gold-border)] bg-[color:var(--ivory)]/95 pl-9 pr-9 font-sans text-base text-[color:var(--ink)] shadow-sm outline-none backdrop-blur placeholder:text-[color:var(--text-muted)] focus:border-[color:var(--gold)] focus:ring-2 focus:ring-[color:var(--gold)]/30"
         />
         {query && (
           <button
@@ -116,14 +117,14 @@ export function RegionSearch({ onPick }: Props) {
                     type="button"
                     onMouseEnter={() => setActiveIdx(i)}
                     onClick={() => pick(o)}
-                    className={`flex w-full items-center justify-between gap-3 px-4 py-2 text-left text-sm transition-colors ${
+                    className={`grid min-h-11 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 text-left text-sm transition-colors ${
                       i === activeIdx
                         ? "bg-[color:var(--gold)]/20 text-[color:var(--ink)]"
                         : "text-[color:var(--ink)]/85 hover:bg-[color:var(--gold)]/10"
                     }`}
                   >
-                    <span className="font-serif">{o.name}</span>
-                    <span className="label-gold rounded-full border border-[color:var(--gold-border)] px-2 py-0.5">
+                    <span className="min-w-0 break-words font-serif">{o.name}</span>
+                    <span className="label-gold shrink-0 rounded-full border border-[color:var(--gold-border)] px-2 py-0.5">
                       {o.group === "island" ? "Islands" : "State"}
                     </span>
                   </button>
