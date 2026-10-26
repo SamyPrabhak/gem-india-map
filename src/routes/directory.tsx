@@ -70,7 +70,7 @@ function BrandScroll({ brand }: { brand: (typeof brands)[number] }) {
         <div className="scroll-roller top" aria-hidden="true" />
         <div className="scroll-roller bottom" aria-hidden="true" />
         <div className="brand-scroll-heading">
-          <h2 className="min-w-0 truncate font-serif text-xl font-bold text-[color:var(--ink)]">
+          <h2 className="min-w-0 break-words font-serif text-xl font-bold text-[color:var(--ink)]">
             {brand.name}
           </h2>
         </div>
@@ -179,7 +179,7 @@ function DirectoryPage() {
                   type="button"
                   onClick={() => setFilter(f)}
                   aria-pressed={active}
-                  className={`rounded-full border px-4 py-1.5 font-serif text-xs uppercase tracking-[2px] transition-colors ${
+                  className={`min-h-11 rounded-full border px-4 py-2 font-serif text-xs uppercase tracking-[2px] transition-colors ${
                     active
                       ? "border-[color:var(--gold)] bg-[color:var(--gold)] text-[color:var(--ink)]"
                       : "border-[color:var(--gold-border)] text-[color:var(--text-secondary)] hover:border-[color:var(--gold)]"
@@ -193,7 +193,7 @@ function DirectoryPage() {
         </section>
 
         {results.length > 0 ? (
-          <section className="mt-10 grid gap-x-8 gap-y-16 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          <section className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-16 pb-14 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
             {results.map((brand) => <BrandScroll key={brand.name} brand={brand} />)}
           </section>
         ) : (

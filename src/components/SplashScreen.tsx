@@ -36,7 +36,7 @@ export function SplashScreen({ onComplete, minDuration = 2400 }: Props) {
       }}
     >
       <div
-        className={`relative flex flex-col items-center transition-all duration-700 ease-out ${
+        className={`relative flex w-full min-w-0 flex-col items-center px-4 text-center transition-all duration-700 ease-out ${
           phase === "enter"
             ? "translate-y-5 scale-95 opacity-0"
             : "translate-y-0 scale-100 opacity-100"

@@ -161,14 +161,14 @@ export const Route = createRootRoute({
 function Header() {
   return (
     <header className="bg-[color:var(--ivory)]/90 px-4 py-4 backdrop-blur-sm sm:px-5">
-      <div className="mx-auto flex max-w-6xl items-baseline justify-between">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 sm:flex sm:justify-between">
         <Link
           to="/"
-          className="shrink-0 whitespace-nowrap font-display text-xl font-semibold text-[color:var(--ink)] sm:text-2xl md:text-3xl"
+          className="min-w-0 font-display text-xl font-semibold leading-tight text-[color:var(--ink)] sm:whitespace-nowrap sm:text-2xl md:text-3xl"
         >
           The Jewels of <span className="text-[color:var(--gold)]">India</span>
         </Link>
-        <nav className="flex items-baseline gap-2 sm:gap-3">
+        <nav className="flex shrink-0 items-baseline gap-2 sm:gap-3">
           <div className="flex flex-col items-end">
             <Link
               to="/directory"

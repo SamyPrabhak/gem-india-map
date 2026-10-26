@@ -36,6 +36,16 @@ body {
   font-family: var(--font-sans);
 }
 
+main {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 639px) {
+  input[type="search"] {
+    font-size: 16px;
+  }
+}
+
 .india-tooltip {
   background: var(--ink) !important;
   color: var(--ivory) !important;
@@ -367,6 +377,7 @@ body {
 /* Independently opening brand scrolls */
 .brand-scroll {
   position: relative;
+  min-width: 0;
   align-self: start;
   padding-top: 34px;
 }
