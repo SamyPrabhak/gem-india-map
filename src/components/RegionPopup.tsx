@@ -8,7 +8,8 @@ import { StateSummary } from "@/components/StateSummary";
 import { JewelryPieceImage } from "@/components/JewelryPieceImage";
 import { JewelryPieceDetails } from "@/components/JewelryPieceDetails";
 import { ImageLightbox } from "@/components/ImageLightbox";
-import { getCsvRegion } from "@/data/csvJewelry";
+import { StylePhoto } from "@/components/StylePhoto";
+import { getCsvRegion, getPopupPieces } from "@/data/csvJewelry";
 
 
 
@@ -103,7 +104,7 @@ export function RegionPopup({ info, onClose }: Props) {
             </h3>
             <div className="mt-4 flex flex-col gap-3">
               {csv
-                ? csv.pieces.slice(0, 3).map((p) => (
+                ? getPopupPieces(csv).map((p) => (
                     <article
                       key={p.name}
                       className="rounded-xl border border-[color:var(--gold-border)] bg-[color:var(--ivory-deep)] p-4 shadow-sm transition hover:border-[color:var(--gold)] hover:shadow-md sm:p-5"
@@ -113,43 +114,7 @@ export function RegionPopup({ info, onClose }: Props) {
                       </h4>
                       <figure className="mt-3">
                         <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
-                          {p.imageUrl ? (
-                            <button
-                              type="button"
-                              onClick={() => {
-                                if (p.imageUrl) {
-                                  setLightbox({ src: p.imageUrl, alt: `${p.name} — traditional jewellery of ${info.name}` });
-                                }
-                              }}
-                              className="block h-full w-full"
-                              aria-label={`Open image of ${p.name}`}
-                            >
-                              <img
-                                src={p.imageUrl}
-                                alt={`${p.name} — traditional jewellery of ${info.name}`}
-                                loading="lazy"
-                                className="h-full w-full cursor-zoom-in object-cover"
-                                onError={(e) => {
-                                  const el = e.currentTarget;
-                                  el.style.display = "none";
-                                  el.parentElement?.classList.add("csv-img-missing");
-                                }}
-                              />
-                            </button>
-                          ) : null}
-                          {p.imageUrl ? (
-                            <span
-                              className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-[color:var(--ink)]/70 px-1.5 py-0.5 leading-none text-[color:var(--gold)]"
-                              style={{ fontSize: "11px" }}
-                            >
-                              Tap to enlarge
-                            </span>
-                          ) : null}
-                          {!p.imageUrl ? (
-                            <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[color:var(--gold)]">
-                              Image coming soon
-                            </div>
-                          ) : null}
+                          <StylePhoto name={p.name} region={info.name} imageUrl={p.imageUrl} onOpen={setLightbox} />
                         </div>
 
                         {p.source ? (

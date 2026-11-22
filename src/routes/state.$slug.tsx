@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { getRegionBySlug } from "@/lib/regionSlug";
 import { getCsvRegion } from "@/data/csvJewelry";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { RegionNotFound } from "@/components/RegionNotFound";
+import { StylePhoto } from "@/components/StylePhoto";
 
 export const Route = createFileRoute("/state/$slug")({
   staticData: { sitemap: true },
@@ -15,10 +17,10 @@ export const Route = createFileRoute("/state/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Region not found — The Jewels of India" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Region not found | The Jewels of India" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.name} Jewellery — The Jewels of India`;
+    const title = `${loaderData.name} Jewellery | The Jewels of India`;
     const description = `Famous traditional jewellery styles of ${loaderData.name}, with images, descriptions and sources.`;
     return {
       meta: [
@@ -34,17 +36,6 @@ export const Route = createFileRoute("/state/$slug")({
   notFoundComponent: RegionNotFound,
   component: StatePage,
 });
-
-function RegionNotFound() {
-  return (
-    <main className="mx-auto max-w-3xl px-4 py-24 text-center">
-      <h1 className="font-display text-3xl text-[color:var(--ink)]">Region not found</h1>
-      <Link to="/" className="mt-6 inline-block text-[color:var(--gold-deep)] underline">
-        Back to Map
-      </Link>
-    </main>
-  );
-}
 
 function StatePage() {
   const { slug } = Route.useParams();
@@ -114,38 +105,7 @@ function StatePage() {
 
                 <figure className="mt-4">
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[color:var(--gold-border)]">
-                    {p.imageUrl ? (
-                      <>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setLightbox({
-                              src: p.imageUrl,
-                              alt: `${p.name} — traditional jewellery of ${info.name}`,
-                            })
-                          }
-                          className="block h-full w-full"
-                          aria-label={`Open image of ${p.name}`}
-                        >
-                          <img
-                            src={p.imageUrl}
-                            alt={`${p.name} — traditional jewellery of ${info.name}`}
-                            loading="lazy"
-                            className="h-full w-full cursor-zoom-in object-cover"
-                          />
-                        </button>
-                        <span
-                          className="pointer-events-none absolute bottom-1.5 right-2 rounded bg-[color:var(--ink)]/70 px-1.5 py-0.5 leading-none text-[color:var(--gold)]"
-                          style={{ fontSize: "11px" }}
-                        >
-                          Tap to enlarge
-                        </span>
-                      </>
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-[color:var(--ivory-deep)] text-center font-serif text-sm italic text-[color:var(--gold)]">
-                        Image coming soon
-                      </div>
-                    )}
+                    <StylePhoto name={p.name} region={info.name} imageUrl={p.imageUrl} onOpen={setLightbox} />
                   </div>
 
                   {p.source ? (

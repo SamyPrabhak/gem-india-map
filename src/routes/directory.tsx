@@ -23,7 +23,7 @@ export const Route = createFileRoute("/directory")({
       {
         property: "og:description",
         content:
-          "Discover independent Indian jewelry brands, small businesses, and designers from the Indian diaspora.",
+          "Discover independent Indian jewelry brands, small businesses, and designers from the Indian diaspora on The Jewels of India directory.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -42,7 +42,7 @@ function BrandLogo({ name, website, logo }: { name: string; website: string; log
         name.charAt(0)
       ) : (
         <img
-          src={logo ?? `https://www.google.com/s2/favicons?domain=${website}&sz=128`}
+          src={logo ?? `https://www.google.com/s2/favicons?domain=${website.split("/")[0]}&sz=128`}
           alt={`${name} logo`}
           loading="lazy"
           className="h-full w-full object-contain p-1"
@@ -276,4 +276,3 @@ function DirectoryPage() {
   );
 }
 
-export default DirectoryPage;

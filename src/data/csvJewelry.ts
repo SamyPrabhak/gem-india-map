@@ -332,19 +332,19 @@ export const csvRegions: CsvRegion[] = [
         {
           "name": "Kharu",
           "description": "Kharu is a thick, rigid bangle made of gold or silver, often worn in pairs. The design is simple yet bold, sometimes adorned with intricate engravings and floral patterns. Brides and married women primarily wear Kharu during special occasions and festivals.",
-          "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539442/S2hhcnU=/preview",
+          "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Kharu",
           "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
         },
         {
           "name": "Heibi Mapal",
           "description": "Heibi Mapal is a thick traditional gold necklace whose name literally means \"Heibi plant-like necklace.\" The Heibi plant is revered in Manipuri folklore for its association with protection, healing, and prosperity, and is believed to ward off evil and negative influences. It is a prominent piece of both traditional and bridal Manipuri jewelry.",
-          "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SGVpYmlfTWFwYWw=/template_primary",
+          "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Heibi_Mapal",
           "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
         },
         {
           "name": "Khownappi",
           "description": "Traditional Manipuri earrings made of gold, often bejeweled with emeralds or rubies. They feature elaborate floral or geometric designs with various dangling tiers. Despite their ornate appearance, they are lightweight and worn as a mark of grace and cultural pride.",
-          "imageUrl": "https://res-console.cloudinary.com/jvo5qmfw/thumbnails/v1/image/upload/v1786539447/S2hvd25hcHBp/drilldown",
+          "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/Khownappi",
           "source": "https://www.theculturegully.in/post/traditional-manipuri-bridal-jewelry-a-guide-to-sacred-gold-ornaments-and-their-cultural-significanc"
         }
       ]
@@ -845,4 +845,9 @@ export const csvRegions: CsvRegion[] = [
 
 export function getCsvRegion(state: string): CsvRegion | undefined {
   return csvRegions.find((r) => r.state === state);
+}
+
+/** Keep map previews compact while retaining Tamil Nadu's four-style preview. */
+export function getPopupPieces(region: CsvRegion): CsvJewelryPiece[] {
+  return region.pieces.slice(0, region.state === "Tamil Nadu" ? 4 : 3);
 }
