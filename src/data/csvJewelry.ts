@@ -682,12 +682,18 @@ export const csvRegions: CsvRegion[] = [
           "description": "Earrings with plenty of precious stones and pearls studded in the shape of parrots. The word Gili means parrot in Kannada and Ole means danglers. Gili ole represents parrot danglers.",
           "imageUrl": "https://res.cloudinary.com/jvo5qmfw/image/upload/v1786541536/Giliola_Sara.png",
           "source": "https://www.southindianjewels.in/post/traditional-jewellery-of-kannadiga-bride"
+        },
+        {
+          "name": "Gandaberunda pendant",
+          "description": "A traditional piece of jewelry featuring the Gandaberunda, a mythical two-headed bird from Karnataka heritage that symbolizes strength, protection, and power.",
+          "imageUrl": "https://i.pinimg.com/736x/2f/cc/e3/2fcce3cb17a5b4ac2b706f0436971399.jpg",
+          "source": "Google"
         }
       ]
     },
     {
       "state": "Kerala",
-      "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters — a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
+      "about": "Kerala is a state on the Malabar Coast of southern India, known for its palm-lined beaches and backwaters, a vast network of canals and lagoons. Inland, the Western Ghats rise steeply, with mountain slopes supporting tea, spice, and coffee plantations.",
       "pieces": [
         {
           "name": "Elakkathali",
@@ -706,6 +712,12 @@ export const csvRegions: CsvRegion[] = [
           "description": "Palakka means the seed of the Pala tree. The true charm of a palakka necklace lies in the green stones that the necklace is embedded with. This traditional Gold Jewellery piece is celebrated for its allure and cultural symbolism. They also feature emerald stones in between",
           "imageUrl": "https://storage.googleapis.com/blog-bucket-staging/Media/4c0301c8-original_jos-alukkas-gold-necklace-ja270h-slmc-1024x899.png",
           "source": "https://www.josalukkasonline.com/blog/keralas-dazzling-heritage-a-deep-dive-into-traditional-kerala-jewellery-designs/?srsltid=AfmBOoqWve6VCZC0lQTnF74AyDdm4yCYwh4Dz_MXAVmkZElPNdNDrGDD"
+        },
+        {
+          "name": "Mullamottu mala",
+          "description": "A traditional necklace featuring motifs shaped like unbloomed jasmine buds (mulla means jasmine, mottu means bud, and mala means necklace).",
+          "imageUrl": "https://nayagoldmeragold.com/cdn/shop/files/mullanecklace_2.jpg?v=1771913764&width=1946",
+          "source": "Google"
         }
       ]
     },
