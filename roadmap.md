@@ -5,5 +5,5 @@
 - [x] Remove diamond icons from all jewellery style panels
 - [x] Check and improve phone, tablet, and desktop layouts
 - [ ] Confirm both datasets match their latest spreadsheets
-- [ ] Check map, directory, state pages, images, and phone layouts
-- [ ] Fix issues found and verify the site is error-free
+- [x] Check map, directory, state pages, images, and phone layouts
+- [x] Fix issues found and verify the site is error-free
