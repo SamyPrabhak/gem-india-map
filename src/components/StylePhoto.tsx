@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -10,6 +10,11 @@ interface Props {
 
 export function StylePhoto({ name, region, imageUrl, onOpen }: Props) {
   const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailedUrl(imageUrl);
+  }, [imageUrl]);
   const alt = `${name}, traditional jewellery of ${region}`;
 
   if (!imageUrl || failedUrl === imageUrl) {
@@ -30,6 +35,7 @@ export function StylePhoto({ name, region, imageUrl, onOpen }: Props) {
         aria-label={`Open image of ${name}`}
       >
         <img
+          ref={imgRef}
           src={imageUrl}
           alt={alt}
           loading="lazy"
